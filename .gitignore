@@ -1,0 +1,30 @@
+﻿# Environment & secrets - never commit these
+.env
+.env.local
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Database files - this is what broke the last build
+*.db
+*.sqlite
+*.sqlite3
+chroma_db/
+data/
+
+# IDE / OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Frontend, for later (Phase 6)
+node_modules/
+frontend/dist/
+frontend/build/
+
+# Logs
+*.log
