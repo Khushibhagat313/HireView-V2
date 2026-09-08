@@ -28,3 +28,7 @@ frontend/build/
 
 # Logs
 *.log
+
+# Local-only planning docs
+CONTEXT.md
+Build_plan.md
