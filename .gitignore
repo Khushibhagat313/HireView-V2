@@ -32,3 +32,6 @@ frontend/build/
 # Local-only planning docs
 CONTEXT.md
 Build_plan.md
+
+# Personal Antigravity rules - not shared
+.agents/
