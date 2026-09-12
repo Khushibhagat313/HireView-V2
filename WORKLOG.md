@@ -22,3 +22,5 @@
 **Next session:** create Supabase project + Groq key, then write scripts/verify_setup.py
 - Phase 0 done, DB/Groq/embedding all verified
 
+**Phase 1:**
+- Starting to work on setting database. 
