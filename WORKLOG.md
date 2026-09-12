@@ -20,3 +20,5 @@
 - Supabase project + Groq API key not yet created — needed before scripts/verify_setup.py
 
 **Next session:** create Supabase project + Groq key, then write scripts/verify_setup.py
+- Phase 0 done, DB/Groq/embedding all verified
+
