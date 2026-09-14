@@ -24,3 +24,5 @@
 
 **Phase 1:**
 - Starting to work on setting database. 
+- Working on Phase 1 schema after making changes to marking scheme,and updated build plan.
+- Schema is completed in src/db/models.py ,next working on Alembic.
