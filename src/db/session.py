@@ -17,8 +17,4 @@ def get_session():
     finally:
         session.close()
 
-if __name__ == "__main__":
-    from sqlalchemy import text
-    session = next(get_session())
-    result = session.execute(text("SELECT 1;"))
-    print("Session works:", result.scalar())        
+       
