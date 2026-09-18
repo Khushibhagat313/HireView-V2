@@ -1,9 +1,10 @@
 import json
+from datetime import date
 from pydantic import ValidationError
 from src.agents.llm_client import call_llm
 from src.schemas.resume import SectionedResume
 
-SECTION_PROMPT = SECTION_PROMPT = SECTION_PROMPT = SECTION_PROMPT = """You are given the raw text of a resume, possibly with imperfect formatting from PDF extraction.
+SECTION_PROMPT = """You are given the raw text of a resume, possibly with imperfect formatting from PDF extraction.
 
 Split it into the following sections and return ONLY a JSON object with exactly these keys. If a section is not present in the resume, use null for that key. Preserve the original wording — do not summarize or rewrite.
 
@@ -29,11 +30,13 @@ If no links are present, return an empty array for "links".
 
 Also include a "skills" key: a JSON array of every technology, tool, language, or framework mentioned anywhere in the resume — not just under a "Skills" heading. Read project descriptions, experience bullets, and certifications too: a project description that says "Built X using FastAPI and PostgreSQL" means FastAPI and PostgreSQL belong in this list, even if they are never listed under a Skills heading. List each one once, no duplicates, using its exact wording from the resume.
 
+Also include a "years_experience" key: the candidate's total years of professional work experience, as a number (can be fractional, e.g. 1.5). Sum the duration of all listed jobs and internships. If an end date says "Present" or "Current", treat it as ending on {today}. If no work experience is listed, use 0.
+
 Resume text:
 {text}"""
 
 def split_sections(text: str) -> SectionedResume:
-    prompt = SECTION_PROMPT.format(text=text)
+    prompt = SECTION_PROMPT.format(text=text, today=date.today().isoformat())
     for attempt in range(2):
         raw = call_llm(prompt, json_mode=True)
         try:

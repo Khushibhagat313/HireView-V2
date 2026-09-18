@@ -1,6 +1,6 @@
 from contextlib import contextmanager
 from src.db.session import get_session
-from src.db.models import Company, Candidate, Resume, ResumeEmbedding
+from src.db.models import Company, Candidate, Resume, ResumeEmbedding, Certification, ResumeLink
 
 get_session_ctx = contextmanager(get_session)
 
@@ -50,4 +50,22 @@ def get_resume(company_id: str, resume_id: str) -> Resume | None:
 
 def get_resume_embeddings(company_id: str, resume_id: str) -> list[ResumeEmbedding]:
     with get_session_ctx() as session:
-        return session.query(ResumeEmbedding).filter_by(resume_id=resume_id, company_id=company_id).all()               
+        return session.query(ResumeEmbedding).filter_by(resume_id=resume_id, company_id=company_id).all() 
+
+def add_certification(company_id: str, resume_id: str, name: str, issuer: str, tier: str) -> Certification:
+    with get_session_ctx() as session:
+        cert = Certification(company_id=company_id, resume_id=resume_id, name=name, issuer=issuer, tier=tier)
+        session.add(cert)
+        session.commit()
+        session.refresh(cert)
+        return cert
+
+
+def add_resume_link(company_id: str, resume_id: str, link_type: str, url: str, label: str = None) -> ResumeLink:
+    with get_session_ctx() as session:
+        link = ResumeLink(company_id=company_id, resume_id=resume_id, link_type=link_type, url=url, label=label)
+        session.add(link)
+        session.commit()
+        session.refresh(link)
+        return link        
+
