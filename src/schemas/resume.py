@@ -11,6 +11,9 @@ class ResumeLink(BaseModel):
     label: str | None = None
 
 class SectionedResume(BaseModel):
+    candidate_name: str
+    candidate_email: str
+    candidate_phone: str | None = None
     summary_text: str | None = None
     skills_text: str | None = None
     projects_text: str | None = None

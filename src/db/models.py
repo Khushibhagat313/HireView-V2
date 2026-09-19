@@ -54,6 +54,7 @@ class Resume(Base):
     publications_text = Column(Text, nullable=True)
     education_text = Column(Text, nullable=True)
     certifications_text = Column(Text, nullable=True)
+    skills = Column(JSON, nullable=True)
     years_experience = Column(Float, nullable=True)
     expires_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))

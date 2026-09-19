@@ -6,7 +6,14 @@ from src.schemas.resume import SectionedResume
 
 SECTION_PROMPT = """You are given the raw text of a resume, possibly with imperfect formatting from PDF extraction.
 
-Split it into the following sections and return ONLY a JSON object with exactly these keys. If a section is not present in the resume, use null for that key. Preserve the original wording — do not summarize or rewrite.
+Return ONLY a JSON object with the following keys.
+
+First, the candidate's identity, read from the header/contact info:
+- "candidate_name": the candidate's full name
+- "candidate_email": their email address
+- "candidate_phone": their phone number, or null if not present
+
+Then split the resume into these sections. If a section is not present, use null for that key. Preserve the original wording — do not summarize or rewrite.
 
 Text section keys: summary_text, skills_text, projects_text, experience_text, achievements_text, publications_text, education_text, certifications_text
 

@@ -15,11 +15,18 @@ def create_company(name: str) -> Company:
 
 def add_candidate(company_id: str, name: str, email: str, phone: str = None) -> Candidate:
     with get_session_ctx() as session:
+        existing = session.query(Candidate).filter_by(company_id=company_id, email=email).first()
+        if existing:
+            existing.name = name
+            existing.phone = phone
+            session.commit()
+            session.refresh(existing)
+            return existing
         candidate = Candidate(company_id=company_id, name=name, email=email, phone=phone)
         session.add(candidate)
         session.commit()
         session.refresh(candidate)
-        return candidate        
+        return candidate       
 
 def add_resume(company_id: str, candidate_id: str, resume_data: dict) -> Resume:
     with get_session_ctx() as session:
