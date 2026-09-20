@@ -90,8 +90,15 @@
 - Supabase is a single free-tier project, labeled `PRODUCTION` by default — there's no separate dev/staging database. This is fine and deliberate until the first real company onboards; a second free project should be created before then (see decision log around Phase 9).
 - `delete_company` (full cascade delete by `company_id`) and a data-export-by-`company_id` feature were both discussed and deliberately deferred — not built, but the schema already supports both without changes when they're needed (offboarding/GDPR-style requests).
 
+**Addendum for whoever picks up Phase 3 (added 2026-09-20):**
+- Real test data already exists: company `Test Co` (`a47c623b-569d-442b-8e0d-ff4c9d8dcf07`) has ingested resumes sitting in Supabase right now — no need to re-ingest to start testing retrieval. `tests/Priya_Sharma_Resume_sample.pdf` and `tests/Priya_Sharma_Resume_Two_Column_Realistic.pdf` are the source PDFs if more test data is needed.
+- `query_builder.py` must use `embed_query()`, not `embed_documents()`, when converting the parsed JD into search vectors — that's the query side of the prefix asymmetry `embedder.py` was built and verified around. Using the wrong one won't error, it'll just quietly degrade retrieval quality.
+- `sectioner.py` is the reference pattern for `jd_parser.py`: one LLM call, `call_llm(prompt, json_mode=True)`, parse into a Pydantic schema, retry once on `ValidationError`. Copy that shape rather than reinventing it.
+- `applications` and `search_logs` tables exist in the schema but have no `store.py` functions built yet — don't assume they're ready to use.
+
 **Blocked / needs discussion:** none
 
 **Next session:** Phase 3 — retrieval & scoring (`retrieval/*`, `scoring/*`, `agents/jd_parser.py`, `embedding/reranker.py`).
+
 
 ---
