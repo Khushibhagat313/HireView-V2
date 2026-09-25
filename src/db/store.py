@@ -76,3 +76,20 @@ def add_resume_link(company_id: str, resume_id: str, link_type: str, url: str, l
         session.refresh(link)
         return link        
 
+def search_by_vector(company_id: str, vector: list[float], field_type: str, k: int) -> list[tuple]:
+    with get_session_ctx() as session:
+        distance = ResumeEmbedding.embedding.cosine_distance(vector)
+        results = (
+            session.query(ResumeEmbedding, distance.label("distance"))
+            .filter(ResumeEmbedding.company_id == company_id, ResumeEmbedding.field_type == field_type)
+            .order_by(distance)
+            .limit(k)
+            .all()
+        )
+        return [(row[0], row[1]) for row in results]
+
+def delete_company(company_id: str) -> None:
+    with get_session_ctx() as session:
+        company = session.get(Company, company_id)
+        session.delete(company)
+        session.commit()

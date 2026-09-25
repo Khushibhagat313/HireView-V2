@@ -1,0 +1,23 @@
+Backend Developer
+
+We're looking for a Backend Developer to join our engineering team.
+
+Requirements:
+- Strong experience with Python and FastAPI
+- Experience with PostgreSQL and SQLAlchemy
+- Familiarity with REST API design
+- Comfortable working in a Linux environment with Git
+
+Preferred:
+- Experience with vector databases (e.g. pgvector) or semantic search
+- Exposure to Docker and containerized deployments
+- Familiarity with LLM APIs
+
+Responsibilities:
+- Design and build REST APIs serving production traffic
+- Optimize database queries and indexing
+- Write and maintain automated tests
+
+Minimum 1 year of professional experience required. Bachelor's degree in Computer Science or related field preferred.
+
+We offer competitive pay, health benefits, and a collaborative culture. We are an equal opportunity employer.
