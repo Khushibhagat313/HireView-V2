@@ -3,14 +3,14 @@ from src.ingestion.extractor import extract_text
 from src.ingestion.sectioner import split_sections
 from src.ingestion.normalizer import normalize_skills
 from src.embedding.embedder import embed_documents
-from src.db.store import add_candidate, add_resume, add_resume_embedding, add_certification, add_resume_link
+from src.db.store import add_candidate, add_resume, add_resume_embedding, add_certification, add_resume_link, add_application, add_work_experience
 
 FIELD_TYPES = [
     "summary_text", "skills_text", "projects_text", "experience_text",
     "achievements_text", "publications_text", "education_text", "certifications_text",
 ]
 
-def ingest_resume(company_id: str, pdf_bytes: bytes, expires_at=None) -> str:
+def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None, expires_at=None) -> str:
     check_size(pdf_bytes)
     check_pages(pdf_bytes)
     is_scanned(pdf_bytes)
@@ -37,6 +37,9 @@ def ingest_resume(company_id: str, pdf_bytes: bytes, expires_at=None) -> str:
     }
     resume = add_resume(company_id, candidate.id, resume_data)
 
+    if job_posting_id:
+        add_application(company_id, job_posting_id, candidate.id, resume.id)
+
     for field_type in FIELD_TYPES:
         section_text = getattr(sectioned, field_type)
         if section_text:
@@ -48,5 +51,8 @@ def ingest_resume(company_id: str, pdf_bytes: bytes, expires_at=None) -> str:
 
     for link in sectioned.links:
         add_resume_link(company_id, resume.id, link.link_type, link.url, link.label)
+
+    for entry in sectioned.work_experience:
+        add_work_experience(company_id, resume.id, entry.title, entry.company_name, entry.duration_years)
 
     return str(resume.id)

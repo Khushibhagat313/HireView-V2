@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, model_validator
 
 class Certification(BaseModel):
     name: str
@@ -9,6 +9,11 @@ class ResumeLink(BaseModel):
     link_type: str  # github, live_demo, portfolio, linkedin, other
     url: str
     label: str | None = None
+
+class WorkExperienceEntry(BaseModel):
+    title: str
+    company_name: str | None = None
+    duration_years: float
 
 class SectionedResume(BaseModel):
     candidate_name: str
@@ -25,11 +30,10 @@ class SectionedResume(BaseModel):
     certifications: list[Certification] = []
     links: list[ResumeLink] = []
     skills: list[str] = []
-    years_experience: float | None = None
+    work_experience: list[WorkExperienceEntry] = []
+    years_experience: float = 0.0
 
-    @field_validator("years_experience")
-    @classmethod
-    def clamp_years(cls, v):
-        if v is None:
-            return v
-        return max(0.0, min(v, 40.0))
+    @model_validator(mode="after")
+    def compute_years_experience(self):
+        self.years_experience = min(sum(w.duration_years for w in self.work_experience), 40.0)
+        return self

@@ -1,6 +1,6 @@
 from contextlib import contextmanager
 from src.db.session import get_session
-from src.db.models import Company, Candidate, Resume, ResumeEmbedding, Certification, ResumeLink
+from src.db.models import Company, Candidate, Resume, ResumeEmbedding, Certification, ResumeLink, JobPosting, Application, WorkExperience
 
 get_session_ctx = contextmanager(get_session)
 
@@ -76,20 +76,53 @@ def add_resume_link(company_id: str, resume_id: str, link_type: str, url: str, l
         session.refresh(link)
         return link        
 
-def search_by_vector(company_id: str, vector: list[float], field_type: str, k: int) -> list[tuple]:
+def search_by_vector(company_id: str, vector: list[float], field_type: str, k: int, job_posting_id: str = None) -> list[tuple]:
     with get_session_ctx() as session:
         distance = ResumeEmbedding.embedding.cosine_distance(vector)
-        results = (
-            session.query(ResumeEmbedding, distance.label("distance"))
-            .filter(ResumeEmbedding.company_id == company_id, ResumeEmbedding.field_type == field_type)
-            .order_by(distance)
-            .limit(k)
-            .all()
+        query = session.query(ResumeEmbedding, distance.label("distance")).filter(
+            ResumeEmbedding.company_id == company_id,
+            ResumeEmbedding.field_type == field_type,
         )
+        if job_posting_id:
+            query = query.join(Application, Application.resume_id == ResumeEmbedding.resume_id).filter(
+                Application.job_posting_id == job_posting_id
+            )
+        results = query.order_by(distance).limit(k).all()
         return [(row[0], row[1]) for row in results]
+
 
 def delete_company(company_id: str) -> None:
     with get_session_ctx() as session:
         company = session.get(Company, company_id)
         session.delete(company)
         session.commit()
+
+def add_job_posting(company_id: str, title: str, raw_text: str) -> JobPosting:
+    with get_session_ctx() as session:
+        posting = JobPosting(company_id=company_id, title=title, raw_text=raw_text)
+        session.add(posting)
+        session.commit()
+        session.refresh(posting)
+        return posting
+
+
+def add_application(company_id: str, job_posting_id: str, candidate_id: str, resume_id: str) -> Application:
+    with get_session_ctx() as session:
+        application = Application(company_id=company_id, job_posting_id=job_posting_id, candidate_id=candidate_id, resume_id=resume_id)
+        session.add(application)
+        session.commit()
+        session.refresh(application)
+        return application
+    
+def add_work_experience(company_id: str, resume_id: str, title: str, company_name: str, duration_years: float) -> WorkExperience:
+    with get_session_ctx() as session:
+        entry = WorkExperience(company_id=company_id, resume_id=resume_id, title=title, company_name=company_name, duration_years=duration_years)
+        session.add(entry)
+        session.commit()
+        session.refresh(entry)
+        return entry
+
+def get_work_experiences(company_id: str, resume_id: str) -> list[WorkExperience]:
+    with get_session_ctx() as session:
+        return session.query(WorkExperience).filter_by(resume_id=resume_id, company_id=company_id).all()
+

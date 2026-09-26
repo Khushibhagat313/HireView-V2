@@ -1,6 +1,7 @@
 import json
 from datetime import date
 from pydantic import ValidationError
+from groq import BadRequestError
 from src.agents.llm_client import call_llm
 from src.schemas.resume import SectionedResume
 
@@ -37,7 +38,12 @@ If no links are present, return an empty array for "links".
 
 Also include a "skills" key: a JSON array of every technology, tool, language, or framework mentioned anywhere in the resume — not just under a "Skills" heading. Read project descriptions, experience bullets, and certifications too: a project description that says "Built X using FastAPI and PostgreSQL" means FastAPI and PostgreSQL belong in this list, even if they are never listed under a Skills heading. List each one once, no duplicates, using its exact wording from the resume.
 
-Also include a "years_experience" key: the candidate's total years of professional work experience, as a number (can be fractional, e.g. 1.5). Sum the duration of all listed jobs and internships. If an end date says "Present" or "Current", treat it as ending on {today}. If no work experience is listed, use 0.
+Also include a "work_experience" key: a JSON array of objects, one per distinct job or internship listed in the resume, each with:
+- "title": the job title
+- "company_name": the company name, or null if not stated
+- "duration_years": how long this specific job lasted, as a number (can be fractional, e.g. 1.5). If the end date says "Present" or "Current", treat it as ending on {today}.
+
+If no work experience is listed, return an empty array for "work_experience".
 
 Resume text:
 {text}"""
@@ -45,10 +51,10 @@ Resume text:
 def split_sections(text: str) -> SectionedResume:
     prompt = SECTION_PROMPT.format(text=text, today=date.today().isoformat())
     for attempt in range(2):
-        raw = call_llm(prompt, json_mode=True)
         try:
+            raw = call_llm(prompt, json_mode=True)
             data = json.loads(raw)
             return SectionedResume(**data)
-        except (json.JSONDecodeError, ValidationError) as e:
+        except (json.JSONDecodeError, ValidationError, BadRequestError) as e:
             if attempt == 1:
                 raise ValueError(f"Sectioning failed after retry: {e}")
