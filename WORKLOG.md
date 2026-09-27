@@ -102,3 +102,65 @@
 
 
 ---
+
+## 2026-09-26 to 2026-09-27 — Khushi — ~12–14h
+**Phase:** 3 (Retrieval & scoring) — COMPLETE
+
+**New files built this phase:** `src/agents/jd_parser.py`, `src/retrieval/query_builder.py`, `src/retrieval/searcher.py`, `src/retrieval/pipeline.py`, `src/embedding/reranker.py`, `src/scoring/facets.py`, `src/scoring/skill_matcher.py`, `src/scoring/cert_relevance.py`, `src/scoring/eligibility.py`, `src/scoring/calibration.py`, `src/schemas/job.py`, `scripts/search_cli.py`, `tests/test_scoring.py`, `tests/sample_jd_junior.txt`.
+
+**Phase 1/2 files retroactively changed:** `src/db/models.py`, `src/db/store.py`, `src/ingestion/sectioner.py`, `src/ingestion/pipeline.py`, `src/schemas/resume.py`, `src/config.py`.
+
+**Done:**
+- `jd_parser.py` — `parse_jd(text) → JDRequirements` + HyDE text in the same LLM call. Added in-memory cache keyed by SHA-256 hash of JD text — fixes a real non-determinism bug where identical JD searches produced different rankings because `hyde_text` regenerated every time. Hit and fixed a real token-truncation crash (`groq.BadRequestError`) — tightened `hyde_text` prompt to 150 words max, 1 job entry, 3 bullets.
+- `query_builder.py` — parsed JD → 4 query vectors (skills, experience, projects, hyde). Each uses `embed_query()` with the query prefix.
+- `searcher.py` — runs all 4 vectors against the database via `store.search_by_vector()`, unions the result IDs into a set. Supports optional `job_posting_id` for scoped search.
+- `reranker.py` — cross-encoder (`ms-marco-MiniLM-L-6-v2`) scores (hyde_text, resume_text) pairs. Returns sorted list of (resume_id, score).
+- `facets.py` — 5-facet scorer with the absence rule (missing sections get weight redistributed proportionally, not scored as zero). Refactored into 3 reusable pieces: `get_raw_facet_scores()` → `compute_composite()` → `score_facets()` (convenience wrapper), so the pipeline can inject hybrid skill score + cert boost before computing the composite.
+- `skill_matcher.py` — hybrid exact-overlap + semantic skill matching. Both sides normalized through the same alias map (`normalize_skills`), so "K8s" matches "kubernetes." `EXACT_OVERLAP_WEIGHT = 0.6` (unvalidated guess). Returns matched/missing required and matched preferred skills — data Phase 5's feedback agent will use.
+- `cert_relevance.py` — tier-gated certification boost. `tier == "assessed"` gates whether a boost fires; semantic relevance decides how much. `CERT_RELEVANCE_FLOOR` raised from 0.3 (blind guess) to 0.6 after testing with 3 real measurements (food safety vs frontend = 0.453, AWS vs frontend = 0.511, AWS vs cloud engineer = 0.727).
+- `eligibility.py` — hard pass/fail gates, separate from fuzzy scoring (same separation as `guards.py` in Phase 2). Checks graduation-year eligibility + field-specific experience via embedding similarity between JD job title and each work-experience entry's title.
+- `calibration.py` — **design reversal.** Original 3-anchor piecewise mapping had a hard ceiling that collapsed distinct candidates to the same score. Redesigned to `display = min(raw × 100, 99)` + separate `label_score()` (Exceptional/Strong/Good/Partial/Weak). Sort always by raw score.
+- `pipeline.py` — the full orchestrator: `parse_jd` → `build_queries` → `search_candidates` → `rerank` → (per candidate) eligibility gate → facet scoring → hybrid skill override → cert boost → composite → calibrate + label → filter and rank. Verified end-to-end: Priya (backend) scored 83.4 "Exceptional," Riya (marketing) scored 38.7 "Partial."
+- `search_cli.py` — Phase 3 checkpoint script. Takes company_id, --jd, optional --top, --job-posting-id, --threshold.
+- `test_scoring.py` — 9/9 tests passing: determinism, no empty results, effective weights sum to 1.0, absence rule, limited-data flag, cert boost assessed gate, cert boost relevance gate, cert boost intended case, anti-keyword-stuffing.
+
+**Retroactive changes to Phase 1/2 files (not new — already existed, modified):**
+- `models.py` — added `WorkExperience` model (new `work_experiences` table, not in original 9-table design), added `graduation_year` column to `Resume`, added `Integer` to SQLAlchemy imports.
+- `store.py` — `search_by_vector` gained optional `job_posting_id` parameter. New functions: `add_job_posting`, `add_application`, `add_work_experience`, `get_work_experiences`, `get_certifications`, `get_candidate`, `delete_company`.
+- `sectioner.py` — replaced standalone `years_experience` LLM instruction with structured `work_experience` list (one object per job). Added `graduation_year` extraction. Fixed retry-loop bug (see below).
+- `resume.py` — added `WorkExperienceEntry` model, `graduation_year` field. `years_experience` changed from LLM-provided to `@model_validator`-computed: `sum(w.duration_years for w in work_experience)`, capped at 40.
+- `pipeline.py` — added optional `job_posting_id` parameter, `add_work_experience` loop, `graduation_year` in resume_data.
+- `config.py` — added: `RETRIEVE_TOP_K`, `RERANKER_MODEL`, `FACET_WEIGHTS`, `FIELD_MATCH_THRESHOLD`, `DISPLAY_THRESHOLD` (30), `MAX_RESULTS` (25), `MAX_CERT_BOOST` (1.2), `CERT_RELEVANCE_FLOOR` (0.6), `RERANK_KEEP_TOP_N` (20), `EXACT_OVERLAP_WEIGHT` (0.6). Removed: `SCORE_FLOOR`, `SCORE_MID`, `SCORE_CEILING`.
+- `schemas/job.py` — added `job_title`, `eligible_graduation_years` to `JDRequirements`.
+- `jd_parser.py` — added `job_title`, `eligible_graduation_years` to prompt. Fixed double assignment (`JD_PROMPT = JD_PROMPT = ...`).
+
+**Real bugs fixed:**
+- **Retry loop not catching API errors** — `call_llm(...)` was outside the `try` block in both `sectioner.py` and `jd_parser.py`, so `groq.BadRequestError` (token-limit rejections) was never caught or retried. Both now wrap the API call inside `try` and catch `BadRequestError` alongside `JSONDecodeError`/`ValidationError`.
+- **`hyde_text` token overflow** — LLM wrote a two-job detailed synthetic resume that exceeded token budget. Tightened to: 1-sentence summary, skills list, exactly 1 job entry with up to 3 bullets, under 150 words.
+- **Non-determinism** — identical JD searches produced different rankings because `hyde_text` regenerated every time. Fixed with in-memory hash cache in `jd_parser.py`.
+- **Calibration ceiling** — raw scores ≥ 0.72 all mapped to display 100, losing sort information. Eliminated entirely.
+
+**Explicitly rejected:**
+- **Company-prestige scoring** — permanently rejected. Contradicts the project's anti-proxy principle. Company name is stored in `work_experiences`, surfaced to recruiters, never scored.
+
+**Key finding — composite score range changed:**
+Once the Skills facet is overridden with `hybrid_skill_score × cert_boost`, the composite can exceed the original ~0.25–0.75 range. Priya's composite was ~0.834. Phase 8's `scripts/calibrate.py` must measure the post-hybrid distribution, not assume the old range.
+
+**Unvalidated constants (all need Phase 8 data-driven tuning):**
+`FIELD_MATCH_THRESHOLD` (0.5), `MAX_CERT_BOOST` (1.2), `CERT_RELEVANCE_FLOOR` (0.6), `EXACT_OVERLAP_WEIGHT` (0.6), `RERANK_KEEP_TOP_N` (20), facet weights, calibration label boundaries (60/50/40/30), `hyde_text` 150-word cap.
+
+**Open gap:** no test checks `hyde_text` against the embedding model's 512-token window. Must be added before Phase 8.
+
+**What Phase 4 needs to know:**
+- `search_and_score()` in `retrieval/pipeline.py` is the single entry point — takes `company_id`, `jd_text`, optional `job_posting_id`/`threshold`/`max_results`, returns a list of result dicts.
+- Each result dict contains: `resume_id`, `candidate_id`, `raw_score`, `display_score`, `label`, `facet_scores` (dict — keys vary per candidate due to absence rule), `limited_data`.
+- `ingest_resume()` in `ingestion/pipeline.py` takes `company_id`, `pdf_bytes`, optional `job_posting_id`/`expires_at`, returns `resume_id`.
+- Eligibility gate (pass/fail) needs its own field in the API response — distinct from numeric score.
+- Label (Exceptional/Strong/Good/Partial/Weak) should be visually prominent in Phase 6, number secondary.
+- `skill_matcher.py` returns `matched_required`/`missing_required`/`matched_preferred` — Phase 5's feedback agent should use this data.
+
+**Blocked / needs discussion:** none
+
+**Next session:** Phase 4 — FastAPI layer (`src/api/`, `docs/API_CONTRACT.md`). Start with `API_CONTRACT.md` — define exact request/response shapes before writing code.
+
+---
