@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, DateTime, ForeignKey, Text, UniqueConstraint, Float
+from sqlalchemy import Column, String, DateTime, ForeignKey, Text, UniqueConstraint, Float, Integer
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import declarative_base
 from pgvector.sqlalchemy import Vector
@@ -56,6 +56,7 @@ class Resume(Base):
     certifications_text = Column(Text, nullable=True)
     skills = Column(JSON, nullable=True)
     years_experience = Column(Float, nullable=True)
+    graduation_year = Column(Integer, nullable=True)
     expires_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
 

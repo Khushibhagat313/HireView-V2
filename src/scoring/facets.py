@@ -38,7 +38,7 @@ def _facet_query_text(jd, facet: str) -> str:
 def build_facet_queries(jd) -> dict[str, list[float]]:
     return {facet: embed_query(_facet_query_text(jd, facet)) for facet in FACET_FIELD_TYPES}
 
-def score_facets(company_id: str, resume_id: str, facet_queries: dict) -> dict:
+def get_raw_facet_scores(company_id: str, resume_id: str, facet_queries: dict) -> dict:
     embeddings = get_resume_embeddings(company_id, resume_id)
     embeddings_by_type = {e.field_type: e.embedding for e in embeddings}
 
@@ -49,7 +49,9 @@ def score_facets(company_id: str, resume_id: str, facet_queries: dict) -> dict:
             continue
         similarities = [_cosine_similarity(facet_queries[facet], embeddings_by_type[ft]) for ft in present_types]
         facet_scores[facet] = sum(similarities) / len(similarities)
+    return facet_scores
 
+def compute_composite(facet_scores: dict) -> dict:
     present_weight_total = sum(FACET_WEIGHTS[f] for f in facet_scores)
     if present_weight_total == 0:
         return {"composite_score": 0.0, "facet_scores": {}, "limited_data": True}
@@ -64,3 +66,7 @@ def score_facets(company_id: str, resume_id: str, facet_queries: dict) -> dict:
         "facet_scores": facet_scores,
         "limited_data": len(facet_scores) <= 1,
     }
+
+def score_facets(company_id: str, resume_id: str, facet_queries: dict) -> dict:
+    facet_scores = get_raw_facet_scores(company_id, resume_id, facet_queries)
+    return compute_composite(facet_scores)

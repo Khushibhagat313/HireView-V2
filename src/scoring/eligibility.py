@@ -14,7 +14,10 @@ def compute_field_specific_experience(jd_job_title: str, work_experience: list) 
     return total
 
 def check_eligibility(resume, jd_requirements, work_experience: list) -> bool:
+    if jd_requirements.eligible_graduation_years and resume.graduation_year not in jd_requirements.eligible_graduation_years:
+        return False
     if not jd_requirements.min_years_experience:
         return True
     field_years = compute_field_specific_experience(jd_requirements.job_title, work_experience)
     return field_years >= jd_requirements.min_years_experience
+    

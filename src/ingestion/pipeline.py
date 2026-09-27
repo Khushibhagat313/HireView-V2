@@ -32,6 +32,7 @@ def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None,
         "education_text": sectioned.education_text,
         "certifications_text": sectioned.certifications_text,
         "years_experience": sectioned.years_experience,
+        "graduation_year": sectioned.graduation_year,
         "skills": normalized_skills,
         "expires_at": expires_at,
     }

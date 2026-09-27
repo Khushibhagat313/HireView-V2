@@ -7,4 +7,5 @@ class JDRequirements(BaseModel):
     responsibilities: list[str] = []
     min_years_experience: float | None = None
     education_requirement: str | None = None
+    eligible_graduation_years: list[int] = []
     hyde_text: str

@@ -32,6 +32,7 @@ class SectionedResume(BaseModel):
     skills: list[str] = []
     work_experience: list[WorkExperienceEntry] = []
     years_experience: float = 0.0
+    graduation_year: int | None = None
 
     @model_validator(mode="after")
     def compute_years_experience(self):
