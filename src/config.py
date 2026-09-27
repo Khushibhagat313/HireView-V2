@@ -20,7 +20,7 @@ FIELD_MATCH_THRESHOLD = 0.5
 DISPLAY_THRESHOLD = 30
 MAX_RESULTS = 25
 MAX_CERT_BOOST = 1.2       # starting guess, tune with real data at Phase 8
-CERT_RELEVANCE_FLOOR = 0.3  # below this, no boost — avoids noise
+CERT_RELEVANCE_FLOOR = 0.6 # below this, no boost — avoids noise
 
 RERANK_KEEP_TOP_N = 20
 EXACT_OVERLAP_WEIGHT = 0.6  # vs semantic similarity weight; starting guess, needs real-data tuning

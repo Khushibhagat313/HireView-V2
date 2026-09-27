@@ -129,3 +129,7 @@ def get_work_experiences(company_id: str, resume_id: str) -> list[WorkExperience
 def get_certifications(company_id: str, resume_id: str) -> list[Certification]:
     with get_session_ctx() as session:
         return session.query(Certification).filter_by(resume_id=resume_id, company_id=company_id).all()
+
+def get_candidate(company_id: str, candidate_id: str) -> Candidate:
+    with get_session_ctx() as session:
+        return session.query(Candidate).filter_by(id=candidate_id, company_id=company_id).first()
