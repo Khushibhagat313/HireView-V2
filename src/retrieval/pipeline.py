@@ -2,7 +2,7 @@ from src.agents.jd_parser import parse_jd
 from src.retrieval.query_builder import build_queries
 from src.retrieval.searcher import search_candidates
 from src.embedding.reranker import rerank
-from src.db.store import get_resume, get_work_experiences, get_certifications
+from src.db.store import get_resume, get_work_experiences, get_certifications, get_candidate
 from src.scoring.eligibility import check_eligibility
 from src.scoring.facets import build_facet_queries, get_raw_facet_scores, compute_composite
 from src.scoring.skill_matcher import hybrid_skill_score
@@ -41,6 +41,7 @@ def search_and_score(company_id: str, jd_text: str, job_posting_id: str = None, 
         results.append({
             "resume_id": str(resume_id),
             "candidate_id": str(resume.candidate_id),
+            "candidate_name": get_candidate(company_id, str(resume.candidate_id)).name,
             "raw_score": scored["composite_score"],
             "display_score": calibrate_score(scored["composite_score"]),
             "label": label_score(scored["composite_score"]),

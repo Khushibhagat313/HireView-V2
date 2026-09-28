@@ -161,6 +161,36 @@ Once the Skills facet is overridden with `hybrid_skill_score × cert_boost`, the
 
 **Blocked / needs discussion:** none
 
-**Next session:** Phase 4 — FastAPI layer (`src/api/`, `docs/API_CONTRACT.md`). Start with `API_CONTRACT.md` — define exact request/response shapes before writing code.
-
 ---
+
+## 2026-09-28 — Khushi — Xh
+**Phase:** 4 (FastAPI layer) — COMPLETE for everything with real backing
+
+**Files touched:** `src/api/main.py`, `src/api/dependencies.py`, `src/api/routes/resumes.py`, `src/api/routes/search.py`, `src/api/routes/candidates.py`, `src/retrieval/pipeline.py`, `src/db/store.py`, `docs/API_CONTRACT.md`, `pyproject.toml`/`uv.lock` (new deps)
+
+**Done:**
+- `docs/API_CONTRACT.md` written first, documenting both built and deliberately-deferred endpoints
+- `main.py` + `/health` — first successful FastAPI + uvicorn run
+- Two missing dependencies caught and installed: `uvicorn`, `python-multipart` (Phase 0's original install list was incomplete for API work)
+- `POST /resumes/upload`, `DELETE /resumes/{id}` — multipart form handling, wired to existing `ingest_resume`/`delete_resume`
+- `POST /search` — full Phase 3 pipeline wired in via a Pydantic request body (`SearchRequest`)
+- Fixed a real duplication bug: moved `candidate_name` lookup into `search_and_score` itself (in `retrieval/pipeline.py`) instead of leaving both `search_cli.py` and the new API route to independently re-implement the same lookup
+- `GET /candidates/{id}` — needed a new `get_candidate` function in `store.py`, which had never existed
+- Architectural check passed: `fastapi` only imported inside `src/api/`, confirmed via grep
+- Full checkpoint proven end-to-end: upload → search (present) → delete → search again (gone)
+
+**Phase 4 — addendum:**
+- **Two dependencies missing from Phase 0's original install list:** `uvicorn` (needed to run a FastAPI app — FastAPI itself has no built-in server) and `python-multipart` (needed for any endpoint using `Form`/`File`, i.e. file uploads). Neither was caught until Phase 4 actually needed them. Worth adding to Phase 0's documented dependency list retroactively, since a fresh environment setup would hit both immediately.
+- **`candidate_name` moved into `search_and_score` itself, not left as a route-level concern:** Originally patched by having the API route fetch each candidate's name separately after calling `search_and_score`. Caught as real duplication — `search_cli.py` was already doing the identical lookup independently. Fixed at the source: `retrieval/pipeline.py`'s `search_and_score` now returns `candidate_name` directly, and both callers were simplified to just use it.
+- **New `store.py` function this phase:** `get_candidate(company_id, candidate_id)` — a basic getter that had never been built despite `add_candidate` existing since Phase 1. Needed the moment an actual API response had to include a candidate's name/email/phone.
+- **Scope — only 4 of the originally-planned ~8 endpoints are built, deliberately:** `resumes/upload`, `resumes/delete`, `search`, `candidates/{id}` are built, tested, and proven via the full upload→search→delete→search checkpoint. `candidates/{id}/feedback`, `candidates/{id}/interview-guide`, `chat`, `emails` are explicitly deferred — they depend on Phase 5 (`agents/feedback.py`, `agents/interview_guide.py`, `agents/conversation/*`) and Phase 7 (`email/*`) respectively, none of which exist yet. This isn't scope creep avoidance — it's the only order that makes sense, since building stub endpoints for non-existent logic would just need rebuilding later. `API_CONTRACT.md` already documents all of them, built or not.
+- **`schemas/candidate.py`, `schemas/chat.py` remain empty:** Routes currently return plain dicts rather than formal `CandidateResponse`-style Pydantic models (per the build plan's own naming convention table). Functionally correct, just not matching the stated convention yet — worth tightening whenever these routes get revisited (naturally, when Phase 5's feedback/interview-guide endpoints get added to the same file).
+
+**Forward impact on later phases:**
+- **Phase 5:** The feedback/interview-guide/chat routes, once their underlying agent logic exists, should follow the exact same thin-wrapper pattern already established here (`routes/candidates.py`, `routes/search.py`) — a route function that validates input via Pydantic, calls existing business logic, returns the result. No new architectural pattern needed, just more routes in the same shape.
+- **Phase 6:** The frontend can build against `resumes/upload`, `search`, and `candidates/{id}` with real confidence — these aren't just documented in the contract, they're proven working end-to-end against real data. One thing confirmed and worth remembering: the JSON-escaping issue that came up during manual Swagger testing (multi-line text needing `\n` escapes) is *not* something Phase 6's frontend code needs to handle specially — `JSON.stringify` does this automatically for any normal fetch/axios call, so a real textarea with natural line breaks will work correctly without any extra handling.
+
+**Blocked / needs discussion:** none
+
+**Next session:** Phase 5 — LLM agents (`agents/feedback.py`, `agents/conversation/*`)
+
