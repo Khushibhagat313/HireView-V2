@@ -24,3 +24,6 @@ CERT_RELEVANCE_FLOOR = 0.6 # below this, no boost — avoids noise
 
 RERANK_KEEP_TOP_N = 20
 EXACT_OVERLAP_WEIGHT = 0.6  # vs semantic similarity weight; starting guess, needs real-data tuning
+
+HIDDEN_GEM_FACET_THRESHOLD = 0.6
+HIDDEN_GEM_RANK_CUTOFF = 10
