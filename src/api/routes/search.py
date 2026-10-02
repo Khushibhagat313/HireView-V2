@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from src.retrieval.pipeline import search_and_score
+from src.schemas.candidate import SearchResult
 
 
 router = APIRouter()
@@ -12,7 +13,10 @@ class SearchRequest(BaseModel):
     threshold: float | None = None
     max_results: int | None = None
 
-@router.post("/search")
+class SearchResponse(BaseModel):
+    results: list[SearchResult]
+
+@router.post("/search", response_model=SearchResponse)
 def search(request: SearchRequest):
     results = search_and_score(
         request.company_id,

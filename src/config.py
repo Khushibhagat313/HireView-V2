@@ -16,7 +16,7 @@ FACET_WEIGHTS = {
     "achievements_publications": 0.15,
     "education_certifications": 0.10,
 }
-FIELD_MATCH_THRESHOLD = 0.5
+FIELD_MATCH_THRESHOLD = 0.55
 DISPLAY_THRESHOLD = 30
 MAX_RESULTS = 25
 MAX_CERT_BOOST = 1.2       # starting guess, tune with real data at Phase 8

@@ -3,12 +3,14 @@ from src.retrieval.query_builder import build_queries
 from src.retrieval.searcher import search_candidates
 from src.embedding.reranker import rerank
 from src.db.store import get_resume, get_work_experiences, get_certifications, get_candidate
+from src.ingestion.normalizer import normalize_skills
 from src.scoring.eligibility import check_eligibility
 from src.scoring.facets import build_facet_queries, get_raw_facet_scores, compute_composite
 from src.scoring.skill_matcher import hybrid_skill_score
 from src.scoring.cert_relevance import compute_max_cert_boost
 from src.scoring.calibration import calibrate_score, label_score, filter_and_rank
 from src.config import RERANK_KEEP_TOP_N
+from types import SimpleNamespace
 
 def search_and_score(company_id: str, jd_text: str, job_posting_id: str = None, threshold: float = None, max_results: int = None) -> list[dict]:
     jd = parse_jd(jd_text)
@@ -24,6 +26,7 @@ def search_and_score(company_id: str, jd_text: str, job_posting_id: str = None, 
     for resume_id, rerank_score in top_candidates:
         resume = get_resume(company_id, str(resume_id))
         work_experience = get_work_experiences(company_id, str(resume_id))
+        work_experience = [SimpleNamespace(title=w.title, duration_years=w.duration_years) for w in work_experience]
         certifications = get_certifications(company_id, str(resume_id))
 
         if not check_eligibility(resume, jd, work_experience):
@@ -31,6 +34,7 @@ def search_and_score(company_id: str, jd_text: str, job_posting_id: str = None, 
 
         facet_scores = get_raw_facet_scores(company_id, str(resume_id), facet_queries)
 
+        hybrid = None
         if "skills" in facet_scores:
             hybrid = hybrid_skill_score(resume.skills or [], jd.required_skills, jd.preferred_skills, facet_scores["skills"])
             cert_boost = compute_max_cert_boost(certifications, jd)
@@ -47,6 +51,11 @@ def search_and_score(company_id: str, jd_text: str, job_posting_id: str = None, 
             "label": label_score(scored["composite_score"]),
             "facet_scores": scored["facet_scores"],
             "limited_data": scored["limited_data"],
+            "skills": sorted(normalize_skills(resume.skills or [])),
+            "matched_required": hybrid["matched_required"] if hybrid else [],
+            "missing_required": hybrid["missing_required"] if hybrid else [],
+            "matched_preferred": hybrid["matched_preferred"] if hybrid else [],
+            "work_experience": work_experience,
         })
 
     return filter_and_rank(results, threshold=threshold, max_results=max_results)

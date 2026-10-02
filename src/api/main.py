@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.api.routes import resumes, search, candidates
+from src.api.routes import resumes, search, candidates, chat  # <--- 1. Import chat
 
 app = FastAPI(title="HireView API")
 
@@ -10,3 +10,5 @@ def health_check():
 app.include_router(resumes.router)
 app.include_router(search.router)
 app.include_router(candidates.router)
+app.include_router(chat.router)        # <--- 2. Plug chat into the main app!
+
