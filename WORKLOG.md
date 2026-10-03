@@ -193,4 +193,74 @@ Once the Skills facet is overridden with `hybrid_skill_score × cert_boost`, the
 **Blocked / needs discussion:** none
 
 **Next session:** Phase 5 — LLM agents (`agents/feedback.py`, `agents/conversation/*`)
+
+---
+
+## 2026-10-02 to 2026-10-03 — Khushi — ~14–16h
+**Phase:** 5 (LLM Agents, LangGraph Conversational Agent & Endpoints) — COMPLETE
+
+**New files built this phase:**
+- `src/agents/conversation/state.py` — `HiringState` TypedDict schema for LangGraph.
+- `src/agents/conversation/router.py` — Rule-based intent classification for 8 intents (specific patterns ordered before general).
+- `src/agents/conversation/handlers.py` — 8 intent handlers (`show_top_n`, `filter_by_skill`, `filter_by_experience`, `hidden_gems`, `explain_score`, `compare`, `interview_questions`, `general`) with bias guardrails and deterministic aggregation (`_pool_summary`).
+- `src/agents/conversation/graph.py` — StateGraph compiling nodes and conditional routing edges.
+- `src/agents/feedback.py` — Generates grounded score explanations with label-first framing and compound caching.
+- `src/agents/interview_guide.py` — Generates targeted interview questions with prompt-injection defense and caching.
+- `src/api/routes/chat.py` — `POST /chat` endpoint invoking the LangGraph workflow.
+- `tests/test_agents.py` — 10 passing unit and integration tests.
+
+**Phase 3/4 files modified:**
+- `src/api/routes/candidates.py` — wired `POST /candidates/{id}/feedback` and `POST /candidates/{id}/interview-guide`.
+- `src/api/routes/search.py` & `src/schemas/candidate.py` — added `SearchResult` / `SearchResponse` response model.
+- `src/retrieval/pipeline.py` — carried forward `skills`, `matched_required`, `missing_required`, `matched_preferred`, and `work_experience` (as `SimpleNamespace` objects) in search results.
+- `src/scoring/eligibility.py` — supported both dict and dot-notation objects in field-specific experience computation.
+- `src/config.py` — added `HIDDEN_GEM_FACET_THRESHOLD = 0.6`, `HIDDEN_GEM_RANK_CUTOFF = 10`, `FIELD_MATCH_THRESHOLD = 0.55`.
+- `docs/API_CONTRACT.md` — fully documented `/chat`, feedback, and interview-guide endpoints.
+
+**Done:**
+- Built full LangGraph workflow routing queries deterministically without LLM routing overhead.
+- Implemented structural bias mitigation: candidate names and graduation years are never passed into LLM prompts; placeholders ("Candidate A/B/N") are used and real names restored post-generation.
+- Prompt injection defense: rejected malicious resume commands, validated output format with regex, and raised `GuideUnavailable` so refusals or attacks are never saved into cache.
+- Deterministic pool statistics: `_pool_summary` calculates exact counts using `Counter` and collapses duplicate resumes so general recruiter queries receive factual, hallucination-free summaries.
+- Wired remaining candidate endpoints and verified 10/10 tests green in `tests/test_agents.py`.
+
+---
+
+### 🚀 Handoff Guide for Phase 6 (Frontend Partner)
+
+The entire backend API for Phase 6 is **live, tested, and ready**. You do not need mock data — you can connect directly to the real API!
+
+#### 1. How to run the backend locally:
+```bash
+uv run uvicorn src.api.main:app --reload
+```
+- API Base URL: `http://localhost:8000`
+- Interactive Swagger Documentation: `http://localhost:8000/docs`
+
+#### 2. Test Data Available:
+- **`company_id`**: `a47c623b-569d-442b-8e0d-ff4c9d8dcf07` (Test Co — has ingested resumes in the database).
+- **Sample JD text**: available in `tests/sample_jd_junior.txt` (Junior Backend Developer role).
+
+#### 3. Key Endpoints & Frontend Expectations:
+
+| Endpoint | Method | Request Body / Params | Expected Response & Frontend Behavior |
+|---|---|---|---|
+| `/resumes/upload` | `POST` | Multipart Form: `company_id`, `file` (PDF) | `{ "resume_id": "uuid", "filename": "...", "message": "..." }` |
+| `/search` | `POST` | JSON: `{ "company_id": "...", "jd_text": "..." }` | Returns list of candidates with `candidate_id`, `candidate_name`, `label` (`Exceptional`/`Strong`/`Good`/`Partial`/`Weak`), `display_score`, `facet_scores`. **Rule:** Show the `label` prominently (badge/color), display score secondary. |
+| `/chat` | `POST` | JSON: `{ "company_id": "...", "jd_text": "...", "query": "..." }` | Returns `{ "intent": "...", "response_text": "string or null", "response_candidates": [ ... ] or null }`. **Important:** The UI must render `response_candidates` as candidate cards (for filter intents) OR render `response_text` as markdown (for conversational answers). |
+| `/candidates/{id}/feedback` | `POST` | JSON: `{ "company_id": "...", "jd_text": "..." }` | Returns `{ "candidate_id": "...", "feedback": "..." }`. Note: This is **POST** (not GET) because it needs the JD text. |
+| `/candidates/{id}/interview-guide` | `POST` | JSON: `{ "company_id": "...", "jd_text": "..." }` | Returns `{ "candidate_id": "...", "interview_guide": "..." }`. Note: This is **POST** (not GET). |
+| `/candidates/{id}` | `GET` | Query param: `?company_id=...` | Returns `{ "name": "...", "email": "...", "phone": "..." }`. |
+
+#### 4. Important UI / UX Considerations:
+- **Markdown Rendering:** `response_text`, feedback, and interview guides contain markdown (`**bold**`, numbered lists `1. 2. 3.`, `Why: ...`). Use a React markdown renderer (e.g. `react-markdown`).
+- **Error Status Codes to handle:**
+  - `404 Not Found`: Candidate was not in the ranked search results for this JD.
+  - `422 Unprocessable Entity`: The model could not produce usable interview questions for the resume.
+  - `503 Service Unavailable`: Temporary AI provider outage — show a friendly *"AI service temporarily unavailable, please try again"* message.
+- **Stateless Chat:** Each `/chat` call is independent (no multi-turn history kept on backend). Every chat request must include `{ company_id, jd_text, query }`.
+- **Duplicate Resumes:** Candidates with multiple resume uploads currently appear as distinct search items; candidate name matching in chat automatically resolves to their highest-scoring resume.
+
+**Next session:** Phase 6 — Frontend development (`frontend/`) in React + Tailwind.
+
 
