@@ -13,7 +13,8 @@ __pycache__/
 *.sqlite
 *.sqlite3
 chroma_db/
-data/
+/data/
+
 
 # IDE / OS clutter
 .vscode/
@@ -36,3 +37,7 @@ learning/
 
 # Personal Antigravity rules - not shared
 .agents/
+
+#Since cand_id_map.json is generated fresh every time the benchmark loader runs against Supabase, we should ignore it so it never gets committed to git.
+eval/data/cand_id_map.json
+

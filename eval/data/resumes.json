@@ -1,0 +1,2904 @@
+[
+  {
+    "candidate_id": "cand_01",
+    "candidate_name": "Aarav Sharma",
+    "category": "Junior Backend Developer",
+    "graduation_year": 2024,
+    "skills": [
+      "python",
+      "fastapi",
+      "postgresql",
+      "docker",
+      "redis",
+      "sqlalchemy",
+      "git"
+    ],
+    "work_experience": [
+      {
+        "title": "Junior Python Developer",
+        "company": "TechCorp",
+        "duration_years": 1.5
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Backend developer with 1.5 years building REST APIs in Python. Comfortable owning small services end to end.",
+    "projects_text": "Built an inventory service with FastAPI, PostgreSQL and Redis caching, containerised with Docker and serving 200 req/s.",
+    "experience_text": "Designed and shipped FastAPI endpoints and SQLAlchemy models for an order-management platform. Wrote pytest suites and optimised slow SQL queries. Participated in code reviews and on-call rotation.",
+    "achievements_text": "Reduced p95 API latency by 45% by adding Redis caching to the inventory service.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_02",
+    "candidate_name": "Priya Nair",
+    "category": "Junior Backend Developer",
+    "graduation_year": 2025,
+    "skills": [
+      "python",
+      "fastapi",
+      "mysql",
+      "sql",
+      "git",
+      "postman"
+    ],
+    "work_experience": [
+      {
+        "title": "Backend Intern / Associate Engineer",
+        "company": "FinServe Labs",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "FastAPI Complete Course (Udemy)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Recent graduate with a year of internship-to-full-time backend experience in Python. Strong SQL fundamentals.",
+    "projects_text": "Developed a loan-eligibility REST API with FastAPI and MySQL, including JWT authentication.",
+    "experience_text": "Implemented CRUD APIs and background jobs in FastAPI. Wrote SQL reports for the finance team. No containerisation or cloud deployment exposure.",
+    "achievements_text": "Won an internal hackathon for a loan-eligibility prototype.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_03",
+    "candidate_name": "Rohan Mehta",
+    "category": "Junior Backend Developer",
+    "graduation_year": 2024,
+    "skills": [
+      "python",
+      "django",
+      "django rest framework",
+      "postgresql",
+      "git",
+      "celery"
+    ],
+    "work_experience": [
+      {
+        "title": "Python Developer",
+        "company": "Webnest Solutions",
+        "duration_years": 1.2
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Python developer with Django REST experience and solid PostgreSQL skills. Looking to move toward async frameworks.",
+    "projects_text": "Built a multi-tenant booking backend with Django REST Framework, PostgreSQL and Celery workers.",
+    "experience_text": "Maintained Django REST APIs and optimised ORM queries. Wrote Celery tasks for email and invoice generation. Has not used FastAPI or async Python in production.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_04",
+    "candidate_name": "Sneha Iyer",
+    "category": "Junior Backend Developer",
+    "graduation_year": 2026,
+    "skills": [
+      "python",
+      "flask",
+      "sql",
+      "sqlite",
+      "git",
+      "aws"
+    ],
+    "work_experience": [
+      {
+        "title": "Software Engineering Intern",
+        "company": "CloudBridge",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Cloud Practitioner",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Final-year student with a one-year backend internship and an AWS foundational certificate.",
+    "projects_text": "Created a Flask + SQLite expense tracker deployed on AWS EC2.",
+    "experience_text": "Fixed bugs in Flask services and wrote SQL queries during a one-year internship. Learning FastAPI through personal projects.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_05",
+    "candidate_name": "Karthik Rao",
+    "category": "Junior Backend Developer",
+    "graduation_year": 2016,
+    "skills": [
+      "java",
+      "spring boot",
+      "hibernate",
+      "oracle",
+      "kafka",
+      "microservices"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Java Backend Engineer",
+        "company": "BankOne Systems",
+        "duration_years": 8.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Oracle Certified Professional Java SE",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Senior Java backend engineer with 8 years in banking systems. Python used only for occasional scripting.",
+    "projects_text": "Led migration of a monolithic payments system to Spring Boot microservices on Kafka.",
+    "experience_text": "Architected high-throughput payment services and mentored a team of five. Owned Oracle schema design and performance tuning.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_06",
+    "candidate_name": "Neha Kapoor",
+    "category": "Junior Backend Developer",
+    "graduation_year": 2024,
+    "skills": [
+      "python",
+      "fastapi",
+      "sql",
+      "postgresql",
+      "git",
+      "html"
+    ],
+    "work_experience": [
+      {
+        "title": "Freelance Python Developer",
+        "company": "Self-employed",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Python Backend Bootcamp Completion",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Mechanical engineering graduate who switched into backend development through a 6-month bootcamp and freelance work.",
+    "projects_text": "Built a FastAPI + PostgreSQL appointment-booking API for a local clinic.",
+    "experience_text": "Delivered small client APIs in FastAPI. Self-taught SQL. Limited experience with testing, CI or team code-review practices.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_07",
+    "candidate_name": "Vikram Singh",
+    "category": "Senior Full Stack Engineer",
+    "graduation_year": 2015,
+    "skills": [
+      "react",
+      "node.js",
+      "typescript",
+      "aws",
+      "postgresql",
+      "terraform",
+      "graphql",
+      "docker"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Full Stack Engineer",
+        "company": "ScaleUp Commerce",
+        "duration_years": 5.0
+      },
+      {
+        "title": "Full Stack Engineer",
+        "company": "RetailTech",
+        "duration_years": 3.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Solutions Architect - Associate",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Senior full stack engineer with 8.5 years shipping React/Node products on AWS. Leads design reviews and mentors engineers.",
+    "projects_text": "Led a rebuild of a checkout platform using React, TypeScript, Node.js and AWS Lambda/RDS, cutting page load by 40%.",
+    "experience_text": "Owned frontend and API architecture for e-commerce products. Provisioned infrastructure with Terraform and ran CI on GitHub Actions. Mentored four engineers.",
+    "achievements_text": "Cut checkout page load by 40% and was promoted to senior within two years.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_08",
+    "candidate_name": "Ananya Das",
+    "category": "Senior Full Stack Engineer",
+    "graduation_year": 2018,
+    "skills": [
+      "react",
+      "node.js",
+      "typescript",
+      "mongodb",
+      "gcp",
+      "docker",
+      "jest"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Software Engineer",
+        "company": "MediaStack",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Six years of full stack experience in TypeScript. Cloud work mostly on GCP, with limited AWS exposure.",
+    "projects_text": "Built a content-publishing platform with React, Node.js and MongoDB on Google Cloud Run.",
+    "experience_text": "Delivered React frontends and Express APIs, introduced TypeScript across the codebase and improved test coverage to 85%. Used AWS S3 only for asset storage.",
+    "achievements_text": "Raised frontend test coverage from 40% to 85% across the platform.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_09",
+    "candidate_name": "Rahul Verma",
+    "category": "Senior Full Stack Engineer",
+    "graduation_year": 2020,
+    "skills": [
+      "react",
+      "typescript",
+      "redux",
+      "css",
+      "node.js",
+      "jest",
+      "aws s3"
+    ],
+    "work_experience": [
+      {
+        "title": "Frontend Engineer",
+        "company": "PixelWorks",
+        "duration_years": 5.5
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Frontend-focused engineer with 5.5 years in React and TypeScript. Backend experience limited to small Node utilities.",
+    "projects_text": "Developed a design-system component library and dashboard SPA in React and TypeScript.",
+    "experience_text": "Built complex UI features, managed state with Redux and improved accessibility. Wrote a few Node.js BFF endpoints but has not owned backend services or AWS infrastructure.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_10",
+    "candidate_name": "Meera Pillai",
+    "category": "Senior Full Stack Engineer",
+    "graduation_year": 2024,
+    "skills": [
+      "react",
+      "node.js",
+      "typescript",
+      "mongodb",
+      "aws"
+    ],
+    "work_experience": [
+      {
+        "title": "Software Engineer",
+        "company": "StartupHub",
+        "duration_years": 1.5
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Early-career engineer with 1.5 years of full stack work in a startup.",
+    "projects_text": "Built a task-management app with React, Node.js and MongoDB deployed on AWS Elastic Beanstalk.",
+    "experience_text": "Developed features across the stack under senior guidance. No experience leading design or owning production architecture.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_11",
+    "candidate_name": "Arjun Nambiar",
+    "category": "Senior Full Stack Engineer",
+    "graduation_year": 2013,
+    "skills": [
+      "angular",
+      "c#",
+      ".net",
+      "sql server",
+      "azure",
+      "javascript"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior .NET Developer",
+        "company": "Enterprise Soft",
+        "duration_years": 10.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Microsoft Certified: Azure Developer Associate",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Ten years of Angular and .NET enterprise development on Azure.",
+    "projects_text": "Delivered an Angular + .NET Core claims-processing portal on Azure.",
+    "experience_text": "Built enterprise web applications and REST APIs in C#. Managed Azure DevOps pipelines. No React, Node.js or AWS experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_12",
+    "candidate_name": "Divya Menon",
+    "category": "Senior Full Stack Engineer",
+    "graduation_year": 2017,
+    "skills": [
+      "node.js",
+      "typescript",
+      "aws",
+      "lambda",
+      "dynamodb",
+      "react",
+      "serverless",
+      "docker"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Backend Engineer",
+        "company": "CloudNative Labs",
+        "duration_years": 5.0
+      },
+      {
+        "title": "Software Engineer",
+        "company": "TravelGo",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Developer - Associate",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Seven years of experience, mostly Node.js/TypeScript backends on AWS, with about a year of React frontend work.",
+    "projects_text": "Built a serverless booking engine using AWS Lambda, DynamoDB and TypeScript, with an admin UI in React.",
+    "experience_text": "Designed serverless APIs handling millions of requests per month. Recently moved to full stack work, building React admin interfaces.",
+    "achievements_text": "Handled a 10x traffic spike during a sale with no downtime.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_13",
+    "candidate_name": "Ishaan Gupta",
+    "category": "Data Scientist / ML Engineer",
+    "graduation_year": 2021,
+    "skills": [
+      "python",
+      "pytorch",
+      "pandas",
+      "scikit-learn",
+      "sql",
+      "mlflow",
+      "docker",
+      "numpy"
+    ],
+    "work_experience": [
+      {
+        "title": "Machine Learning Engineer",
+        "company": "RecoAI",
+        "duration_years": 2.5
+      },
+      {
+        "title": "Data Scientist",
+        "company": "RetailMetrics",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "TensorFlow Developer Certificate",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "ML engineer with 3.5 years building and deploying recommendation and ranking models.",
+    "projects_text": "Trained a two-tower recommender in PyTorch and deployed it with MLflow and Docker, lifting CTR by 12%.",
+    "experience_text": "Built feature pipelines in pandas and SQL, trained and tuned PyTorch models, and ran A/B tests. Owned model monitoring and retraining.",
+    "achievements_text": "Recommender launch lifted click-through rate by 12%.",
+    "publications_text": "Co-authored an internal engineering blog post on two-tower retrieval models."
+  },
+  {
+    "candidate_id": "cand_14",
+    "candidate_name": "Kavya Reddy",
+    "category": "Data Scientist / ML Engineer",
+    "graduation_year": 2022,
+    "skills": [
+      "python",
+      "tensorflow",
+      "pandas",
+      "scikit-learn",
+      "sql",
+      "matplotlib",
+      "xgboost"
+    ],
+    "work_experience": [
+      {
+        "title": "Data Scientist",
+        "company": "InsureTech",
+        "duration_years": 2.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Deep Learning Specialization (Coursera)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Data scientist with 2.5 years in churn and fraud modelling. Mostly classical ML, with TensorFlow for a few deep models.",
+    "projects_text": "Built an XGBoost and TensorFlow fraud-detection pipeline reaching 0.93 AUC.",
+    "experience_text": "Developed predictive models, engineered features in pandas and presented findings to business teams. Models were handed to engineering for deployment.",
+    "achievements_text": "Fraud model reached 0.93 AUC and saved an estimated 1.2M annually.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_15",
+    "candidate_name": "Aditya Joshi",
+    "category": "Data Scientist / ML Engineer",
+    "graduation_year": 2025,
+    "skills": [
+      "python",
+      "pandas",
+      "scikit-learn",
+      "numpy",
+      "sql",
+      "matplotlib"
+    ],
+    "work_experience": [
+      {
+        "title": "Data Science Intern",
+        "company": "AnalyticsHub",
+        "duration_years": 0.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Machine Learning Specialization (Coursera)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Recent graduate with a data science internship and several Kaggle projects.",
+    "projects_text": "Predicted house prices with scikit-learn regressors and feature engineering on a Kaggle dataset.",
+    "experience_text": "Cleaned datasets and trained baseline models during a six-month internship. No deep learning or production deployment experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_16",
+    "candidate_name": "Pooja Bhat",
+    "category": "Data Scientist / ML Engineer",
+    "graduation_year": 2019,
+    "skills": [
+      "sql",
+      "tableau",
+      "excel",
+      "python",
+      "pandas",
+      "statistics"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Data Analyst",
+        "company": "LogiCorp",
+        "duration_years": 5.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Data analyst with 5 years of reporting and dashboards experience and light Python usage.",
+    "projects_text": "Built a Tableau suite for supply-chain KPIs and automated reports with pandas scripts.",
+    "experience_text": "Wrote complex SQL, built dashboards and ran descriptive statistics. Has not trained machine learning models professionally.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_17",
+    "candidate_name": "Sandeep Kulkarni",
+    "category": "Data Scientist / ML Engineer",
+    "graduation_year": 2020,
+    "skills": [
+      "python",
+      "pytorch",
+      "transformers",
+      "pandas",
+      "scikit-learn",
+      "nlp",
+      "numpy",
+      "sql"
+    ],
+    "work_experience": [
+      {
+        "title": "Research Engineer (NLP)",
+        "company": "LinguaAI",
+        "duration_years": 4.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "NLP research engineer with 4 years fine-tuning transformer models for production search and classification.",
+    "projects_text": "Fine-tuned a BERT-based classifier in PyTorch for support-ticket routing, reaching 91% F1 in production.",
+    "experience_text": "Trained and evaluated PyTorch NLP models, built data pipelines in pandas and published two internal papers. Collaborated with engineers on serving.",
+    "achievements_text": "Production classifier reached 91% F1; named best new hire in the research team.",
+    "publications_text": "Two papers on transformer fine-tuning for ticket classification (internal research journal and a workshop paper)."
+  },
+  {
+    "candidate_id": "cand_18",
+    "candidate_name": "Tanvi Shah",
+    "category": "Data Scientist / ML Engineer",
+    "graduation_year": 2015,
+    "skills": [
+      "java",
+      "spring",
+      "sql",
+      "python"
+    ],
+    "work_experience": [
+      {
+        "title": "Java Developer",
+        "company": "Enterprise Systems",
+        "duration_years": 9.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Machine Learning (Coursera, Andrew Ng)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Java developer exploring a move into machine learning via online courses.",
+    "projects_text": "Completed course assignments in Python covering linear regression and neural networks.",
+    "experience_text": "Nine years of enterprise Java development. No applied data science or ML experience in a work setting.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_19",
+    "candidate_name": "Nikhil Patil",
+    "category": "DevOps & Cloud Engineer",
+    "graduation_year": 2019,
+    "skills": [
+      "docker",
+      "kubernetes",
+      "terraform",
+      "aws",
+      "jenkins",
+      "github actions",
+      "helm",
+      "linux"
+    ],
+    "work_experience": [
+      {
+        "title": "DevOps Engineer",
+        "company": "FinCloud",
+        "duration_years": 3.5
+      },
+      {
+        "title": "Cloud Engineer",
+        "company": "HostWorks",
+        "duration_years": 1.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Certified Kubernetes Administrator (CKA)",
+        "tier": "assessed"
+      },
+      {
+        "name": "AWS Certified Solutions Architect - Associate",
+        "tier": "assessed"
+      },
+      {
+        "name": "Terraform Fundamentals Course (A Cloud Guru)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "DevOps engineer with 5 years running Kubernetes workloads on AWS with Terraform-managed infrastructure.",
+    "projects_text": "Built an EKS platform with Terraform modules and GitHub Actions pipelines that cut deploy time from 40 to 8 minutes.",
+    "experience_text": "Managed EKS clusters, Helm releases and CI/CD pipelines. Provisioned VPCs, IAM and RDS using Terraform and introduced cost monitoring.",
+    "achievements_text": "Cut deploy time from 40 to 8 minutes and halved failed releases.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_20",
+    "candidate_name": "Shreya Banerjee",
+    "category": "DevOps & Cloud Engineer",
+    "graduation_year": 2020,
+    "skills": [
+      "docker",
+      "kubernetes",
+      "aws",
+      "gitlab ci",
+      "ansible",
+      "linux",
+      "bash"
+    ],
+    "work_experience": [
+      {
+        "title": "DevOps Engineer",
+        "company": "DataStream",
+        "duration_years": 4.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Cloud Practitioner",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "DevOps engineer with 4 years on AWS and Kubernetes. Uses Ansible and CloudFormation rather than Terraform.",
+    "projects_text": "Containerised 15 microservices and deployed them to Kubernetes via GitLab CI pipelines.",
+    "experience_text": "Maintained CI/CD pipelines and Kubernetes deployments on AWS. Automated server configuration with Ansible. Has limited Terraform exposure.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_21",
+    "candidate_name": "Manish Tiwari",
+    "category": "DevOps & Cloud Engineer",
+    "graduation_year": 2018,
+    "skills": [
+      "linux",
+      "bash",
+      "vmware",
+      "docker",
+      "jenkins",
+      "nagios"
+    ],
+    "work_experience": [
+      {
+        "title": "Systems Administrator",
+        "company": "InfraOne",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "RHCSA",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Linux systems administrator with 6 years on-prem experience, beginning to adopt containers and CI.",
+    "projects_text": "Dockerised an internal tool and set up a Jenkins job for nightly builds.",
+    "experience_text": "Administered Linux servers, VMware and monitoring. Basic Docker and Jenkins usage. No Kubernetes, Terraform or production AWS work.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_22",
+    "candidate_name": "Aisha Khan",
+    "category": "DevOps & Cloud Engineer",
+    "graduation_year": 2024,
+    "skills": [
+      "docker",
+      "github actions",
+      "aws",
+      "linux",
+      "python"
+    ],
+    "work_experience": [
+      {
+        "title": "Cloud Support Intern",
+        "company": "SkyOps",
+        "duration_years": 0.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified Cloud Practitioner",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Recent graduate with a cloud internship and foundational AWS certification.",
+    "projects_text": "Deployed a Dockerised Flask app to AWS ECS with a GitHub Actions workflow.",
+    "experience_text": "Supported cloud tickets and wrote basic automation scripts. No production Kubernetes or Terraform experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_23",
+    "candidate_name": "Gaurav Malhotra",
+    "category": "DevOps & Cloud Engineer",
+    "graduation_year": 2017,
+    "skills": [
+      "terraform",
+      "kubernetes",
+      "azure",
+      "azure devops",
+      "docker",
+      "helm",
+      "powershell"
+    ],
+    "work_experience": [
+      {
+        "title": "Cloud DevOps Engineer",
+        "company": "ConsultCo",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Microsoft Certified: Azure DevOps Engineer Expert",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Six years of DevOps in Azure environments with Terraform and AKS. Limited AWS experience.",
+    "projects_text": "Delivered an AKS platform with Terraform and Azure DevOps pipelines for a retail client.",
+    "experience_text": "Built infrastructure as code, managed AKS clusters and implemented release pipelines. Has only used AWS in a single proof of concept.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_24",
+    "candidate_name": "Lakshmi Narayan",
+    "category": "DevOps & Cloud Engineer",
+    "graduation_year": 2016,
+    "skills": [
+      "kubernetes",
+      "terraform",
+      "aws",
+      "docker",
+      "prometheus",
+      "grafana",
+      "python",
+      "jenkins"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior SRE",
+        "company": "StreamCo",
+        "duration_years": 5.0
+      },
+      {
+        "title": "DevOps Engineer",
+        "company": "AppFactory",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Certified DevOps Engineer - Professional",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Senior SRE with 8 years of experience building reliable AWS and Kubernetes platforms.",
+    "projects_text": "Designed a multi-region Kubernetes platform on AWS with Terraform and Prometheus-based alerting, achieving 99.95% uptime.",
+    "experience_text": "Led reliability work, defined SLOs and built CI/CD pipelines. Reduced infrastructure cost by 25% and ran incident post-mortems.",
+    "achievements_text": "Delivered 99.95% uptime for a multi-region platform and cut infrastructure cost by 25%.",
+    "publications_text": "Blog series on SLO design for Kubernetes platforms."
+  },
+  {
+    "candidate_id": "cand_25",
+    "candidate_name": "Siddharth Jain",
+    "category": "Mobile Developer",
+    "graduation_year": 2021,
+    "skills": [
+      "flutter",
+      "dart",
+      "bloc",
+      "firebase",
+      "rest api",
+      "git",
+      "codemagic"
+    ],
+    "work_experience": [
+      {
+        "title": "Flutter Developer",
+        "company": "AppForge",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Flutter developer with 3 years shipping consumer apps to both app stores.",
+    "projects_text": "Built a food-delivery app in Flutter with BLoC, Firebase auth and push notifications, reaching 100k downloads.",
+    "experience_text": "Developed Flutter screens and state management with BLoC, integrated REST APIs and set up CI/CD with Codemagic. Published releases to Play Store and App Store.",
+    "achievements_text": "App reached 100k downloads with a 4.6 store rating.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_26",
+    "candidate_name": "Riya Chawla",
+    "category": "Mobile Developer",
+    "graduation_year": 2022,
+    "skills": [
+      "react native",
+      "typescript",
+      "redux",
+      "rest api",
+      "firebase",
+      "git"
+    ],
+    "work_experience": [
+      {
+        "title": "Mobile Developer",
+        "company": "FitTrack",
+        "duration_years": 2.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Flutter Bootcamp (Udemy)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "React Native developer with 2.5 years of cross-platform experience. Interested in Flutter.",
+    "projects_text": "Built a fitness-tracking app in React Native with Redux and Firebase.",
+    "experience_text": "Delivered cross-platform features, integrated REST APIs and handled store releases. Has built one small Flutter prototype.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_27",
+    "candidate_name": "Anil Kumar",
+    "category": "Mobile Developer",
+    "graduation_year": 2019,
+    "skills": [
+      "kotlin",
+      "java",
+      "android",
+      "jetpack compose",
+      "retrofit",
+      "room"
+    ],
+    "work_experience": [
+      {
+        "title": "Android Developer",
+        "company": "MobiSoft",
+        "duration_years": 5.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Native Android developer with 5 years in Kotlin. No cross-platform framework experience.",
+    "projects_text": "Built a banking app in Kotlin with Jetpack Compose and Retrofit.",
+    "experience_text": "Developed and maintained native Android features, fixed crashes and integrated payment SDKs.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_28",
+    "candidate_name": "Zoya Ahmed",
+    "category": "Mobile Developer",
+    "graduation_year": 2024,
+    "skills": [
+      "flutter",
+      "dart",
+      "provider",
+      "firebase",
+      "rest api",
+      "git"
+    ],
+    "work_experience": [
+      {
+        "title": "Junior Flutter Developer",
+        "company": "Appify",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Junior Flutter developer with two years of experience in a small team.",
+    "projects_text": "Built an event-booking app in Flutter using Provider and Firebase.",
+    "experience_text": "Implemented Flutter UI screens, consumed REST APIs and fixed bugs. Has not owned a release or used CI/CD.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_29",
+    "candidate_name": "Harsh Vyas",
+    "category": "Mobile Developer",
+    "graduation_year": 2020,
+    "skills": [
+      "swift",
+      "swiftui",
+      "uikit",
+      "core data",
+      "ios",
+      "rest api"
+    ],
+    "work_experience": [
+      {
+        "title": "iOS Developer",
+        "company": "AppleCore Studio",
+        "duration_years": 4.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "SwiftUI Masterclass (Udemy)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "iOS developer with 4 years in Swift and SwiftUI. No Flutter experience.",
+    "projects_text": "Built a meditation app with SwiftUI and Core Data, rated 4.7 on the App Store.",
+    "experience_text": "Developed iOS features, handled App Store submissions and integrated REST APIs.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_30",
+    "candidate_name": "Pallavi Desai",
+    "category": "Mobile Developer",
+    "graduation_year": 2018,
+    "skills": [
+      "php",
+      "laravel",
+      "mysql",
+      "javascript",
+      "jquery"
+    ],
+    "work_experience": [
+      {
+        "title": "Web Developer",
+        "company": "WebCraft",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Web developer with 6 years in PHP and Laravel.",
+    "projects_text": "Built an e-commerce site with Laravel and MySQL.",
+    "experience_text": "Developed server-rendered web applications and APIs. No mobile development experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_31",
+    "candidate_name": "Rajesh Pandey",
+    "category": "QA / Automation Engineer",
+    "graduation_year": 2019,
+    "skills": [
+      "selenium",
+      "cypress",
+      "python",
+      "pytest",
+      "jenkins",
+      "api testing",
+      "postman",
+      "jira"
+    ],
+    "work_experience": [
+      {
+        "title": "QA Automation Engineer",
+        "company": "ShopEase",
+        "duration_years": 3.5
+      },
+      {
+        "title": "QA Engineer",
+        "company": "TestLab",
+        "duration_years": 1.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "ISTQB Foundation Level",
+        "tier": "assessed"
+      },
+      {
+        "name": "Python Test Automation Course (Udemy)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "QA automation engineer with 5 years building Selenium and Cypress frameworks in Python.",
+    "projects_text": "Created a pytest + Selenium framework with page objects and parallel runs in Jenkins, covering 600 regression tests.",
+    "experience_text": "Automated UI and API tests, integrated suites into CI and reduced regression time from 2 days to 3 hours. Mentored junior testers.",
+    "achievements_text": "Reduced regression time from two days to three hours.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_32",
+    "candidate_name": "Megha Saxena",
+    "category": "QA / Automation Engineer",
+    "graduation_year": 2021,
+    "skills": [
+      "selenium",
+      "java",
+      "testng",
+      "maven",
+      "jenkins",
+      "postman",
+      "python",
+      "jira"
+    ],
+    "work_experience": [
+      {
+        "title": "Automation Test Engineer",
+        "company": "BankSoft",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Python for Testers (Udemy)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Automation tester with 3 years of Selenium and Java experience and basic Python skills.",
+    "projects_text": "Built a TestNG + Selenium framework for a banking web portal.",
+    "experience_text": "Wrote and maintained UI automation in Java and ran suites on Jenkins. Used Python only for small data-setup scripts. No Cypress experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_33",
+    "candidate_name": "Farhan Ali",
+    "category": "QA / Automation Engineer",
+    "graduation_year": 2022,
+    "skills": [
+      "manual testing",
+      "test cases",
+      "jira",
+      "sql",
+      "postman",
+      "api testing"
+    ],
+    "work_experience": [
+      {
+        "title": "QA Engineer",
+        "company": "HealthApps",
+        "duration_years": 2.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "ISTQB Foundation Level",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Manual QA engineer with 2.5 years of experience, starting to learn automation.",
+    "projects_text": "Completed an online Selenium with Python course and automated login tests for a practice site.",
+    "experience_text": "Designed test cases, executed manual regression and API tests with Postman, and logged defects. No automation framework experience in production.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_34",
+    "candidate_name": "Isha Malik",
+    "category": "QA / Automation Engineer",
+    "graduation_year": 2024,
+    "skills": [
+      "selenium",
+      "python",
+      "pytest",
+      "git",
+      "manual testing"
+    ],
+    "work_experience": [
+      {
+        "title": "QA Associate Tester",
+        "company": "QualityFirst",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "ISTQB Foundation Level",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Early-career tester with two years of experience and growing automation skills.",
+    "projects_text": "Built a Selenium + pytest suite for a demo e-commerce app and ran it on GitHub Actions.",
+    "experience_text": "Executed manual test plans and automated a handful of smoke tests in Selenium with Python. Has not worked with Cypress or large suites.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_35",
+    "candidate_name": "Varun Kohli",
+    "category": "QA / Automation Engineer",
+    "graduation_year": 2017,
+    "skills": [
+      "cypress",
+      "playwright",
+      "typescript",
+      "javascript",
+      "selenium",
+      "api testing",
+      "github actions"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior SDET",
+        "company": "WebScale",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "SDET with 6 years of JavaScript-based UI and API automation. Python is not part of the daily stack.",
+    "projects_text": "Rebuilt an end-to-end suite in Cypress and Playwright, cutting flaky tests by 70%.",
+    "experience_text": "Designed Cypress and Playwright frameworks in TypeScript and integrated them in GitHub Actions. Wrote API tests and performance smoke tests.",
+    "achievements_text": "Cut flaky tests by 70% across the end-to-end suite.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_36",
+    "candidate_name": "Debashish Roy",
+    "category": "QA / Automation Engineer",
+    "graduation_year": 2014,
+    "skills": [
+      "java",
+      "spring",
+      "sql",
+      "hibernate",
+      "oracle"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Java Developer",
+        "company": "LegacySoft",
+        "duration_years": 10.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Backend Java developer with 10 years of experience.",
+    "projects_text": "Built Spring-based batch processing for insurance claims.",
+    "experience_text": "Developed and maintained enterprise Java services. No testing-specialist or QA automation role.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_37",
+    "candidate_name": "Sahil Arora",
+    "category": "Cybersecurity Analyst",
+    "graduation_year": 2020,
+    "skills": [
+      "siem",
+      "splunk",
+      "qradar",
+      "network security",
+      "incident response",
+      "nmap",
+      "burp suite",
+      "wireshark"
+    ],
+    "work_experience": [
+      {
+        "title": "SOC Analyst L2",
+        "company": "SecureNet MSSP",
+        "duration_years": 3.5
+      },
+      {
+        "title": "SOC Analyst L1",
+        "company": "SecureNet MSSP",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "CEH",
+        "tier": "assessed"
+      },
+      {
+        "name": "CompTIA Security+",
+        "tier": "assessed"
+      },
+      {
+        "name": "Splunk Fundamentals (Splunk Education)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "SOC analyst with 4.5 years triaging and investigating incidents using Splunk and QRadar.",
+    "projects_text": "Built Splunk correlation rules for lateral movement and brute-force detection, reducing false positives by 30%.",
+    "experience_text": "Monitored and triaged alerts, led incident response for phishing and malware cases, and performed vulnerability scans with Nmap. Ran basic web pentests with Burp Suite.",
+    "achievements_text": "Reduced SOC false positives by 30% with new correlation rules.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_38",
+    "candidate_name": "Tanya Bose",
+    "category": "Cybersecurity Analyst",
+    "graduation_year": 2021,
+    "skills": [
+      "penetration testing",
+      "burp suite",
+      "metasploit",
+      "owasp",
+      "network security",
+      "kali linux",
+      "python"
+    ],
+    "work_experience": [
+      {
+        "title": "Penetration Tester",
+        "company": "RedShield",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "OSCP",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Penetration tester with 3 years running web, network and cloud assessments. Limited SIEM experience.",
+    "projects_text": "Delivered 30+ pentest engagements, including an internal network compromise report for a fintech client.",
+    "experience_text": "Performed web and network penetration tests and wrote remediation reports. Built Python tooling to automate reconnaissance. Has not worked in a SOC or tuned SIEM rules.",
+    "achievements_text": "Responsibly disclosed vulnerabilities in two open-source projects.",
+    "publications_text": "Published two public vulnerability advisories (CVE) and a workshop write-up."
+  },
+  {
+    "candidate_id": "cand_39",
+    "candidate_name": "Yusuf Qureshi",
+    "category": "Cybersecurity Analyst",
+    "graduation_year": 2018,
+    "skills": [
+      "network security",
+      "firewalls",
+      "palo alto",
+      "cisco",
+      "vpn",
+      "ids/ips"
+    ],
+    "work_experience": [
+      {
+        "title": "Network Security Engineer",
+        "company": "TeleLink",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "CompTIA Security+",
+        "tier": "assessed"
+      },
+      {
+        "name": "CCNA",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Network security engineer with 6 years managing firewalls and VPNs.",
+    "projects_text": "Migrated a 500-user network to Palo Alto firewalls with segmentation.",
+    "experience_text": "Configured firewalls, IDS/IPS and VPNs. Reviewed firewall logs but has not used a SIEM platform or performed penetration tests.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_40",
+    "candidate_name": "Nandini Rao",
+    "category": "Cybersecurity Analyst",
+    "graduation_year": 2024,
+    "skills": [
+      "network security",
+      "siem",
+      "splunk",
+      "incident response",
+      "wireshark",
+      "nmap"
+    ],
+    "work_experience": [
+      {
+        "title": "SOC Trainee / Junior Analyst",
+        "company": "CyberGuard",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "CEH",
+        "tier": "completion"
+      },
+      {
+        "name": "CompTIA Security+",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Early-career SOC analyst with two years of experience and active home-lab practice.",
+    "projects_text": "Built a home SIEM lab with Splunk and ran simulated attacks to write detections.",
+    "experience_text": "Monitored alerts in Splunk and escalated incidents. Performed basic vulnerability scans. Limited hands-on pentest experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_41",
+    "candidate_name": "Kunal Mishra",
+    "category": "Cybersecurity Analyst",
+    "graduation_year": 2017,
+    "skills": [
+      "java",
+      "javascript",
+      "sql",
+      "spring"
+    ],
+    "work_experience": [
+      {
+        "title": "Software Developer",
+        "company": "CodeBase",
+        "duration_years": 8.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Cybersecurity Fundamentals (Udemy)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Software developer interested in transitioning to security after completing an online course.",
+    "projects_text": "Completed Udemy labs on basic network scanning.",
+    "experience_text": "Eight years of application development. No security operations or pentest experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_42",
+    "candidate_name": "Prakash Iyer",
+    "category": "Cybersecurity Analyst",
+    "graduation_year": 2016,
+    "skills": [
+      "siem",
+      "splunk",
+      "microsoft sentinel",
+      "penetration testing",
+      "burp suite",
+      "network security",
+      "incident response",
+      "python"
+    ],
+    "work_experience": [
+      {
+        "title": "Security Engineer",
+        "company": "FinGuard",
+        "duration_years": 5.0
+      },
+      {
+        "title": "Security Analyst",
+        "company": "FinGuard",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "OSCP",
+        "tier": "assessed"
+      },
+      {
+        "name": "CISSP",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Security engineer with 8 years across detection engineering, incident response and penetration testing.",
+    "projects_text": "Built a Sentinel and Splunk detection library mapped to MITRE ATT&CK and led quarterly internal pentests.",
+    "experience_text": "Led incident response, tuned SIEM detections and ran penetration tests on web and internal networks. Automated triage with Python.",
+    "achievements_text": "Built a detection library covering 60% of relevant MITRE ATT&CK techniques.",
+    "publications_text": "Spoke at a regional security conference on detection engineering."
+  },
+  {
+    "candidate_id": "cand_43",
+    "candidate_name": "Ritika Agarwal",
+    "category": "Associate Product Manager",
+    "graduation_year": 2023,
+    "skills": [
+      "product discovery",
+      "user stories",
+      "roadmapping",
+      "agile",
+      "jira",
+      "sql",
+      "figma",
+      "a/b testing"
+    ],
+    "work_experience": [
+      {
+        "title": "Associate Product Manager",
+        "company": "SaaSly",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Certified Scrum Product Owner (CSPO)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Associate PM with 2 years owning features for a B2B SaaS product. Data-driven and comfortable with customer interviews.",
+    "projects_text": "Led discovery and launch of an in-app onboarding checklist, raising activation by 18% after A/B testing.",
+    "experience_text": "Ran customer interviews, wrote user stories and prioritised the backlog with engineering. Maintained the quarterly roadmap and tracked adoption metrics with SQL.",
+    "achievements_text": "Onboarding checklist lifted activation by 18%.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_44",
+    "candidate_name": "Mohit Bansal",
+    "category": "Associate Product Manager",
+    "graduation_year": 2024,
+    "skills": [
+      "user stories",
+      "jira",
+      "roadmapping",
+      "sql",
+      "agile",
+      "stakeholder management"
+    ],
+    "work_experience": [
+      {
+        "title": "Business Analyst",
+        "company": "FinEdge",
+        "duration_years": 1.2
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Business analyst moving into product, with 1.2 years of requirements and backlog work. Light on customer discovery.",
+    "projects_text": "Wrote PRDs and user stories for a loan-origination workflow rebuild.",
+    "experience_text": "Gathered stakeholder requirements, wrote user stories and acceptance criteria and groomed backlogs in Jira. Supported sprint planning but did not set product strategy.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_45",
+    "candidate_name": "Sana Sheikh",
+    "category": "Associate Product Manager",
+    "graduation_year": 2025,
+    "skills": [
+      "user stories",
+      "agile",
+      "figma",
+      "excel",
+      "market research"
+    ],
+    "work_experience": [
+      {
+        "title": "Product Management Intern",
+        "company": "ShopLoop",
+        "duration_years": 0.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Product Management Certificate (Coursera)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Recent graduate with a PM internship and strong analytical coursework.",
+    "projects_text": "Built a prototype and PRD for a grocery-subscription app as a capstone project.",
+    "experience_text": "Supported a PM with competitor research, wrote user stories and tracked feedback. No ownership of a roadmap or launch.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_46",
+    "candidate_name": "Dev Khanna",
+    "category": "Associate Product Manager",
+    "graduation_year": 2022,
+    "skills": [
+      "user research",
+      "figma",
+      "product discovery",
+      "prototyping",
+      "usability testing",
+      "jira"
+    ],
+    "work_experience": [
+      {
+        "title": "Product Designer",
+        "company": "AppWave",
+        "duration_years": 2.0
+      },
+      {
+        "title": "Associate Product Manager (rotation)",
+        "company": "AppWave",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Product designer with 3 years of research and discovery experience. Wants to move into product management.",
+    "projects_text": "Led a discovery sprint and prototype testing for a payments redesign.",
+    "experience_text": "Ran user interviews and usability tests and translated insights into design specs. In the final year rotated into an associate PM role owning a small backlog, but has not yet owned a full roadmap.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_47",
+    "candidate_name": "Alok Srivastava",
+    "category": "Associate Product Manager",
+    "graduation_year": 2012,
+    "skills": [
+      "product strategy",
+      "roadmapping",
+      "agile",
+      "p&l management",
+      "team leadership",
+      "sql"
+    ],
+    "work_experience": [
+      {
+        "title": "Director of Product",
+        "company": "EnterpriseCloud",
+        "duration_years": 6.0
+      },
+      {
+        "title": "Senior Product Manager",
+        "company": "EnterpriseCloud",
+        "duration_years": 5.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Product leader with 11 years of experience managing multi-product portfolios. Seeking senior roles.",
+    "projects_text": "Led a product line from launch to 40M in annual revenue.",
+    "experience_text": "Set product strategy, managed a team of eight PMs and owned the P&L. Overqualified for an associate-level role.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_48",
+    "candidate_name": "Simran Oberoi",
+    "category": "Associate Product Manager",
+    "graduation_year": 2023,
+    "skills": [
+      "market research",
+      "google analytics",
+      "excel",
+      "jira",
+      "user stories",
+      "sql"
+    ],
+    "work_experience": [
+      {
+        "title": "Marketing Analyst",
+        "company": "BrandWorks",
+        "duration_years": 2.0
+      },
+      {
+        "title": "Product Analyst",
+        "company": "BrandWorks",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Google Analytics Certification",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Career-switcher from marketing analytics to product, with a year as a product analyst.",
+    "projects_text": "Analysed funnel drop-off for a subscription product and proposed three experiments.",
+    "experience_text": "Built dashboards, ran funnel analysis and drafted user stories for the product team. Limited exposure to agile ceremonies and roadmap ownership.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_49",
+    "candidate_name": "Harpreet Gill",
+    "category": "Agile Project / Scrum Master",
+    "graduation_year": 2017,
+    "skills": [
+      "scrum",
+      "jira",
+      "sprint planning",
+      "agile methodologies",
+      "kanban",
+      "safe",
+      "confluence",
+      "facilitation"
+    ],
+    "work_experience": [
+      {
+        "title": "Scrum Master",
+        "company": "InsureCo",
+        "duration_years": 3.0
+      },
+      {
+        "title": "Scrum Master",
+        "company": "RetailOne",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Certified ScrumMaster (CSM)",
+        "tier": "assessed"
+      },
+      {
+        "name": "Professional Scrum Master I (PSM I)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Scrum Master with 5 years supporting multiple teams. Skilled in facilitation and metric-driven improvement.",
+    "projects_text": "Coached three teams through an agile transformation, lifting predictability from 60% to 90% sprint-goal completion.",
+    "experience_text": "Facilitated sprint planning, daily stand-ups, reviews and retrospectives. Tracked velocity and cycle time in Jira, removed impediments and coached product owners.",
+    "achievements_text": "Raised sprint-goal completion from 60% to 90% across three teams.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_50",
+    "candidate_name": "Naveen Prasad",
+    "category": "Agile Project / Scrum Master",
+    "graduation_year": 2019,
+    "skills": [
+      "scrum",
+      "jira",
+      "sprint planning",
+      "agile methodologies",
+      "kanban",
+      "confluence"
+    ],
+    "work_experience": [
+      {
+        "title": "Scrum Master",
+        "company": "PayStream",
+        "duration_years": 3.5
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Scrum Master with 3.5 years on a single product team and strong Jira skills. No formal certification.",
+    "projects_text": "Introduced Jira dashboards and a working-agreement workshop that cut carry-over work by 35%.",
+    "experience_text": "Facilitated all Scrum ceremonies for two teams, managed the backlog process with the product owner and coached the team on estimation.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_51",
+    "candidate_name": "Suresh Menon",
+    "category": "Agile Project / Scrum Master",
+    "graduation_year": 2016,
+    "skills": [
+      "pmp",
+      "ms project",
+      "waterfall",
+      "risk management",
+      "jira",
+      "stakeholder management"
+    ],
+    "work_experience": [
+      {
+        "title": "Project Manager",
+        "company": "InfraBuild IT",
+        "duration_years": 8.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "PMP",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Traditional project manager with 8 years delivering IT projects. Beginning to use agile in hybrid projects.",
+    "projects_text": "Delivered a core-banking upgrade on a waterfall plan with a hybrid sprint approach in the final phase.",
+    "experience_text": "Managed plans, budgets and risks across IT projects. Used Jira for task tracking but has not worked as a Scrum Master.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_52",
+    "candidate_name": "Tarun Bhatia",
+    "category": "Agile Project / Scrum Master",
+    "graduation_year": 2024,
+    "skills": [
+      "scrum",
+      "jira",
+      "agile methodologies"
+    ],
+    "work_experience": [
+      {
+        "title": "Project Coordinator",
+        "company": "BuildTech",
+        "duration_years": 0.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Certified ScrumMaster (CSM)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Recent graduate with a CSM certification and six months as a project coordinator.",
+    "projects_text": "Ran a Scrum simulation for a university project team.",
+    "experience_text": "Coordinated meetings and tracked tasks. Has not facilitated sprints for a production team.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_53",
+    "candidate_name": "Aditi Rao",
+    "category": "Agile Project / Scrum Master",
+    "graduation_year": 2018,
+    "skills": [
+      "scrum",
+      "safe",
+      "jira",
+      "confluence",
+      "sprint planning",
+      "agile methodologies",
+      "coaching",
+      "okrs"
+    ],
+    "work_experience": [
+      {
+        "title": "Release Train Engineer",
+        "company": "TelcoDigital",
+        "duration_years": 3.0
+      },
+      {
+        "title": "Scrum Master",
+        "company": "TelcoDigital",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "SAFe Release Train Engineer (RTE)",
+        "tier": "assessed"
+      },
+      {
+        "name": "Professional Scrum Master II (PSM II)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Agile delivery lead with 6 years of Scrum and SAFe experience, including multi-team program increment planning.",
+    "projects_text": "Ran PI planning for 8 teams and built a Jira Align-based dependency board that reduced late dependencies by 40%.",
+    "experience_text": "Coached teams and product owners, facilitated large-scale planning and drove continuous-improvement initiatives across a 90-person programme.",
+    "achievements_text": "Ran PI planning for 8 teams and cut late dependencies by 40%.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_54",
+    "candidate_name": "Kabir Sethi",
+    "category": "Agile Project / Scrum Master",
+    "graduation_year": 2020,
+    "skills": [
+      "python",
+      "java",
+      "scrum",
+      "jira",
+      "team leadership"
+    ],
+    "work_experience": [
+      {
+        "title": "Software Engineer & Part-time Scrum Master",
+        "company": "AppHouse",
+        "duration_years": 4.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Professional Scrum Master I (PSM I)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Software engineer who informally played Scrum Master for his team and earned PSM I.",
+    "projects_text": "Led sprint ceremonies for a five-person team alongside development work.",
+    "experience_text": "Developed software and facilitated retrospectives and planning on a part-time basis. Has not worked full time as a Scrum Master.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_55",
+    "candidate_name": "Ramesh Choudhary",
+    "category": "Operations Manager",
+    "graduation_year": 2012,
+    "skills": [
+      "process optimization",
+      "supply chain",
+      "vendor management",
+      "lean six sigma",
+      "sap",
+      "budgeting",
+      "team leadership",
+      "kpi"
+    ],
+    "work_experience": [
+      {
+        "title": "Operations Manager",
+        "company": "FMCG Distribution",
+        "duration_years": 6.0
+      },
+      {
+        "title": "Assistant Operations Manager",
+        "company": "FMCG Distribution",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Lean Six Sigma Green Belt",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Operations manager with 9 years leading distribution operations and vendor networks.",
+    "projects_text": "Redesigned warehouse flows and vendor SLAs to reduce order cycle time by 22% and cut logistics cost by 11%.",
+    "experience_text": "Led a team of 40, managed a 3M annual budget, negotiated vendor contracts and tracked operational KPIs in SAP.",
+    "achievements_text": "Cut order cycle time by 22% and logistics cost by 11%.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_56",
+    "candidate_name": "Shalini Kulkarni",
+    "category": "Operations Manager",
+    "graduation_year": 2014,
+    "skills": [
+      "supply chain",
+      "procurement",
+      "vendor management",
+      "erp",
+      "negotiation",
+      "inventory management"
+    ],
+    "work_experience": [
+      {
+        "title": "Supply Chain Manager",
+        "company": "AutoParts Ltd",
+        "duration_years": 7.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "APICS CSCP",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Supply chain manager with 7 years in procurement and vendor management. No formal process-improvement certification.",
+    "projects_text": "Consolidated suppliers across three categories, saving 9% in procurement spend.",
+    "experience_text": "Managed vendor selection and contracts, planned inventory and ran weekly supplier reviews. Led a team of 8.",
+    "achievements_text": "Saved 9% in procurement spend through supplier consolidation.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_57",
+    "candidate_name": "Pankaj Yadav",
+    "category": "Operations Manager",
+    "graduation_year": 2016,
+    "skills": [
+      "store operations",
+      "team management",
+      "inventory management",
+      "kpi",
+      "customer service"
+    ],
+    "work_experience": [
+      {
+        "title": "Assistant Manager Operations",
+        "company": "RetailMart",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Operations manager with 6 years in retail operations. Process work is mostly day to day, with limited supply chain depth.",
+    "projects_text": "Improved store inventory accuracy from 88% to 96% through cycle counts.",
+    "experience_text": "Managed a team of 15, handled scheduling, stock replenishment and local vendor coordination.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_58",
+    "candidate_name": "Ishita Dutta",
+    "category": "Operations Manager",
+    "graduation_year": 2024,
+    "skills": [
+      "excel",
+      "process documentation",
+      "operations",
+      "power bi"
+    ],
+    "work_experience": [
+      {
+        "title": "Operations Trainee",
+        "company": "LogiPrime",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "MBA graduate with a year in operations training. Early-career profile.",
+    "projects_text": "Mapped processes and created a dashboard for dispatch delays during a trainee project.",
+    "experience_text": "Supported daily dispatch tracking and prepared MIS reports. Has not managed people, budgets or vendors.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_59",
+    "candidate_name": "Rajiv Malhotra",
+    "category": "Operations Manager",
+    "graduation_year": 2010,
+    "skills": [
+      "process optimization",
+      "lean",
+      "six sigma",
+      "supply chain",
+      "vendor management",
+      "erp",
+      "budgeting",
+      "team leadership"
+    ],
+    "work_experience": [
+      {
+        "title": "Plant Operations Manager",
+        "company": "Precision Manufacturing",
+        "duration_years": 9.0
+      },
+      {
+        "title": "Production Manager",
+        "company": "Precision Manufacturing",
+        "duration_years": 5.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Six Sigma Black Belt",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Operations leader with 14 years in manufacturing. Specialist in lean transformation and supplier development.",
+    "projects_text": "Led a lean programme that raised OEE from 68% to 82% and reduced scrap by 30%.",
+    "experience_text": "Managed 120 staff and a 12M budget, qualified and managed critical suppliers and drove continuous-improvement projects.",
+    "achievements_text": "Raised OEE from 68% to 82% and cut scrap by 30%.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_60",
+    "candidate_name": "Anita Pillai",
+    "category": "Operations Manager",
+    "graduation_year": 2013,
+    "skills": [
+      "project management",
+      "vendor management",
+      "process improvement",
+      "stakeholder management",
+      "budgeting",
+      "jira"
+    ],
+    "work_experience": [
+      {
+        "title": "IT Service Delivery Manager",
+        "company": "TechServe",
+        "duration_years": 10.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "ITIL 4 Foundation",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "IT service delivery manager with 10 years of vendor management and process improvement experience. No physical supply chain background.",
+    "projects_text": "Streamlined incident-management processes, cutting resolution time by 25%.",
+    "experience_text": "Managed third-party vendors, budgets and a team of 20 in IT services. Experience transfers to operations roles but not to supply chain.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_61",
+    "candidate_name": "Pooja Hegde",
+    "category": "HR / Talent Acquisition Specialist",
+    "graduation_year": 2018,
+    "skills": [
+      "technical recruiting",
+      "sourcing",
+      "boolean search",
+      "screening",
+      "ats",
+      "greenhouse",
+      "linkedin recruiter",
+      "stakeholder management"
+    ],
+    "work_experience": [
+      {
+        "title": "Technical Recruiter",
+        "company": "ProductCo",
+        "duration_years": 3.0
+      },
+      {
+        "title": "Recruiter",
+        "company": "ProductCo",
+        "duration_years": 1.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AIRS Certified Internet Recruiter (CIR)",
+        "tier": "assessed"
+      },
+      {
+        "name": "Talent Sourcing Foundations (LinkedIn Learning)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Technical recruiter with 4.5 years hiring engineers and data roles for product companies.",
+    "projects_text": "Built a sourcing pipeline that cut time-to-hire for backend roles from 52 to 34 days.",
+    "experience_text": "Partnered with engineering managers on role scoping, sourced through LinkedIn Recruiter and GitHub and screened candidates technically. Managed requisitions in Greenhouse.",
+    "achievements_text": "Cut backend time-to-hire from 52 to 34 days; top recruiter of the year.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_62",
+    "candidate_name": "Rohit Jain",
+    "category": "HR / Talent Acquisition Specialist",
+    "graduation_year": 2020,
+    "skills": [
+      "recruiting",
+      "sourcing",
+      "screening",
+      "ats",
+      "workday",
+      "linkedin recruiter",
+      "stakeholder management"
+    ],
+    "work_experience": [
+      {
+        "title": "Talent Acquisition Specialist",
+        "company": "ServicesGlobal",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "LinkedIn Recruiter Essentials (LinkedIn Learning)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Talent acquisition specialist with 3 years of experience across technical and non-technical hiring.",
+    "projects_text": "Hired 60 people across sales, operations and IT within a single year.",
+    "experience_text": "Sourced and screened candidates, coordinated interviews and managed requisitions in Workday. Technical hiring was around a third of the workload.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_63",
+    "candidate_name": "Neelam Thakur",
+    "category": "HR / Talent Acquisition Specialist",
+    "graduation_year": 2022,
+    "skills": [
+      "hris",
+      "onboarding",
+      "employee records",
+      "screening",
+      "excel",
+      "communication"
+    ],
+    "work_experience": [
+      {
+        "title": "HR Executive (Generalist)",
+        "company": "ManuCorp",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "HR Analytics (Coursera)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "HR generalist with 2 years of experience in onboarding and HR systems. Recruiting is a small part of the role.",
+    "projects_text": "Digitised joining formalities by moving them into the HRIS.",
+    "experience_text": "Managed onboarding, maintained employee records in the HRIS and did initial resume screening for walk-in drives.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_64",
+    "candidate_name": "Karan Wadhwa",
+    "category": "HR / Talent Acquisition Specialist",
+    "graduation_year": 2024,
+    "skills": [
+      "screening",
+      "sourcing",
+      "linkedin",
+      "communication"
+    ],
+    "work_experience": [
+      {
+        "title": "Recruitment Intern",
+        "company": "StaffPlus",
+        "duration_years": 0.5
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Recent HR graduate with a six-month recruitment internship.",
+    "projects_text": "Sourced and shortlisted candidates for IT support roles during an internship.",
+    "experience_text": "Scheduled interviews, screened resumes and updated trackers. No experience with technical roles or full-cycle hiring.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_65",
+    "candidate_name": "Mansi Arora",
+    "category": "HR / Talent Acquisition Specialist",
+    "graduation_year": 2017,
+    "skills": [
+      "it recruitment",
+      "sourcing",
+      "boolean search",
+      "screening",
+      "ats",
+      "client management",
+      "linkedin recruiter"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior IT Recruiter",
+        "company": "TalentBridge Staffing",
+        "duration_years": 6.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "IT staffing recruiter with 6 years of agency experience. Fast-paced and sourcing-heavy, with little in-house HR systems exposure.",
+    "projects_text": "Closed 120 IT positions in a year across Java, DevOps and data roles.",
+    "experience_text": "Handled full-cycle hiring for client requisitions, using Boolean search and portals to source. Used agency ATS tools rather than enterprise HR platforms.",
+    "achievements_text": "Closed 120 IT positions in a single year.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_66",
+    "candidate_name": "Deepa Narayanan",
+    "category": "HR / Talent Acquisition Specialist",
+    "graduation_year": 2014,
+    "skills": [
+      "employee relations",
+      "payroll",
+      "hr policy",
+      "performance management",
+      "compliance"
+    ],
+    "work_experience": [
+      {
+        "title": "HR Business Partner",
+        "company": "ManuCorp",
+        "duration_years": 9.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "SHRM-CP",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "HR business partner with 9 years in employee relations and compliance. No recruiting responsibilities.",
+    "projects_text": "Rolled out a performance-management framework for 800 employees.",
+    "experience_text": "Advised business leaders on employee relations, managed payroll compliance and policy updates. Has not been responsible for sourcing or screening candidates.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_67",
+    "candidate_name": "Aditya Menon",
+    "category": "Financial Analyst",
+    "graduation_year": 2020,
+    "skills": [
+      "financial modeling",
+      "excel",
+      "dcf",
+      "valuation",
+      "sql",
+      "power bi",
+      "forecasting"
+    ],
+    "work_experience": [
+      {
+        "title": "FP&A Analyst",
+        "company": "ConsumerBrands Ltd",
+        "duration_years": 4.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "CFA Level II Candidate (passed)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "FP&A analyst with 4 years building forecasting and valuation models for business-unit decisions.",
+    "projects_text": "Built a DCF and sensitivity model to support an acquisition proposal, adopted by the investment committee.",
+    "experience_text": "Owned monthly forecasts and variance analysis, pulled data with SQL and built Power BI dashboards. Prepared valuation models for strategic investments.",
+    "achievements_text": "Valuation model adopted by the investment committee for an acquisition.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_68",
+    "candidate_name": "Kriti Sharma",
+    "category": "Financial Analyst",
+    "graduation_year": 2021,
+    "skills": [
+      "financial modeling",
+      "excel",
+      "dcf",
+      "valuation",
+      "comparable analysis",
+      "bloomberg"
+    ],
+    "work_experience": [
+      {
+        "title": "Equity Research Associate",
+        "company": "Capital Insights",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Equity research associate with 3 years of valuation and modeling experience. Does not use SQL in day-to-day work.",
+    "projects_text": "Covered 12 consumer stocks with DCF and multiples-based models and published quarterly notes.",
+    "experience_text": "Built three-statement models, performed DCF and comps valuation and wrote research reports. Data came from Bloomberg and company filings, with no database work.",
+    "achievements_text": "",
+    "publications_text": "Published quarterly equity research notes on consumer stocks."
+  },
+  {
+    "candidate_id": "cand_69",
+    "candidate_name": "Vishal Rane",
+    "category": "Financial Analyst",
+    "graduation_year": 2022,
+    "skills": [
+      "excel",
+      "budgeting",
+      "variance analysis",
+      "sql",
+      "tally",
+      "reporting"
+    ],
+    "work_experience": [
+      {
+        "title": "Junior Financial Analyst",
+        "company": "TradeLink",
+        "duration_years": 2.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Financial Modeling Course (Udemy)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Junior financial analyst with 2.5 years of budgeting and reporting experience. Limited modeling and valuation work.",
+    "projects_text": "Automated monthly variance reports using Excel and SQL queries.",
+    "experience_text": "Prepared budgets, variance reports and management accounts. Did not build DCF or valuation models.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_70",
+    "candidate_name": "Anushka Gupta",
+    "category": "Financial Analyst",
+    "graduation_year": 2025,
+    "skills": [
+      "excel",
+      "dcf",
+      "financial modeling",
+      "valuation"
+    ],
+    "work_experience": [
+      {
+        "title": "Finance Intern",
+        "company": "InvestCo",
+        "duration_years": 0.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Financial Modeling & Valuation Analyst (FMVA)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Recent graduate with an FMVA certification and a finance internship.",
+    "projects_text": "Built a DCF valuation of a listed retailer as a course project.",
+    "experience_text": "Supported senior analysts with data collection and basic models. Graduated in 2025, outside the target range.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_71",
+    "candidate_name": "Rohan Bhatia",
+    "category": "Financial Analyst",
+    "graduation_year": 2018,
+    "skills": [
+      "financial modeling",
+      "excel",
+      "vba",
+      "dcf",
+      "valuation",
+      "sql",
+      "python",
+      "tableau"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Financial Analyst",
+        "company": "TechGrowth Inc",
+        "duration_years": 3.5
+      },
+      {
+        "title": "Financial Analyst",
+        "company": "TechGrowth Inc",
+        "duration_years": 2.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "CFA Level III Candidate",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Corporate finance analyst with 6 years of modeling and valuation experience. Automates reporting with VBA and Python.",
+    "projects_text": "Created an LBO and DCF toolkit in Excel/VBA that cut model build time by 50%.",
+    "experience_text": "Led budgeting and long-range planning, built valuation models for M&A screens and used SQL and Python for data pipelines.",
+    "achievements_text": "Cut model build time by 50% with an Excel/VBA toolkit.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_72",
+    "candidate_name": "Sunil Kapoor",
+    "category": "Financial Analyst",
+    "graduation_year": 2014,
+    "skills": [
+      "accounting",
+      "audit",
+      "tally",
+      "taxation",
+      "excel",
+      "ifrs"
+    ],
+    "work_experience": [
+      {
+        "title": "Senior Accountant",
+        "company": "AuditCo",
+        "duration_years": 10.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Chartered Accountant (CA)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Chartered accountant with 10 years in audit and accounting. No modeling or valuation experience.",
+    "projects_text": "Led statutory audits for mid-sized manufacturers.",
+    "experience_text": "Performed audits, tax filings and financial reporting. Has not built forecasting or valuation models.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_73",
+    "candidate_name": "Aarushi Kapoor",
+    "category": "Investment Banking Associate",
+    "graduation_year": 2019,
+    "skills": [
+      "m&a",
+      "pitchbooks",
+      "financial statements",
+      "due diligence",
+      "financial modeling",
+      "lbo",
+      "capital iq",
+      "powerpoint"
+    ],
+    "work_experience": [
+      {
+        "title": "Associate",
+        "company": "Meridian Capital",
+        "duration_years": 2.5
+      },
+      {
+        "title": "Analyst",
+        "company": "Meridian Capital",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "CFA Level II Candidate (passed)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Investment banking associate with 5.5 years on cross-border M&A and sell-side mandates.",
+    "projects_text": "Worked on a 450M sell-side process, building the LBO model and managing the data room.",
+    "experience_text": "Prepared pitchbooks and CIMs, built merger and LBO models, ran due diligence workstreams and supervised two analysts.",
+    "achievements_text": "Closed a 450M cross-border sell-side deal.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_74",
+    "candidate_name": "Naman Tandon",
+    "category": "Investment Banking Associate",
+    "graduation_year": 2020,
+    "skills": [
+      "m&a",
+      "pitchbooks",
+      "financial modeling",
+      "financial statements",
+      "powerpoint",
+      "capital iq"
+    ],
+    "work_experience": [
+      {
+        "title": "Investment Banking Analyst",
+        "company": "Harbor Advisors",
+        "duration_years": 3.5
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Investment banking analyst with 3.5 years in mid-market M&A. Has not yet led due-diligence workstreams.",
+    "projects_text": "Built merger models and comps for four closed mid-market deals.",
+    "experience_text": "Produced pitchbooks, valuation analyses and merger models. Supported but did not lead due diligence.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_75",
+    "candidate_name": "Ishaan Chopra",
+    "category": "Investment Banking Associate",
+    "graduation_year": 2018,
+    "skills": [
+      "due diligence",
+      "financial statements",
+      "financial modeling",
+      "quality of earnings",
+      "excel",
+      "valuation"
+    ],
+    "work_experience": [
+      {
+        "title": "Transaction Services Manager",
+        "company": "Big Four Advisory",
+        "duration_years": 5.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "CA",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Transaction services professional with 5 years of financial due diligence for buyers. Little pitchbook or origination experience.",
+    "projects_text": "Led financial due diligence for a 300M technology acquisition.",
+    "experience_text": "Led quality-of-earnings reviews, analysed financial statements and built valuation inputs for deal teams. No pitchbook or client-pitch work.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_76",
+    "candidate_name": "Shruti Nair",
+    "category": "Investment Banking Associate",
+    "graduation_year": 2021,
+    "skills": [
+      "financial statements",
+      "financial modeling",
+      "valuation",
+      "excel",
+      "bloomberg",
+      "equity research"
+    ],
+    "work_experience": [
+      {
+        "title": "Research Analyst",
+        "company": "Alpha Securities",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Equity research analyst with 3 years in valuation and financial analysis. No M&A execution experience.",
+    "projects_text": "Initiated coverage of five industrials stocks with DCF-based target prices.",
+    "experience_text": "Built financial models, analysed statements and wrote research notes. Has not worked on deal execution or pitchbooks.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_77",
+    "candidate_name": "Dhruv Anand",
+    "category": "Investment Banking Associate",
+    "graduation_year": 2024,
+    "skills": [
+      "financial modeling",
+      "excel",
+      "pitchbooks",
+      "powerpoint"
+    ],
+    "work_experience": [
+      {
+        "title": "Investment Banking Intern",
+        "company": "Summit Partners",
+        "duration_years": 0.5
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Recent graduate with a banking internship.",
+    "projects_text": "Prepared a pitch for a student M&A competition.",
+    "experience_text": "Assisted analysts with formatting pitchbooks and data collection during a summer internship. Not yet eligible by experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_78",
+    "candidate_name": "Meenal Joshi",
+    "category": "Investment Banking Associate",
+    "graduation_year": 2014,
+    "skills": [
+      "relationship management",
+      "retail banking",
+      "credit analysis",
+      "sales"
+    ],
+    "work_experience": [
+      {
+        "title": "Relationship Manager",
+        "company": "National Bank",
+        "duration_years": 9.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Relationship manager with 9 years of retail banking experience.",
+    "projects_text": "Grew a 120M book of retail and SME clients.",
+    "experience_text": "Handled client relationships, loan sales and basic credit appraisal. No investment banking or M&A experience.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_79",
+    "candidate_name": "Tanvi Khurana",
+    "category": "Digital Marketing Specialist",
+    "graduation_year": 2020,
+    "skills": [
+      "seo",
+      "sem",
+      "google ads",
+      "meta ads",
+      "google analytics",
+      "ga4",
+      "semrush",
+      "a/b testing"
+    ],
+    "work_experience": [
+      {
+        "title": "Digital Marketing Specialist",
+        "company": "EcomBrand",
+        "duration_years": 3.0
+      },
+      {
+        "title": "Digital Marketing Executive",
+        "company": "EcomBrand",
+        "duration_years": 1.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Google Ads Search Certification",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Digital marketer with 4.5 years running SEO and paid campaigns for e-commerce brands.",
+    "projects_text": "Scaled organic traffic by 120% and cut paid CAC by 28% over 12 months.",
+    "experience_text": "Managed Google and Meta ad budgets of 40k per month, led technical SEO audits and tracked performance in GA4. Ran landing-page A/B tests.",
+    "achievements_text": "Grew organic traffic 120% and cut paid CAC by 28%.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_80",
+    "candidate_name": "Yash Ahuja",
+    "category": "Digital Marketing Specialist",
+    "graduation_year": 2021,
+    "skills": [
+      "google ads",
+      "meta ads",
+      "sem",
+      "ga4",
+      "google analytics",
+      "excel"
+    ],
+    "work_experience": [
+      {
+        "title": "Paid Media Specialist",
+        "company": "AdVantage Agency",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Meta Certified Media Buying Professional",
+        "tier": "assessed"
+      },
+      {
+        "name": "HubSpot Inbound Marketing",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Paid media specialist with 3 years of Google and Meta campaign experience. No SEO background.",
+    "projects_text": "Optimised a lead-gen account, improving ROAS from 2.1 to 3.4.",
+    "experience_text": "Managed paid search and social campaigns for 15 clients and reported weekly performance in GA4 and Excel.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_81",
+    "candidate_name": "Kavita Sinha",
+    "category": "Digital Marketing Specialist",
+    "graduation_year": 2019,
+    "skills": [
+      "seo",
+      "semrush",
+      "content marketing",
+      "ga4",
+      "keyword research",
+      "link building"
+    ],
+    "work_experience": [
+      {
+        "title": "SEO Specialist",
+        "company": "ContentFirst",
+        "duration_years": 5.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "SEO specialist with 5 years of experience in organic growth. No paid media management.",
+    "projects_text": "Grew organic sessions for a SaaS blog from 20k to 140k per month.",
+    "experience_text": "Led keyword strategy, technical audits and link building. Has not managed Google Ads or Meta Ads budgets.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_82",
+    "candidate_name": "Aman Verma",
+    "category": "Digital Marketing Specialist",
+    "graduation_year": 2024,
+    "skills": [
+      "social media marketing",
+      "canva",
+      "meta ads",
+      "content creation"
+    ],
+    "work_experience": [
+      {
+        "title": "Social Media Executive",
+        "company": "LocalBites",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Google Digital Garage Certificate",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Social media executive with two years of experience and basic Meta Ads exposure.",
+    "projects_text": "Managed a restaurant's Instagram, growing followers by 40% with paid boosts.",
+    "experience_text": "Created social content and ran small Meta Ads campaigns. No SEO, Google Ads or structured analytics work.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_83",
+    "candidate_name": "Ira Mehra",
+    "category": "Digital Marketing Specialist",
+    "graduation_year": 2022,
+    "skills": [
+      "seo",
+      "google ads",
+      "meta ads",
+      "sem",
+      "ga4",
+      "sql",
+      "a/b testing",
+      "growth analytics"
+    ],
+    "work_experience": [
+      {
+        "title": "Growth Marketer",
+        "company": "FitApp",
+        "duration_years": 2.5
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Google Analytics Certification",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Growth marketer with 2.5 years running experiments across SEO, paid and lifecycle channels.",
+    "projects_text": "Ran 20+ acquisition experiments that lowered cost per install by 33%.",
+    "experience_text": "Owned the acquisition funnel across SEO and paid channels, wrote SQL for cohort analysis and built GA4 dashboards.",
+    "achievements_text": "Lowered cost per install by 33% through 20+ experiments.",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_84",
+    "candidate_name": "Rajat Bhargava",
+    "category": "Digital Marketing Specialist",
+    "graduation_year": 2013,
+    "skills": [
+      "brand management",
+      "print media",
+      "events",
+      "tv advertising",
+      "agency management"
+    ],
+    "work_experience": [
+      {
+        "title": "Brand Manager",
+        "company": "FMCG Corp",
+        "duration_years": 11.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Brand manager with 11 years in traditional marketing. No hands-on digital performance experience.",
+    "projects_text": "Led a national TV and print campaign for a personal-care brand.",
+    "experience_text": "Managed brand strategy, agency relationships and above-the-line media plans. Not hands-on with digital tools.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_85",
+    "candidate_name": "Sakshi Rawat",
+    "category": "Business Strategy Analyst",
+    "graduation_year": 2023,
+    "skills": [
+      "market research",
+      "competitive analysis",
+      "power bi",
+      "excel",
+      "sql",
+      "powerpoint",
+      "tableau"
+    ],
+    "work_experience": [
+      {
+        "title": "Strategy Analyst",
+        "company": "Insight Consulting",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Microsoft Power BI Data Analyst (PL-300)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Strategy analyst with 2 years in consulting delivering market and competitor studies.",
+    "projects_text": "Built a market-sizing and competitor benchmark for a fintech entering new regions, delivered with a Power BI dashboard.",
+    "experience_text": "Conducted primary and secondary market research, built competitive landscapes and prepared client-ready decks.",
+    "achievements_text": "Market-sizing study used in a client board presentation.",
+    "publications_text": "Co-authored a published industry trends report."
+  },
+  {
+    "candidate_id": "cand_86",
+    "candidate_name": "Kunal Bajaj",
+    "category": "Business Strategy Analyst",
+    "graduation_year": 2024,
+    "skills": [
+      "market research",
+      "competitive analysis",
+      "tableau",
+      "excel",
+      "powerpoint"
+    ],
+    "work_experience": [
+      {
+        "title": "Business Analyst",
+        "company": "RetailCo",
+        "duration_years": 1.2
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Tableau Fundamentals (Coursera)",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Business analyst with 1.2 years in market and competitive analysis. Uses Tableau rather than Power BI.",
+    "projects_text": "Analysed competitor pricing and built a Tableau dashboard for the pricing team.",
+    "experience_text": "Tracked competitors, compiled market reports and presented insights to category managers.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_87",
+    "candidate_name": "Nidhi Saxena",
+    "category": "Business Strategy Analyst",
+    "graduation_year": 2025,
+    "skills": [
+      "market research",
+      "excel",
+      "power bi",
+      "powerpoint"
+    ],
+    "work_experience": [
+      {
+        "title": "Strategy Intern",
+        "company": "Pinnacle Consulting",
+        "duration_years": 1.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Microsoft Power BI Data Analyst (PL-300)",
+        "tier": "assessed"
+      }
+    ],
+    "summary_text": "Recent MBA graduate with a strategy internship and a Power BI certification.",
+    "projects_text": "Conducted a market-entry study as part of an MBA consulting project.",
+    "experience_text": "Supported consultants with secondary research and charts. Limited depth in competitive analysis.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_88",
+    "candidate_name": "Parth Mishra",
+    "category": "Business Strategy Analyst",
+    "graduation_year": 2022,
+    "skills": [
+      "power bi",
+      "sql",
+      "excel",
+      "dashboards",
+      "data analysis"
+    ],
+    "work_experience": [
+      {
+        "title": "Data Analyst",
+        "company": "RetailAnalytics",
+        "duration_years": 3.0
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Microsoft Power BI Data Analyst (PL-300)",
+        "tier": "assessed"
+      },
+      {
+        "name": "SQL for Data Analysis Bootcamp",
+        "tier": "completion"
+      }
+    ],
+    "summary_text": "Data analyst with 3 years of Power BI and SQL experience. Little market or competitive research experience.",
+    "projects_text": "Built sales dashboards in Power BI for 120 stores.",
+    "experience_text": "Wrote SQL, built dashboards and reports for internal stakeholders. Did not conduct market research or strategy work.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_89",
+    "candidate_name": "Divya Krishnan",
+    "category": "Business Strategy Analyst",
+    "graduation_year": 2023,
+    "skills": [
+      "market research",
+      "competitive analysis",
+      "survey design",
+      "excel",
+      "spss",
+      "powerpoint"
+    ],
+    "work_experience": [
+      {
+        "title": "Market Research Executive",
+        "company": "ConsumerInsights",
+        "duration_years": 2.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Market research executive with 2 years of survey and competitor research. No BI tool experience.",
+    "projects_text": "Designed a consumer survey of 2,000 respondents and benchmarked three competitors.",
+    "experience_text": "Ran surveys, analysed data in SPSS and Excel and prepared research decks. Has not built dashboards in Power BI or Tableau.",
+    "achievements_text": "",
+    "publications_text": ""
+  },
+  {
+    "candidate_id": "cand_90",
+    "candidate_name": "Gaurav Sethi",
+    "category": "Business Strategy Analyst",
+    "graduation_year": 2011,
+    "skills": [
+      "corporate strategy",
+      "m&a",
+      "market research",
+      "competitive analysis",
+      "power bi",
+      "leadership"
+    ],
+    "work_experience": [
+      {
+        "title": "Director of Strategy",
+        "company": "GlobalIndustries",
+        "duration_years": 8.0
+      },
+      {
+        "title": "Senior Consultant",
+        "company": "ConsultCo",
+        "duration_years": 4.0
+      }
+    ],
+    "certifications": [],
+    "summary_text": "Strategy director with 12 years of experience, seeking leadership roles.",
+    "projects_text": "Led a market-entry strategy that delivered 60M in new revenue.",
+    "experience_text": "Led a strategy team, ran M&A screening and presented to the board. Overqualified for a junior analyst role.",
+    "achievements_text": "",
+    "publications_text": "Whitepaper on market-entry strategy for industrial firms."
+  }
+]

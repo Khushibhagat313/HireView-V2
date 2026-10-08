@@ -1,0 +1,1254 @@
+{
+  "82d6448282a0a674c26970a49ba6439cffe030f89267b09bb26540aca631eccb": {
+    "query_id": "tech_backend_junior_easy",
+    "jd": {
+      "job_title": "Junior Backend Developer",
+      "required_skills": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "SQL",
+        "Git"
+      ],
+      "preferred_skills": [
+        "Docker",
+        "Redis",
+        "SQLAlchemy"
+      ],
+      "responsibilities": [
+        "Design, build and maintain RESTful APIs using Python and FastAPI",
+        "Write efficient SQL queries and manage PostgreSQL schemas",
+        "Write unit and integration tests and participate in code reviews",
+        "Collaborate with frontend and product teams"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2024,
+        2025,
+        2026
+      ],
+      "hyde_text": "Junior Backend Developer with 1+ year of API development experience in fintech environments. Python, FastAPI, PostgreSQL, SQL, Git, Docker, Redis, SQLAlchemy. Software Engineer at XYZ Fintech (Jan 2025 \u2013 Present): \u2022 Designed and implemented RESTful APIs with FastAPI that handled 50k+ requests/day. \u2022 Optimized PostgreSQL queries, reducing latency by 35%. \u2022 Collaborated with frontend team to integrate API endpoints into React app."
+    },
+    "parse_s": 2.1993011999875307
+  },
+  "fd60cc6c18de7fd7bcf12f9292cc7ebd82a13eecd90250d0912d6f846db4ada0": {
+    "query_id": "tech_backend_junior_medium",
+    "jd": {
+      "job_title": "Early-Career Engineer",
+      "required_skills": [
+        "Python",
+        "asynchronous Python web framework",
+        "relational database querying",
+        "version control"
+      ],
+      "preferred_skills": [
+        "containerisation",
+        "in-memory caching",
+        "object-relational mapper"
+      ],
+      "responsibilities": [
+        "Build HTTP interfaces in Python using a modern asynchronous web framework with automatic OpenAPI documentation",
+        "Model data in a relational database such as Postgres and tune slow queries",
+        "Cover your work with automated tests and take part in peer code reviews"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2024,
+        2025,
+        2026
+      ],
+      "hyde_text": "Seasoned early-career engineer with a strong background in Python async web services and database optimization.\nSkills: Python, FastAPI, PostgreSQL, SQL tuning, unit testing, Git.\nExperience: Software Engineer Intern, PaymentTech (2023-2024) \u2013 \u2022 Developed async REST APIs in FastAPI with OpenAPI docs \u2022 Optimized Postgres queries, reducing latency by 30% \u2022 Implemented unit tests and participated in peer reviews"
+    },
+    "parse_s": 2.226950000040233
+  },
+  "5d8a4880c1c87093dd5a1c688b9032c231c7f80976ace884ba691815ddd0b7f2": {
+    "query_id": "tech_backend_junior_hard",
+    "jd": {
+      "job_title": "Backend Engineer",
+      "required_skills": [
+        "SQL",
+        "database performance tuning",
+        "unit testing",
+        "clean code practices"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Ship production services that other apps depend on",
+        "Debug and fix performance issues such as slow queries",
+        "Translate messy business rules into tidy services",
+        "Write tests and maintain code quality",
+        "Learn unfamiliar tech stacks quickly"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2024,
+        2025,
+        2026
+      ],
+      "hyde_text": "Dynamic backend engineer with 1+ year of experience building production services that power third\u2011party applications. Skills: SQL, relational database optimization, unit testing, rapid stack onboarding, clean code practices. Experience: XYZ Corp \u2013 Backend Engineer (Jan 2025 \u2013 Dec 2025): \u2022 Delivered a high\u2011availability API serving 3\u202fM daily requests. \u2022 Resolved a critical slow\u2011query issue cutting latency by 60%. \u2022 Implemented comprehensive unit tests covering 85% of new features."
+    },
+    "parse_s": 3.0824716000352055
+  },
+  "11c1111649ba3eb371dbfbebf4914864f6df1edada2f50a404ba24e510159795": {
+    "query_id": "tech_fullstack_senior_easy",
+    "jd": {
+      "job_title": "Senior Full Stack Engineer",
+      "required_skills": [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "AWS",
+        "SQL",
+        "NoSQL databases"
+      ],
+      "preferred_skills": [
+        "Terraform",
+        "GraphQL",
+        "Docker",
+        "CI/CD"
+      ],
+      "responsibilities": [
+        "Architect and build features across React frontends and Node.js backends",
+        "Deploy and operate services on AWS (Lambda, RDS, S3, ECS)",
+        "Drive code quality, mentor engineers and lead design reviews"
+      ],
+      "min_years_experience": 5.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Senior Full Stack Engineer with 5+ years of experience building high-traffic web applications. Skills: React, Node.js, TypeScript, AWS, SQL/NoSQL, Terraform, GraphQL, Docker, CI/CD. Experience: Lead Full Stack Engineer at TechCorp (2021\u20112024). \u2022 Designed and launched a multi\u2011tenant SaaS platform with 90% uptime. \u2022 Implemented CI/CD pipelines that cut deployment time by 40%. \u2022 Mentored 4 junior engineers and led design reviews."
+    },
+    "parse_s": 1.8294930001720786
+  },
+  "29cebfc7273090a6a92cf5e11beaa5d570af238cf19d94761065e948a7215f19": {
+    "query_id": "tech_fullstack_senior_medium",
+    "jd": {
+      "job_title": "Lead Delivery Engineer",
+      "required_skills": [
+        "Component-based UI development",
+        "Declarative JavaScript UI library",
+        "Server-side JavaScript runtime",
+        "Statically typed JavaScript",
+        "Public cloud managed services",
+        "Design review",
+        "Mentoring"
+      ],
+      "preferred_skills": [
+        "Infrastructure automation",
+        "API query language",
+        "Containers",
+        "Automated delivery pipelines"
+      ],
+      "responsibilities": [
+        "Design component-based user interfaces with a declarative JavaScript UI library",
+        "Build server-side services on a JavaScript runtime using statically typed JavaScript",
+        "Run them on a public cloud provider's managed compute and database offerings",
+        "Review designs and mentor teammates"
+      ],
+      "min_years_experience": 5.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned web engineer with 7+ years leading end\u2011to\u2011end delivery of customer\u2011facing products using React, TypeScript, Node.js, and AWS.\nSkills: React, TypeScript, Node.js, AWS, Design review, Mentoring, CI/CD, Docker.\nExperience: Senior Frontend Engineer, Acme Corp (2018\u20112024) \u2022 Architected a modular React component library for 10+ teams \u2022 Built and maintained TypeScript/Node.js microservices on AWS Lambda and RDS \u2022 Implemented automated CI/CD pipelines with GitHub Actions and Terraform, cutting deployment time by 60%."
+    },
+    "parse_s": 2.3546905999537557
+  },
+  "576a0417f5dcc7d2f34debb88d4194cea14d56731bb22ee4ad7f5c6d3e6fd9c8": {
+    "query_id": "tech_fullstack_senior_hard",
+    "jd": {
+      "job_title": "Senior Engineer",
+      "required_skills": [],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Lead end-to-end feature development from concept to monitored production release covering interface, services, data, and deployment",
+        "Design and implement interface, services, and data layers",
+        "Deploy and monitor features in production",
+        "Engage in design discussions and steer architecture",
+        "Improve codebase quality and maintainability"
+      ],
+      "min_years_experience": 5.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned software engineer with 5+ years delivering end\u2011to\u2011end production features across front\u2011end, services, data, and deployment, scaling systems and improving code quality. Skills: full\u2011stack development, production deployment, monitoring, system scaling, codebase refactoring. Experience: Senior Software Engineer, XYZ Corp (2018\u20112023)\n\u2022 Designed and launched a real\u2011time analytics platform serving 5M users daily, reducing latency by 40%.\n\u2022 Led cross\u2011functional team to refactor legacy API, improving maintainability and cutting technical debt.\n\u2022 Implemented automated CI/CD pipelines and monitoring dashboards, cutting deployment time by 70%. "
+    },
+    "parse_s": 4.710299199912697
+  },
+  "0a2ac4bb140cebc99b1a76f889a6d8e37234c3c28d9f7844940a157cda40f677": {
+    "query_id": "tech_ml_engineer_mid_easy",
+    "jd": {
+      "job_title": "Data Scientist / ML Engineer",
+      "required_skills": [
+        "Python",
+        "PyTorch",
+        "TensorFlow",
+        "Pandas",
+        "Scikit-Learn",
+        "SQL"
+      ],
+      "preferred_skills": [
+        "MLflow",
+        "Docker",
+        "NLP"
+      ],
+      "responsibilities": [
+        "Develop, train and evaluate ML models with PyTorch or TensorFlow",
+        "Build data and feature pipelines using Pandas and SQL",
+        "Run experiments, A/B tests and monitor models in production"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "A results\u2011driven Data Scientist with 3 years of experience building production ML pipelines for search and personalization. Skills: Python, PyTorch, TensorFlow, Pandas, Scikit\u2011Learn, SQL, MLflow, Docker. Experience: Senior ML Engineer at XYZ Corp (2021\u2011Present) \u2013 Built a scalable recommendation engine with PyTorch; optimized feature pipelines in Pandas; deployed models using Docker and MLflow, cutting inference latency by 30%."
+    },
+    "parse_s": 10.848367700120434
+  },
+  "8b8ad060a357632db3eb1387f65dde8d7c27135564e60b8d242acba191561284": {
+    "query_id": "tech_ml_engineer_mid_medium",
+    "jd": {
+      "job_title": "Machine Learning Engineer",
+      "required_skills": [
+        "Deep Learning Framework",
+        "Tabular Data Manipulation Library",
+        "Classical Machine Learning Toolkit",
+        "SQL"
+      ],
+      "preferred_skills": [
+        "Experiment Tracking",
+        "Containerised Model Serving",
+        "Natural Language Processing"
+      ],
+      "responsibilities": [
+        "Train neural networks with a leading deep learning framework",
+        "Prepare data with tabular data-manipulation libraries and SQL",
+        "Benchmark against classical machine-learning baselines and evaluate through controlled experiments"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned Machine Learning Engineer with 3+ years of experience building ranking and recommendation models, skilled in PyTorch, pandas, scikit-learn, SQL, MLflow, Docker, and NLP.\nSkills: PyTorch, pandas, scikit-learn, SQL, MLflow, Docker, NLP.\nExperience: Senior ML Engineer at XYZ Corp.\n\u2022 Designed and trained neural ranking models achieving 12% lift in CTR.\n\u2022 Developed end\u2011to\u2011end data pipeline using pandas and SQL.\n\u2022 Deployed models with Docker and monitored via MLflow."
+    },
+    "parse_s": 10.954355099936947
+  },
+  "175f0decd42e5129bf46cee67e2f4f75a6566133419e58f8d8f9a9c73500f3b0": {
+    "query_id": "tech_ml_engineer_mid_hard",
+    "jd": {
+      "job_title": "Data Scientist",
+      "required_skills": [
+        "Machine Learning",
+        "Model deployment",
+        "Data analysis"
+      ],
+      "preferred_skills": [
+        "Text ranking",
+        "NLP"
+      ],
+      "responsibilities": [
+        "Analyze customer behavior to identify key predictive opportunities",
+        "Determine what metrics to predict to deliver actionable insights",
+        "Build predictive models that outperform spreadsheet-level solutions",
+        "Deploy models beyond a notebook into production",
+        "Communicate results and persuade stakeholders to act on predictions"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "John Doe is a data scientist with 3+ years of experience in machine learning, model deployment, and NLP ranking. Skills: Python, scikit-learn, PyTorch/TensorFlow, model deployment, NLP, ranking algorithms, data analysis. Experience: Senior Data Scientist at XYZ Corp (2021\u20112023): \u2022 Built and deployed a customer churn prediction model that increased retention by 15%; \u2022 Developed an NLP-based recommendation engine; \u2022 Led cross-functional team to translate models into actionable insights for product managers."
+    },
+    "parse_s": 10.859574599890038
+  },
+  "44f55525121af3e99a5499d3c0caf9195969b2539f65a32243367493c57d6387": {
+    "query_id": "tech_devops_mid_easy",
+    "jd": {
+      "job_title": "DevOps & Cloud Engineer",
+      "required_skills": [
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "CI/CD",
+        "AWS"
+      ],
+      "preferred_skills": [
+        "Helm",
+        "Prometheus/Grafana",
+        "Python",
+        "Bash scripting"
+      ],
+      "responsibilities": [
+        "Build and maintain CI/CD pipelines",
+        "Manage Kubernetes clusters and containerised workloads",
+        "Provision infrastructure with Terraform on AWS",
+        "Improve observability, reliability and cost efficiency"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Senior DevOps & Cloud Engineer with 4+ years of experience building scalable AWS infrastructure.\nSkills: Docker, Kubernetes, Terraform, CI/CD, AWS, Helm, Prometheus, Grafana, Python, Bash.\nExperience: Senior DevOps Engineer at TechCorp (2020-2023).\n- Designed and implemented CI/CD pipelines using Jenkins and GitHub Actions.\n- Managed Kubernetes clusters across AWS EKS, reducing deployment time by 30%.\n- Automated infrastructure provisioning with Terraform and AWS CloudFormation."
+    },
+    "parse_s": 15.145711600081995
+  },
+  "331dff34cf1dbe4c120a9609db7adc345ec82ac5614644ba0deccd99902ec04e": {
+    "query_id": "tech_devops_mid_medium",
+    "jd": {
+      "job_title": "Site Reliability Engineer",
+      "required_skills": [
+        "container orchestration platform",
+        "declarative infrastructure as code",
+        "automated build-and-release pipelines",
+        "Amazon Web Services"
+      ],
+      "preferred_skills": [
+        "package manager for the orchestrator",
+        "metrics dashboards",
+        "scripting"
+      ],
+      "responsibilities": [
+        "Run containerised services on a container orchestration platform",
+        "Define cloud resources through declarative infrastructure-as-code",
+        "Maintain automated build-and-release pipelines on Amazon's cloud"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Accomplished Site Reliability Engineer with 5 years delivering highly available AWS cloud workloads, Kubernetes orchestration, Terraform IaC, and CI/CD pipelines.\nSkills: AWS, Kubernetes, Terraform, CI/CD, Helm, Prometheus, Bash, Python.\nSenior SRE at XYZ Corp (2021\u2011present): \u2022 Managed Kubernetes clusters for 200+ services, reducing deployment time by 30%; \u2022 Implemented Terraform modules to provision AWS resources with <1% drift; \u2022 Built automated GitHub Actions pipelines delivering 24/7 releases."
+    },
+    "parse_s": 13.005071800202131
+  },
+  "549c9e744e2bc9798635e1131f5e6660692fef68cadff2144feec0a2a8cf68da": {
+    "query_id": "tech_devops_mid_hard",
+    "jd": {
+      "job_title": "Site Reliability Engineer",
+      "required_skills": [
+        "Infrastructure as Code",
+        "Cloud automation",
+        "Reliability measurement"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Manage production environment",
+        "Make releases reproducible",
+        "Treat servers as disposable",
+        "Write cloud infrastructure as code",
+        "Measure reliability",
+        "Explain trade-offs"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Accomplished Site Reliability Engineer with over 5 years of managing production workloads and automating cloud infrastructure to achieve zero-downtime deployments. Skills: Infrastructure as Code (Terraform, Pulumi), Cloud platforms (AWS, GCP), CI/CD pipelines, Reliability monitoring (Prometheus, Grafana), Container orchestration (Kubernetes). Experience: Senior SRE at XYZ Corp \u2013 \u2022 Designed and deployed IaC for 100+ instances, reducing provisioning time by 70%; \u2022 Implemented automated reliability dashboards; \u2022 Led incident post-mortems improving MTTR from 3h to 30m."
+    },
+    "parse_s": 12.501446099951863
+  },
+  "95daf4ad9cdea8a90029b86d0a64c063f773d1282c2a1cb52ed434616d04756b": {
+    "query_id": "tech_mobile_mid_easy",
+    "jd": {
+      "job_title": "Mobile Developer",
+      "required_skills": [
+        "Flutter",
+        "Dart",
+        "REST APIs",
+        "state management (BLoC/Provider/Riverpod)",
+        "Git"
+      ],
+      "preferred_skills": [
+        "Firebase",
+        "CI/CD for mobile",
+        "native Android or iOS experience"
+      ],
+      "responsibilities": [
+        "Build Flutter features with clean state management",
+        "Integrate REST APIs and handle offline behaviour",
+        "Own app releases to the Play Store and App Store"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Senior Mobile Developer with 3+ years of experience building cross\u2011platform Flutter apps, skilled in Dart, REST API integration, and state management, and a proven record of publishing to both Google Play and Apple App Store.\nSkills: Flutter, Dart, REST APIs, BLoC/Provider/Riverpod, Git, Firebase, CI/CD.\nExperience: XYZ Corp \u2013 Lead Mobile Engineer (Jan 2022 \u2013 Present) \u2013 Developed end\u2011to\u2011end Flutter features; integrated offline data sync with REST APIs; managed continuous deployment pipeline and app store releases."
+    },
+    "parse_s": 13.498685699887574
+  },
+  "7cb5c727c02d2aff3f1042a5fb8d1e84d6a69d75cdcae82bd53574e6dd124f2a": {
+    "query_id": "tech_mobile_mid_medium",
+    "jd": {
+      "job_title": "Mobile App Developer",
+      "required_skills": [
+        "Google's cross-platform UI toolkit",
+        "Dart",
+        "HTTP web service integration",
+        "reactive state management",
+        "source control",
+        "store release handling"
+      ],
+      "preferred_skills": [
+        "mobile backend-as-a-service",
+        "mobile release automation",
+        "native platform integration"
+      ],
+      "responsibilities": [
+        "Develop screens with Google's UI toolkit and its Dart language",
+        "Manage app state with a reactive pattern and consume backend web services over HTTP",
+        "Handle store releases"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned Mobile App Developer with 3+ years building cross\u2011platform apps using Flutter and Dart, delivering high\u2011quality releases to Apple and Google stores. Skills: Flutter, Dart, HTTP integration, reactive state management, Git, CI/CD, iOS & Android releases. Experience: Lead Mobile Developer at XYZ Corp (2021\u2011Present) \u2013 \u2022 Built and shipped a consumer app for iOS and Android using Flutter \u2022 Integrated RESTful APIs and managed state with Riverpod \u2022 Automated App Store and Google Play deployments via Fastlane."
+    },
+    "parse_s": 9.937535400036722
+  },
+  "48a84daa2964a50d1df1335de47c9f6962c23f1df9930fbcc440ae1b5f490a05": {
+    "query_id": "tech_mobile_mid_hard",
+    "jd": {
+      "job_title": "Mobile App Engineer",
+      "required_skills": [
+        "mobile app development",
+        "UI performance",
+        "offline data handling",
+        "app store publishing",
+        "release management"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Take features from design files to production",
+        "Collaborate with designers and backend engineers",
+        "Manage app release process",
+        "Ensure smooth scrolling and offline behavior"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned mobile app engineer with 3+ years delivering high-performance iOS/Android apps, adept at UI optimization and offline data strategies.\n\nSkills: iOS/Android, Swift/Kotlin, UI performance, offline caching, App Store/Play Store release, cross-functional collaboration.\n\nExperience: Senior Mobile Developer at XYZ Corp (2021-2023): \u2022 Led end-to-end delivery of 5 major app releases, reducing crash rate by 30%; \u2022 Implemented offline data sync using Realm, improving user retention by 15%; \u2022 Managed release pipeline, coordinating with designers and backend teams."
+    },
+    "parse_s": 10.248951300047338
+  },
+  "0acbd08023b79512b2ba82c0fdc94b293fa54516ad6be257d19f3997843d6702": {
+    "query_id": "tech_qa_automation_mid_easy",
+    "jd": {
+      "job_title": "Automation Engineer",
+      "required_skills": [
+        "Selenium",
+        "Cypress",
+        "Python",
+        "test automation",
+        "CI"
+      ],
+      "preferred_skills": [
+        "pytest",
+        "API testing",
+        "Jenkins/GitHub Actions"
+      ],
+      "responsibilities": [
+        "Build and maintain UI and API automation frameworks",
+        "Integrate tests into CI pipelines and triage failures",
+        "Partner with developers to improve testability"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Automation Engineer with 3+ years experience delivering scalable UI and API tests for complex web applications.\nSkills: Selenium, Cypress, Python, pytest, API testing, CI/CD (Jenkins, GitHub Actions).\nSenior Test Automation Engineer at Tech Solutions, 2021-2023:\n- Developed reusable Selenium framework increasing test coverage by 30%;\n- Implemented CI pipeline with Jenkins integrating automated tests;\n- Collaborated with developers to refactor code for testability."
+    },
+    "parse_s": 10.530100000090897
+  },
+  "c6787dedb5ad258d660a4c39d94b23bd7982f9062f3f98c122fbfcd778daf678": {
+    "query_id": "tech_qa_automation_mid_medium",
+    "jd": {
+      "job_title": "Test Automation Engineer",
+      "required_skills": [
+        "WebDriver",
+        "JavaScript browser testing framework",
+        "Python scripting",
+        "automated regression testing"
+      ],
+      "preferred_skills": [
+        "Python test runner",
+        "HTTP service testing",
+        "CI servers"
+      ],
+      "responsibilities": [
+        "Write browser-driven tests using a WebDriver-based tool and a modern JavaScript browser-testing framework",
+        "Build a Python-based test harness and wire suites into continuous integration",
+        "Analyse failures and keep the suite reliable"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned Test Automation Engineer with 3+ years building end\u2011to\u2011end browser tests, Python harnesses, and CI integration.\nSkills: WebDriver, JavaScript Testing Framework (e.g., Cypress, Playwright), Python, CI/CD, HTTP Service Testing.\nSenior Automation Engineer, XYZ Corp (2022-2024)\n- Designed and executed 150+ end\u2011to\u2011end browser tests using WebDriver and Cypress.\n- Built a Python\u2011based test harness, integrated into Jenkins for nightly regression runs.\n- Analyzed failures, reduced flaky tests by 35%, and maintained test reliability."
+    },
+    "parse_s": 4.193921800004318
+  },
+  "24a771c7b116c18c231e0f10dd692cff7f7fe3bbb17ca6e3388ccbd27634a8d5": {
+    "query_id": "tech_qa_automation_mid_hard",
+    "jd": {
+      "job_title": "Release Engineer",
+      "required_skills": [],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Identify potential failure points in deployment",
+        "Automate repetitive manual checks",
+        "Maintain reliability of automated checks",
+        "Collaborate directly with developers",
+        "Ensure quality visibility and cost-efficiency"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned Automation Engineer with 3+ years of experience scaling automated test suites for weekly releases. Skills: Test automation, continuous integration, scripting (Python/Bash), flaky test mitigation, collaboration with devs. Experience: Automation Lead at XYZ Corp \u2013 led migration of 200+ manual smoke tests to CI, reduced test run time by 60%, implemented monitoring to flag flaky tests.\n- Migrated 200+ manual smoke tests to CI pipeline, cutting deployment validation time by 60%\n- Developed flaky test detection and auto-remediation framework, raising overall test reliability by 95%\n- Collaborated with devs to embed quality gates in PR reviews, ensuring early detection of regressions"
+    },
+    "parse_s": 14.694482000079006
+  },
+  "1f9ae95134a8e435d9f4200302a1dc26ade6cd9c81629c085e0e6bd7be2bd5d8": {
+    "query_id": "tech_cybersecurity_mid_easy",
+    "jd": {
+      "job_title": "Cybersecurity Analyst",
+      "required_skills": [
+        "Network security",
+        "SIEM",
+        "penetration testing",
+        "incident response"
+      ],
+      "preferred_skills": [
+        "Splunk",
+        "Burp Suite",
+        "Python",
+        "OSCP/CEH/Security+"
+      ],
+      "responsibilities": [
+        "Monitor and investigate alerts in our SIEM and lead incident response",
+        "Perform vulnerability assessments and penetration tests",
+        "Maintain network security controls and write detection rules"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned cybersecurity analyst with 3+ years of experience in threat detection, vulnerability assessment, and incident response. Skills: Network security, SIEM, penetration testing, incident response, Splunk, Burp Suite, Python.\nSenior Security Analyst at XYZ Corp (2022\u20112024): \u2022 Led SIEM monitoring and incident response, reducing MTTR by 30%; \u2022 Conducted weekly penetration tests and vulnerability assessments on enterprise networks; \u2022 Developed custom detection rules in Splunk to capture novel threats."
+    },
+    "parse_s": 16.646251700120047
+  },
+  "74051857b118b010695ff179ca2790b793811951b41c26ebedc60cb96bffeaa6": {
+    "query_id": "tech_cybersecurity_mid_medium",
+    "jd": {
+      "job_title": "Security Analyst",
+      "required_skills": [
+        "security event correlation platform",
+        "incident handling and containment",
+        "network defence hardening",
+        "authorised attack simulation"
+      ],
+      "preferred_skills": [
+        "commercial log analytics products",
+        "intercepting-proxy testing tool",
+        "Python automation",
+        "offensive-security certification"
+      ],
+      "responsibilities": [
+        "Investigate alerts in a security event log-correlation platform",
+        "Lead containment of confirmed incidents",
+        "Harden perimeter and internal network defences",
+        "Run authorised attack simulations against our applications and networks"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned cybersecurity professional with 3+ years of incident response, log analysis, and network hardening experience. Skills: Security Event Correlation, Incident Response, Network Hardening, Attack Simulation, Python Scripting, Log Analytics. Experience: Senior Security Analyst, XYZ Corp (2021-2023) - Led containment of 25+ incidents, reducing average resolution time by 40%. - Implemented perimeter hardening measures, decreasing external vulnerability surface by 35%. - Conducted authorised attack simulations, identifying 15 critical weaknesses and remediation paths."
+    },
+    "parse_s": 9.46841729991138
+  },
+  "c8fa91c7cabdebe525fd9d53a5113abde8ee6e2474d6c87b9287b399977a7569": {
+    "query_id": "tech_cybersecurity_mid_hard",
+    "jd": {
+      "job_title": "Security Analyst",
+      "required_skills": [],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Analyze evidence to differentiate benign anomalies from intrusions",
+        "Respond quickly to confirmed incidents",
+        "Conduct proactive threat hunting by simulating attacker techniques"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned Security Analyst with 3 years of incident response and threat hunting expertise. Skills: threat hunting, incident response, log analysis, attacker mindset, rapid decision-making. Experience: CyberSec Solutions, Incident Response Team \u2013 Spearheaded detection of 10+ intrusion attempts; reduced mean time to containment by 30%; conducted simulated attacker drills to uncover 5 critical system vulnerabilities."
+    },
+    "parse_s": 16.439220699947327
+  },
+  "534766ba47cdaa6306d62c420f3d7f70a73fe7fdc8ac8505d81ef08a7103ec1b": {
+    "query_id": "mgmt_apm_junior_easy",
+    "jd": {
+      "job_title": "Associate Product Manager",
+      "required_skills": [
+        "Product discovery",
+        "User stories",
+        "Roadmapping",
+        "Agile",
+        "Jira"
+      ],
+      "preferred_skills": [
+        "SQL",
+        "A/B testing",
+        "Figma"
+      ],
+      "responsibilities": [
+        "Conduct product discovery through customer interviews and data analysis",
+        "Write clear user stories and acceptance criteria",
+        "Maintain the product roadmap and prioritise the backlog in agile sprints",
+        "Define and track success metrics"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "hyde_text": "Seasoned Associate Product Manager with 2+ years of B2B SaaS product ownership, adept at discovery, roadmap, and metrics.\n\nSkills: Product discovery \u2022 User stories \u2022 Roadmapping \u2022 Agile (Jira) \u2022 SQL \u2022 A/B testing \u2022 Figma\n\nJob Experience:\n\u2022 Associate Product Manager at XYZ Corp (2023\u20112025)\n  \u2013 Conducted customer interviews to uncover unmet needs\n  \u2013 Prioritized backlog and delivered 4 releases\n  \u2013 Analyzed metrics to drive feature adoption"
+    },
+    "parse_s": 14.35476929997094
+  },
+  "5b0ba354bc979823dba248883ef4039bdef0b2296957558661b2d0f3dac58493": {
+    "query_id": "mgmt_apm_junior_medium",
+    "jd": {
+      "job_title": "Product Manager",
+      "required_skills": [
+        "Customer Problem Discovery",
+        "User Story Writing",
+        "Release Planning",
+        "Iterative Delivery",
+        "Issue Tracking"
+      ],
+      "preferred_skills": [
+        "Data Querying",
+        "Controlled Experimentation",
+        "Design Tools"
+      ],
+      "responsibilities": [
+        "Talk to customers to uncover problems worth solving",
+        "Turn findings into user-focused requirements with clear acceptance conditions",
+        "Maintain current release plan for upcoming releases",
+        "Prioritize work with engineers in iterative cycles using an issue tracker"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "hyde_text": "Seasoned product manager with a proven track record in customer discovery, user-centric requirement writing, and iterative release planning for subscription software. Skills: Customer Discovery, User Story Writing, Release Planning, Iterative Delivery, Issue Tracking, Product Analysis. Senior Product Analyst at XYZ Corp (2021-2023): \u2022 Conducted customer interviews to uncover pain points. \u2022 Translated findings into clear user stories with acceptance criteria. \u2022 Prioritized backlog with engineering team, driving two-month release cycle."
+    },
+    "parse_s": 5.092358499998227
+  },
+  "9eefed1043805f506176b4d73e2aa3d874d6e45ddf663a0359054a83fdc68aef": {
+    "query_id": "mgmt_apm_junior_hard",
+    "jd": {
+      "job_title": "Product Manager",
+      "required_skills": [
+        "Prioritization of competing demands",
+        "Experience in design, analysis, or marketing",
+        "Customer insight and product strategy",
+        "Stakeholder alignment"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Decide what the team builds next",
+        "Understand what customers need rather than what they ask for",
+        "Keep engineers and stakeholders aligned",
+        "Learn to say no to good ideas"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "hyde_text": "Results\u2011driven Product Manager with 1+ year of experience bridging design, analytics, and marketing to deliver customer\u2011focused solutions. Skills: product strategy, stakeholder management, prioritization, cross\u2011functional leadership, customer insight. Product Coordinator at XYZ Corp \u2013 led market research, prioritized feature backlog, and coordinated agile teams: \u2022 Conducted user interviews to uncover unmet needs; \u2022 Managed product roadmap and prioritized features; \u2022 Facilitated cross\u2011team ceremonies between design, engineering, and marketing."
+    },
+    "parse_s": 13.405323600163683
+  },
+  "07d248a91001c9913bd316c73da123faf26c3d1b656fa99b2493ff557c34b7d6": {
+    "query_id": "mgmt_scrum_master_mid_easy",
+    "jd": {
+      "job_title": "Scrum Master",
+      "required_skills": [
+        "Scrum",
+        "Jira",
+        "sprint planning",
+        "agile methodologies",
+        "facilitation"
+      ],
+      "preferred_skills": [
+        "Kanban",
+        "SAFe",
+        "Confluence",
+        "CSM",
+        "PSM certification"
+      ],
+      "responsibilities": [
+        "Facilitate sprint planning, daily stand-ups, reviews and retrospectives",
+        "Manage the backlog process and Jira workflows with product owners",
+        "Remove impediments and track team metrics such as velocity and cycle time",
+        "Coach teams and stakeholders on agile practices"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "A seasoned Scrum Master with 5+ years in agile delivery, adept at facilitating ceremonies, managing Jira workflows, and improving team velocity. Skills: Scrum, Jira, sprint planning, agile coaching, facilitation, SAFe, Kanban, Confluence, CSM. Experience: Scrum Master, XYZ Corp, 2018-2023 \u2013 Led 3 cross-functional teams, facilitated sprint ceremonies, optimized backlog grooming, and improved cycle time by 25%."
+    },
+    "parse_s": 10.070455399807543
+  },
+  "102a01d268760a21b1a66442f7f5987f79ef4efc5e7560c20e39da0cf02caac6": {
+    "query_id": "mgmt_scrum_master_mid_medium",
+    "jd": {
+      "job_title": "Scrum Master",
+      "required_skills": [
+        "iterative framework ceremonies",
+        "team tracking tool",
+        "iteration planning",
+        "agile practices",
+        "team facilitation"
+      ],
+      "preferred_skills": [
+        "pull-based flow methods",
+        "scaled agile framework",
+        "team wiki",
+        "agile facilitation certification"
+      ],
+      "responsibilities": [
+        "Run the team rituals of the iterative framework: iteration planning, daily syncs, demos and retrospectives",
+        "Keep work visible in a team tracking tool and report flow metrics",
+        "Remove blockers and coach product owners"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Accomplished Agile Coach with 4+ years of facilitating Scrum teams across multiple product lines. Skills: Scrum, Kanban, Jira, Retrospective facilitation, Stakeholder management, Coaching. Experience: Senior Scrum Master, ABC Tech, 2020\u20112023 \u2013 Spearheaded agile ceremonies, monitored metrics, removed blockers to reduce cycle time by 25%."
+    },
+    "parse_s": 15.660054200096056
+  },
+  "fd78ecbb9537c6f6c8d32e3185b49629137b07c3b4c509ee152ebd3e50f05372": {
+    "query_id": "mgmt_scrum_master_mid_hard",
+    "jd": {
+      "job_title": "Agile Coach",
+      "required_skills": [
+        "Coaching",
+        "Facilitation",
+        "Process Improvement"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Facilitate honest communication among cross\u2011functional teams",
+        "Help teams shape their way of working",
+        "Identify and address bottlenecks",
+        "Empower teams to become more independent"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Accomplished Agile Coach with 5+ years transforming cross\u2011functional teams. Skills: Coaching, Facilitation, Process Improvement, Stakeholder Engagement. Experience: Agile Coach, XYZ Corp (2018\u2011Present): \u2022 Spearheaded workshops that increased sprint velocity by 30%. \u2022 Diagnosed bottlenecks and implemented streamlined workflows. \u2022 Empowered teams to self\u2011organize, reducing dependency on senior staff."
+    },
+    "parse_s": 7.874780000187457
+  },
+  "a416e134b9b537c805db3eb766a64ec5f2ec741d79e5b1f7343627548bb985ea": {
+    "query_id": "mgmt_operations_senior_easy",
+    "jd": {
+      "job_title": "Operations Manager",
+      "required_skills": [
+        "Process optimisation",
+        "Supply chain",
+        "Vendor management",
+        "Budgeting",
+        "Team leadership"
+      ],
+      "preferred_skills": [
+        "Lean Six Sigma",
+        "SAP or ERP systems",
+        "KPI management"
+      ],
+      "responsibilities": [
+        "Optimise end-to-end processes to reduce cost and cycle time",
+        "Manage supply chain planning, inventory and logistics partners",
+        "Negotiate and manage vendor contracts and service levels",
+        "Lead a team of 30+ and own the operating budget"
+      ],
+      "min_years_experience": 6.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Dynamic operations leader with 6+ years of experience driving supply chain excellence and cost reductions. Skills: Process optimisation, vendor management, budgeting, team leadership, Lean Six Sigma, SAP/ERP, KPI management. Experience: Operations Manager at XYZ Corp \u2013 led a 30+ member team to streamline inventory processes, cut cycle time by 25%, and negotiated multi\u2011year vendor contracts saving $2M annually."
+    },
+    "parse_s": 15.710654100170359
+  },
+  "f2de98c6e382a8eca2191373a5f00091c97ede810812faca3c6f02b33b109a76": {
+    "query_id": "mgmt_operations_senior_medium",
+    "jd": {
+      "job_title": "Distribution and Fulfilment Network Lead",
+      "required_skills": [
+        "end-to-end workflow streamlining",
+        "procurement and inventory planning",
+        "supplier agreement negotiation",
+        "budget ownership",
+        "people management"
+      ],
+      "preferred_skills": [
+        "continuous-improvement methodology certification",
+        "enterprise resource planning software",
+        "performance-indicator management"
+      ],
+      "responsibilities": [
+        "Streamline end-to-end workflows to lower cost and shorten lead times",
+        "Oversee procurement, inventory and carrier partners",
+        "Negotiate supplier agreements and service levels",
+        "Own the operating budget and manage a team of 30+"
+      ],
+      "min_years_experience": 6.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Dynamic distribution network leader with 7+ years of procurement, inventory, and supplier negotiation experience, leading cross\u2011functional teams and driving cost efficiencies. Skills: end\u2011to\u2011end workflow streamlining, procurement & inventory planning, supplier contract negotiation, budget management, people leadership, continuous improvement, ERP systems. Experience: Distribution Operations Manager at XYZ Corp (2019\u2013Present) \u2013 \u2022 Reduced lead times by 15% through process redesign; \u2022 Negotiated supplier contracts saving $2M annually; \u2022 Managed a 35\u2011member team and $50M budget."
+    },
+    "parse_s": 6.309232900151983
+  },
+  "430c8aa795e2cbefdce14dd76df4694840f9834d66426e968fa9d989d967d26b": {
+    "query_id": "mgmt_operations_senior_hard",
+    "jd": {
+      "job_title": "Operations Manager",
+      "required_skills": [
+        "operations management",
+        "team leadership",
+        "budgeting",
+        "process improvement",
+        "supplier management",
+        "floor operations"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "run a large team",
+        "manage a real budget",
+        "oversee a network of outside partners",
+        "walk the floor to identify inefficiencies",
+        "implement process improvements",
+        "maintain supplier honesty"
+      ],
+      "min_years_experience": 6.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned Operations Manager with 8+ years driving scalable process improvements and cost reductions in fast\u2011growing manufacturing environments.\nSkills: Operations Management, Team Leadership, Budgeting, Process Improvement, Supplier Management, Lean Six Sigma, Data\u2011Driven Decision Making.\nExperience: Operations Manager, XYZ Manufacturing \u2013 Lead a 50\u2011person team; reduced operating costs by 15% YoY through cross\u2011functional redesign; negotiated supplier contracts saving $1M annually; implemented KPI dashboard for continuous improvement."
+    },
+    "parse_s": 14.30552910012193
+  },
+  "a7644182f4508774acecf4a82f2a8a77add1793e6f2ffee86fdd0a4151ddc9c6": {
+    "query_id": "mgmt_talent_acquisition_mid_easy",
+    "jd": {
+      "job_title": "Talent Acquisition Specialist",
+      "required_skills": [
+        "Technical recruiting",
+        "sourcing",
+        "screening",
+        "ATS",
+        "stakeholder management"
+      ],
+      "preferred_skills": [
+        "LinkedIn Recruiter",
+        "Boolean search",
+        "Workday/Greenhouse",
+        "employer branding"
+      ],
+      "responsibilities": [
+        "Partner with hiring managers to scope roles and plan sourcing",
+        "Source candidates through LinkedIn, Boolean search and referrals",
+        "Screen candidates technically and manage the pipeline in our ATS",
+        "Improve time-to-hire and candidate experience"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Dynamic Talent Acquisition Specialist with 3+ years of technical recruiting across engineering, data, and product domains. Skills: Technical recruiting, sourcing, Boolean search, ATS management, stakeholder collaboration, employer branding, LinkedIn Recruiter. Experience: Senior Talent Acquisition Partner, ABC Corp (2021\u2013Present) \u2022 Designed and executed sourcing strategies for software engineers, data scientists, and product managers, boosting qualified applicant pool by 30%. \u2022 Streamlined interview workflows, reducing time\u2011to\u2011fill by 20%. \u2022 Built a passive candidate pipeline of 500+ candidates through employer branding initiatives."
+    },
+    "parse_s": 9.81390199996531
+  },
+  "86f7834ab3933b05927d27f7058c19b04d9cf6805f56c550057a5d4d3c14d391": {
+    "query_id": "mgmt_talent_acquisition_mid_medium",
+    "jd": {
+      "job_title": "Technical Recruiter",
+      "required_skills": [
+        "consulting hiring managers",
+        "passive candidate search",
+        "technical first-round screening",
+        "applicant tracking system"
+      ],
+      "preferred_skills": [
+        "enterprise HR platform",
+        "employer-brand work",
+        "premium recruiter licence"
+      ],
+      "responsibilities": [
+        "Consult with hiring managers on role definition",
+        "Find passive candidates using advanced search strings and professional networks",
+        "Run first-round technical conversations",
+        "Manage candidate flow in an applicant tracking system"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Dynamic technical recruiter with 3+ years of experience sourcing engineering talent. Skills: Technical recruiting, passive candidate sourcing, ATS management, hiring manager consulting, enterprise HR platform, premium recruiter license. Senior Technical Recruiter, XYZ Solutions (2021-2026) \u2013 \u2022 Source and screen engineering roles using advanced search and professional networks. \u2022 Conduct first\u2011round technical interviews and assess cultural fit. \u2022 Drive end\u2011to\u2011end hiring process, ensuring a smooth candidate experience."
+    },
+    "parse_s": 8.999617399880663
+  },
+  "aa550e5da85afe7e96ae29fef74e5435dce2a28e61c52cd2288bb4016942ee58": {
+    "query_id": "mgmt_talent_acquisition_mid_hard",
+    "jd": {
+      "job_title": "Technical Recruiter",
+      "required_skills": [],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Find high-quality, hidden engineering talent",
+        "Assess candidate fit quickly and accurately",
+        "Ensure a pleasant candidate experience that leads to acceptance",
+        "Collaborate with busy engineering managers to clarify role needs",
+        "Hire for technical teams"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Senior Technical Recruiter with 5 years of experience sourcing and hiring high-impact engineering talent. Skills: Talent sourcing, candidate assessment, technical recruiting, stakeholder management, communication. Job Experience: Senior Recruiter at XYZ Corp, 2019-2023. - Sourced and placed 120+ software engineers, improving time-to-hire by 30%. - Collaborated with engineering leads to define role requirements and build interview frameworks. - Implemented a candidate experience program that increased offer acceptance rate by 25%."
+    },
+    "parse_s": 15.860404200153425
+  },
+  "0819d6c14ebc4c1e2b18d00e3b3b20eedd32d4f5296aa70fb1a3ad55f9ebc95d": {
+    "query_id": "fin_financial_analyst_mid_easy",
+    "jd": {
+      "job_title": "Financial Analyst",
+      "required_skills": [
+        "Financial modeling",
+        "Excel",
+        "DCF",
+        "valuation",
+        "SQL"
+      ],
+      "preferred_skills": [
+        "Power BI",
+        "Tableau",
+        "VBA",
+        "Python",
+        "CFA progress"
+      ],
+      "responsibilities": [
+        "Build and maintain financial models, forecasts and budgets",
+        "Perform DCF and comparable valuation for investments and acquisitions",
+        "Pull and analyse data with SQL and communicate insights to leadership"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned financial analyst with 2+ years of FP&A expertise, adept at building dynamic models and executing valuation analyses. Skills: Financial modeling, Excel, DCF, valuation, SQL, Power BI. Experience: Financial Analyst at XYZ Corp (2022-2024) \u2022 Developed comprehensive budget models reducing variance by 15% \u2022 Conducted DCF and comparable valuations for $200M acquisition opportunities \u2022 Generated SQL-driven dashboards informing senior leadership decisions."
+    },
+    "parse_s": 17.007837899960577
+  },
+  "fbec1321f94fa856a95a41f258a90d2d2172d669e5bb731af1b17684174fc581": {
+    "query_id": "fin_financial_analyst_mid_medium",
+    "jd": {
+      "job_title": "Financial Analyst",
+      "required_skills": [
+        "Spreadsheet projection modeling",
+        "Discounted Cash Flow (DCF) analysis",
+        "Business valuation",
+        "Database querying"
+      ],
+      "preferred_skills": [
+        "Dashboard tools",
+        "Spreadsheet macros",
+        "Scripting",
+        "Chartered analyst progress"
+      ],
+      "responsibilities": [
+        "Build spreadsheet-based projections and forecasts",
+        "Value businesses using discounted cash flow and market multiples",
+        "Query company databases and explain results to executives"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Results-driven financial analyst with 2+ years of FP&A experience specializing in DCF valuation, spreadsheet modeling, and database analysis.\nSkills: Spreadsheet modeling, DCF analysis, Business valuation, SQL/database querying, Excel.\nExperience: Financial Analyst at XYZ Corp (2019\u20132021) \u2013 Built quarterly projections, performed DCF valuations, presented insights to senior executives."
+    },
+    "parse_s": 8.23765160003677
+  },
+  "aa1905d646f6ef847c4769354c5db703ff9a669cfc013dbbac0bf6bfc043900b": {
+    "query_id": "fin_financial_analyst_mid_hard",
+    "jd": {
+      "job_title": "Financial Analyst",
+      "required_skills": [],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Turn assumptions about the future into numbers",
+        "Test how wrong assumptions can be",
+        "Explain results to non-finance stakeholders"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Accomplished financial analyst with 3+ years of transforming business assumptions into actionable financial models and translating complex insights for executive leaders. Skills: Financial Modeling, Excel, Data Analysis, Presentation, Business Acumen. Experience: Senior Financial Analyst at XYZ Corp (2021\u20132024) \u2013 \u2022 Built dynamic P&L models to forecast ROI for new initiatives; \u2022 Conducted sensitivity analysis reducing variance by 15%; \u2022 Presented findings to non-financial stakeholders, driving investment decisions."
+    },
+    "parse_s": 13.638247899943963
+  },
+  "522bc7a47ae07cc45607581a771a6521ab4131c0f4a250cd8d7a018b9bbe3897": {
+    "query_id": "fin_investment_banking_associate_easy",
+    "jd": {
+      "job_title": "Investment Banking Associate",
+      "required_skills": [
+        "M&A",
+        "pitchbooks",
+        "financial statements",
+        "due diligence",
+        "financial modeling"
+      ],
+      "preferred_skills": [
+        "LBO",
+        "Capital IQ",
+        "PowerPoint",
+        "CFA"
+      ],
+      "responsibilities": [
+        "Prepare pitchbooks, CIMs and client presentations",
+        "Build merger, LBO and valuation models",
+        "Lead financial due diligence workstreams and manage analysts"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned Investment Banking Associate with 4 years experience in M&A and capital raising.\nSkills: M&A, pitchbook development, financial modeling, due diligence, valuation, LBO, Capital IQ, PowerPoint, CFA.\nExperience:\n- Investment Banking Associate, ABC Capital, 2021-2023\n  \u2022 Led pitchbook creation for multiple M&A transactions\n  \u2022 Built comprehensive LBO and valuation models\n  \u2022 Managed due diligence teams for deals exceeding $500M"
+    },
+    "parse_s": 11.802592599997297
+  },
+  "179537973f1b0874e332a05ad2910c11a4255ac8eac192450169077823b1eab4": {
+    "query_id": "fin_investment_banking_associate_medium",
+    "jd": {
+      "job_title": "M&A Associate",
+      "required_skills": [
+        "Mergers & Acquisitions",
+        "Client Presentation Decks",
+        "Company Financial Report Analysis",
+        "Target-Company Financial Investigation",
+        "Transaction Modelling"
+      ],
+      "preferred_skills": [
+        "Leveraged Buyout Modelling",
+        "Market Data Terminals",
+        "Chartered Analyst Progress"
+      ],
+      "responsibilities": [
+        "Prepare client presentation decks",
+        "Build integrated three-statement and transaction models",
+        "Lead the financial investigation of target companies and mentor analysts"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Seasoned M&A associate with 4+ years of transaction advisory experience, adept at leading financial investigations and building integrated models. Skills: M&A analysis, transaction modelling, client presentations, target-company investigation, leveraged buyout modelling, market data terminals. Experience: Senior M&A Analyst at Capital Partners (2019\u20112023) \u2013 \u2022 Conducted financial due diligence and built integrated three\u2011statement models for 5+ deals; \u2022 Delivered polished deck presentations to senior clients; \u2022 Trained junior analysts in modeling and analysis."
+    },
+    "parse_s": 11.945323100080714
+  },
+  "bac3be52c1e0726a44ed80a2ee90f6706bbd240834efe182dc04ce69faaf9c21": {
+    "query_id": "fin_investment_banking_associate_hard",
+    "jd": {
+      "job_title": "M&A Associate",
+      "required_skills": [
+        "M&A transaction experience",
+        "financial modeling",
+        "due diligence",
+        "team leadership",
+        "deadline management"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Execute live M&A transactions",
+        "Build narrative and financial models for deals",
+        "Identify and address target company risks before buyers",
+        "Guide junior analysts while meeting deadlines"
+      ],
+      "min_years_experience": 3.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Senior M&A Associate with 4+ years of experience executing cross-border deals, excelling in financial modeling, due diligence, and junior team mentorship. Skills: Financial Modeling, Due Diligence, Deal Execution, Team Leadership. Experience: Associate, Investment Banking, XYZ Corp (2019-2023) \u2022 Led financial modeling and valuation for 10+ M&A transactions. \u2022 Identified material risks and presented mitigation to buyers. \u2022 Mentored 3 analysts to meet tight deadlines."
+    },
+    "parse_s": 10.228836599970236
+  },
+  "0ce9ad7698bfbbf37cc0b47027fa6641749b7209ebbe49d4164974eed979193f": {
+    "query_id": "biz_digital_marketing_mid_easy",
+    "jd": {
+      "job_title": "Digital Marketing Specialist",
+      "required_skills": [
+        "SEO",
+        "SEM",
+        "Google Ads",
+        "Meta Ads",
+        "growth analytics"
+      ],
+      "preferred_skills": [
+        "GA4",
+        "A/B testing",
+        "SEMrush",
+        "HubSpot"
+      ],
+      "responsibilities": [
+        "Plan and optimise SEO and SEM campaigns",
+        "Manage Google Ads and Meta Ads budgets and creative tests",
+        "Analyse funnel and growth metrics and report on ROI"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Digital Marketing Specialist with 3+ years experience driving ROI through SEO, SEM, and paid media. Skills: SEO, SEM, Google Ads, Meta Ads, GA4, A/B testing, SEMrush, HubSpot. Senior Digital Marketer at XYZ Corp (2021-2023): \u2022 Optimised Google Ads campaigns, boosting CTR by 15% while reducing CPL by 20%; \u2022 Launched SEO strategy that increased organic traffic by 40%; \u2022 Conducted A/B tests across landing pages, improving conversion rate by 10%."
+    },
+    "parse_s": 15.066822299966589
+  },
+  "b3a92354a16ec30bb9fae97582bb9400695b43afdd18beb4c22120346f608bcd": {
+    "query_id": "biz_digital_marketing_mid_medium",
+    "jd": {
+      "job_title": "Digital Marketing Specialist",
+      "required_skills": [
+        "organic search optimisation",
+        "paid search advertising",
+        "paid social advertising",
+        "funnel performance measurement",
+        "return on spend measurement",
+        "Google Ads",
+        "Meta Ads"
+      ],
+      "preferred_skills": [
+        "web analytics platform",
+        "controlled experiments",
+        "keyword research tools"
+      ],
+      "responsibilities": [
+        "Improve search-engine visibility",
+        "Run paid search and paid social campaigns on Google's and Meta's ad platforms",
+        "Measure funnel performance and return on spend",
+        "Drive customer acquisition through organic search and paid channels"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Results-oriented Digital Marketing Specialist with 3+ years of driving customer acquisition through SEO, paid search, and paid social. Skills: SEO, Google Ads, Meta Ads, Analytics, Funnel Analysis, A/B Testing. Experience: Digital Marketing Specialist, XYZ Corp, 2020-2023 \u2014 \u2022 Increased organic traffic by 45% year-over-year; \u2022 Launched Google and Meta campaigns generating 30% higher ROAS; \u2022 Implemented analytics dashboards and ran controlled experiments to optimize spend."
+    },
+    "parse_s": 24.16035840008408
+  },
+  "781523c04f1833eb9f3d4a5d13da097ef1fe205465db2fd247300cf66e6d197e": {
+    "query_id": "biz_digital_marketing_mid_hard",
+    "jd": {
+      "job_title": "Digital Marketing Specialist",
+      "required_skills": [
+        "digital marketing",
+        "budget management",
+        "data analysis",
+        "campaign testing",
+        "performance measurement"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Identify customer acquisition channels",
+        "Allocate marketing budget",
+        "Test marketing ideas rapidly",
+        "Analyze results and discontinue ineffective ideas"
+      ],
+      "min_years_experience": 2.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [],
+      "hyde_text": "Dynamic Growth Marketing Specialist with 3+ years of hands\u2011on digital campaign management, adept at optimizing budgets and driving ROI across paid media channels. skills: digital marketing, budget allocation, data analysis, A/B testing, paid media, Google Analytics, SEO, social media advertising. Experience: Growth Marketing Analyst at XYZ Corp (2021\u20132023): \u2022 Managed $500k digital marketing budget, increasing leads by 35%; \u2022 Designed and executed A/B tests, cutting acquisition cost per lead by 20%; \u2022 Analyzed performance data to reallocate spend, boosting ROI by 15%."
+    },
+    "parse_s": 14.612044699955732
+  },
+  "88e0de070341b781805f015520b78a0d795f24037e08cdb60ba42792d0172de8": {
+    "query_id": "biz_strategy_analyst_junior_easy",
+    "jd": {
+      "job_title": "Business Strategy Analyst",
+      "required_skills": [
+        "Market research",
+        "Competitive analysis",
+        "Power BI",
+        "Tableau",
+        "Excel"
+      ],
+      "preferred_skills": [
+        "SQL",
+        "PowerPoint storytelling",
+        "consulting experience"
+      ],
+      "responsibilities": [
+        "Conduct market research and size new opportunities",
+        "Build competitive analyses and benchmarks",
+        "Create dashboards in Power BI or Tableau and present findings to leadership"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "hyde_text": "Strategic analyst with 2+ years in market research and competitive analysis. Skills: Power BI, Tableau, SQL, Excel, PowerPoint storytelling. Experience: Market Strategy Analyst at XYZ Corp, 2022-2024 \u2013 led market sizing studies, built dashboards, advised senior leadership."
+    },
+    "parse_s": 11.897094500018284
+  },
+  "4ea8a7226d02a148a51a075f04c91330e878a3aced484ed34c5e671e0c873113": {
+    "query_id": "biz_strategy_analyst_junior_medium",
+    "jd": {
+      "job_title": "Market Research Analyst",
+      "required_skills": [
+        "Market sizing",
+        "Industry intelligence",
+        "Competitor benchmarking",
+        "Business intelligence dashboards",
+        "Spreadsheets"
+      ],
+      "preferred_skills": [
+        "Database querying",
+        "Presentation storytelling"
+      ],
+      "responsibilities": [
+        "Size markets and gather customer and industry intelligence",
+        "Benchmark competitors",
+        "Present findings through dashboards in a business intelligence tool and in spreadsheets"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "hyde_text": "Dynamic Market Research Analyst with 3+ years of consulting experience, proficient in market sizing, industry intelligence, competitor benchmarking, BI dashboards, and spreadsheets.\n\nSkills: Market sizing, Industry intelligence, Competitor benchmarking, BI dashboards, Spreadsheets, Database querying.\n\nSenior Analyst, ABC Consulting (2020\u20112023)\n- Conducted market sizing for a global consumer goods client, generating $500M revenue forecast.\n- Designed competitor benchmarking model using Tableau and SQL.\n- Developed interactive Power BI dashboards that reduced reporting time by 40%."
+    },
+    "parse_s": 12.156372100114822
+  },
+  "914b4cae697662b2833940371b0d9dc3ed97728bb7249adc42d51bc134aa3212": {
+    "query_id": "biz_strategy_analyst_junior_hard",
+    "jd": {
+      "job_title": "Analyst",
+      "required_skills": [
+        "analytical thinking",
+        "data analysis",
+        "recommendation writing",
+        "consulting/research/analytics experience"
+      ],
+      "preferred_skills": [],
+      "responsibilities": [
+        "Analyze complex business questions and uncover insights",
+        "Compile evidence and build data-driven recommendations",
+        "Present findings in a clear, executive\u2011level narrative"
+      ],
+      "min_years_experience": 1.0,
+      "education_requirement": null,
+      "eligible_graduation_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "hyde_text": "Strategic analyst with 1+ year of consulting experience, skilled in data analysis, storytelling, and actionable recommendations. Skills: data analysis, Excel, PowerPoint, research methodology, communication. Experience: Senior Analyst at XYZ Consulting (2023\u2011present) \u2013 led market entry analysis, produced evidence\u2011based recommendation, presented to senior leadership."
+    },
+    "parse_s": 14.636375400004908
+  }
+}
