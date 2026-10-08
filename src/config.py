@@ -16,6 +16,8 @@ FACET_WEIGHTS = {
     "achievements_publications": 0.15,
     "education_certifications": 0.10,
 }
+OPTIONAL_FACETS = {"achievements_publications", "education_certifications"}
+
 FIELD_MATCH_THRESHOLD = 0.55
 DISPLAY_THRESHOLD = 30
 MAX_RESULTS = 25
@@ -27,3 +29,12 @@ EXACT_OVERLAP_WEIGHT = 0.6  # vs semantic similarity weight; starting guess, nee
 
 HIDDEN_GEM_FACET_THRESHOLD = 0.6
 HIDDEN_GEM_RANK_CUTOFF = 10
+
+EVAL_TARGETS = {
+    "recall_at_20": 0.70,
+    "mrr": 0.85,
+    "ndcg_at_10": 0.75,
+    "skill_coverage_at_10": 0.65,
+    "empty_rate": 0.0,
+    "p95_latency_s": 3.5,
+}

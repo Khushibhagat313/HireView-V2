@@ -1,6 +1,7 @@
 from src.embedding.embedder import embed_query
 from src.db.store import get_resume_embeddings
-from src.config import FACET_WEIGHTS
+from src.config import FACET_WEIGHTS, OPTIONAL_FACETS
+
 
 FACET_FIELD_TYPES = {
     "skills": ["skills"],
@@ -56,16 +57,18 @@ def compute_composite(facet_scores: dict) -> dict:
     if present_weight_total == 0:
         return {"composite_score": 0.0, "facet_scores": {}, "limited_data": True}
 
-    composite_score = sum(
-        facet_scores[f] * (FACET_WEIGHTS[f] / present_weight_total)
-        for f in facet_scores
-    )
+    core = {f: s for f, s in facet_scores.items() if f not in OPTIONAL_FACETS}
+    floor = sum(s * FACET_WEIGHTS[f] for f, s in core.items()) / sum(FACET_WEIGHTS[f] for f in core) if core else 0.0
+    effective = {f: max(s, floor) if f in OPTIONAL_FACETS else s for f, s in facet_scores.items()}
+
+    composite_score = sum(effective[f] * (FACET_WEIGHTS[f] / present_weight_total) for f in effective)
 
     return {
         "composite_score": composite_score,
         "facet_scores": facet_scores,
         "limited_data": len(facet_scores) <= 1,
     }
+
 
 def score_facets(company_id: str, resume_id: str, facet_queries: dict) -> dict:
     facet_scores = get_raw_facet_scores(company_id, resume_id, facet_queries)

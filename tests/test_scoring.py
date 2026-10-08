@@ -5,6 +5,7 @@ from src.scoring.cert_relevance import compute_cert_boost
 from src.schemas.job import JDRequirements
 from src.embedding.embedder import embed_query, embed_documents
 from src.config import FACET_WEIGHTS
+from src.scoring.skill_matcher import hybrid_skill_score
 
 TEST_COMPANY_ID = "a47c623b-569d-442b-8e0d-ff4c9d8dcf07"
 
@@ -36,7 +37,30 @@ def test_absence_rule_no_penalty():
     without_that_facet = {"skills": 0.5, "projects": 0.5, "experience": 0.5, "education_certifications": 0.5}
     result_with = compute_composite(with_weak_facet)
     result_without = compute_composite(without_that_facet)
-    assert result_without["composite_score"] >= result_with["composite_score"]
+    assert result_without["composite_score"] >= result_with["composite_score"] - 1e-9
+
+
+CORE_FACETS = {"skills": 0.8, "projects": 0.8, "experience": 0.8}
+
+
+def test_weak_optional_facet_never_lowers_score():
+    weak = compute_composite({**CORE_FACETS, "achievements_publications": 0.2})
+    assert abs(weak["composite_score"] - compute_composite(CORE_FACETS)["composite_score"]) < 1e-9
+
+
+def test_strong_optional_facet_raises_score():
+    strong = compute_composite({**CORE_FACETS, "achievements_publications": 0.95})
+    assert strong["composite_score"] > compute_composite(CORE_FACETS)["composite_score"]
+
+
+def test_no_required_skills_gives_no_overlap_credit():
+    assert abs(hybrid_skill_score(["python"], [], [], 0.7)["hybrid_score"] - 0.7) < 1e-9
+
+
+def test_overlap_still_counts_when_skills_are_required():
+    full = hybrid_skill_score(["python", "sql"], ["python", "sql"], [], 0.7)["hybrid_score"]
+    half = hybrid_skill_score(["python"], ["python", "sql"], [], 0.7)["hybrid_score"]
+    assert full > half
 
 
 def test_limited_data_flag():

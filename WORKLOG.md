@@ -262,5 +262,20 @@ uv run uvicorn src.api.main:app --reload
 - **Duplicate Resumes:** Candidates with multiple resume uploads currently appear as distinct search items; candidate name matching in chat automatically resolves to their highest-scoring resume.
 
 **Next session:** Phase 6 — Frontend development (`frontend/`) in React + Tailwind.
+## 2026-10-08 — <your name>
+**Phase:** 8 (Evaluation harness)
+**Files touched:** eval/metrics.py, eval/run_eval.py, eval/load_benchmark_resumes.py, eval/queries.jsonl, eval/data/*, src/ingestion/pipeline.py, src/db/store.py, src/embedding/reranker.py, src/retrieval/pipeline.py
 
-
+**Done:**
+- 90 synthetic resumes and 45 graded JDs loaded into an isolated benchmark company; JD parses frozen
+- Baseline, full system: recall@20 0.840, MRR 0.775, nDCG@10 0.731, skill coverage@10 0.377 (0.828 of the 0.456 corpus ceiling), empty 0%, p95 search 15.5 s
+- nDCG@10 by tier, easy/medium/hard: 0.902 / 0.740 / 0.551; MRR: 0.933 / 0.867 / 0.526
+- Batched database reads in rerank and search_and_score: p95 23.7 s to 15.5 s, quality metrics identical
+
+**Findings:**
+- Skill coverage@10 target of 0.65 is unreachable on this corpus (ceiling 0.456)
+- cand_06 (grade 1) outranks cand_01 (grade 3) on all three Junior Backend tiers; human review agrees with the labels, so this is a scoring issue
+- JD parser reproduced min_years for all 45 JDs and every explicit graduation restriction
+
+**Next:** facet breakdown for cand_06 vs cand_01, parser accuracy by tier, audit the 5 lowest queries
+
