@@ -3,20 +3,29 @@ from src.ingestion.extractor import extract_text
 from src.ingestion.sectioner import split_sections
 from src.ingestion.normalizer import normalize_skills
 from src.embedding.embedder import embed_documents
-from src.db.store import add_candidate, add_resume, add_resume_embedding, add_certification, add_resume_link, add_application, add_work_experience
+from src.db.store import (
+    add_candidate,
+    add_resume,
+    add_resume_embedding,
+    add_certification,
+    add_resume_link,
+    add_application,
+    add_work_experience,
+)
 
 FIELD_TYPES = [
-    "summary_text", "skills_text", "projects_text", "experience_text",
-    "achievements_text", "publications_text", "education_text", "certifications_text",
+    "summary_text",
+    "skills_text",
+    "projects_text",
+    "experience_text",
+    "achievements_text",
+    "publications_text",
+    "education_text",
+    "certifications_text",
 ]
 
-def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None, expires_at=None) -> str:
-    check_size(pdf_bytes)
-    check_pages(pdf_bytes)
-    is_scanned(pdf_bytes)
 
-    text = extract_text(pdf_bytes)
-    sectioned = split_sections(text)
+def store_sectioned_resume(company_id: str, sectioned, job_posting_id: str = None, expires_at=None) -> str:
     normalized_skills = list(normalize_skills(sectioned.skills))
 
     candidate = add_candidate(company_id, sectioned.candidate_name, sectioned.candidate_email, sectioned.candidate_phone)
@@ -57,3 +66,13 @@ def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None,
         add_work_experience(company_id, resume.id, entry.title, entry.company_name, entry.duration_years)
 
     return str(resume.id)
+
+
+def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None, expires_at=None) -> str:
+    check_size(pdf_bytes)
+    check_pages(pdf_bytes)
+    is_scanned(pdf_bytes)
+
+    text = extract_text(pdf_bytes)
+    sectioned = split_sections(text)
+    return store_sectioned_resume(company_id, sectioned, job_posting_id=job_posting_id, expires_at=expires_at)

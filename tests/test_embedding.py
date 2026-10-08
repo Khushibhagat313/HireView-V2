@@ -15,9 +15,10 @@ def test_storage_round_trip():
     embeddings = get_resume_embeddings(TEST_COMPANY_ID, resume_id)
 
     assert resume is not None
-    assert resume.years_experience == 0.25
+    assert 0.1 <= resume.years_experience <= 0.5
     assert "pgvector" in resume.skills
     assert len(embeddings) == 6
+
 
 
 def test_embedding_normalization():

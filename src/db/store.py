@@ -133,3 +133,36 @@ def get_certifications(company_id: str, resume_id: str) -> list[Certification]:
 def get_candidate(company_id: str, candidate_id: str) -> Candidate:
     with get_session_ctx() as session:
         return session.query(Candidate).filter_by(id=candidate_id, company_id=company_id).first()
+
+def get_resumes(company_id: str, resume_ids: list[str]) -> dict[str, Resume]:
+    with get_session_ctx() as session:
+        rows = session.query(Resume).filter(Resume.company_id == company_id, Resume.id.in_(resume_ids)).all()
+        return {str(row.id): row for row in rows}
+
+
+def get_work_experiences_many(company_id: str, resume_ids: list[str]) -> dict[str, list[WorkExperience]]:
+    with get_session_ctx() as session:
+        rows = session.query(WorkExperience).filter(
+            WorkExperience.company_id == company_id, WorkExperience.resume_id.in_(resume_ids)
+        ).all()
+        grouped = {str(rid): [] for rid in resume_ids}
+        for row in rows:
+            grouped[str(row.resume_id)].append(row)
+        return grouped
+
+
+def get_certifications_many(company_id: str, resume_ids: list[str]) -> dict[str, list[Certification]]:
+    with get_session_ctx() as session:
+        rows = session.query(Certification).filter(
+            Certification.company_id == company_id, Certification.resume_id.in_(resume_ids)
+        ).all()
+        grouped = {str(rid): [] for rid in resume_ids}
+        for row in rows:
+            grouped[str(row.resume_id)].append(row)
+        return grouped
+
+
+def get_candidates(company_id: str, candidate_ids: list[str]) -> dict[str, Candidate]:
+    with get_session_ctx() as session:
+        rows = session.query(Candidate).filter(Candidate.company_id == company_id, Candidate.id.in_(candidate_ids)).all()
+        return {str(row.id): row for row in rows}
