@@ -1,4 +1,6 @@
 import pytest
+from types import SimpleNamespace
+import numpy as np
 from src.retrieval.pipeline import search_and_score
 from src.scoring.facets import compute_composite
 from src.scoring.cert_relevance import compute_cert_boost
@@ -6,6 +8,8 @@ from src.schemas.job import JDRequirements
 from src.embedding.embedder import embed_query, embed_documents
 from src.config import FACET_WEIGHTS
 from src.scoring.skill_matcher import hybrid_skill_score
+from src.scoring.eligibility import check_eligibility
+from src.scoring.rerank_blend import blend_rerank_scores
 
 TEST_COMPANY_ID = "a47c623b-569d-442b-8e0d-ff4c9d8dcf07"
 
@@ -100,3 +104,27 @@ def test_anti_keyword_stuffing():
     stuffed_similarity = sum(x * y for x, y in zip(query_vec, stuffed_vec))
     genuine_similarity = sum(x * y for x, y in zip(query_vec, genuine_vec))
     assert genuine_similarity > stuffed_similarity
+
+
+def test_gate_counts_total_years():
+    resume = SimpleNamespace(graduation_year=2020)
+    jd = SimpleNamespace(eligible_graduation_years=[], min_years_experience=3.0, job_title="Backend Developer")
+    assert check_eligibility(resume, jd, [SimpleNamespace(title="Nurse", duration_years=4.0)])
+    assert not check_eligibility(resume, jd, [SimpleNamespace(title="Backend Developer", duration_years=2.0)])
+
+
+def test_blend_weight_zero_changes_nothing():
+    results = [{"resume_id": "a", "raw_score": 0.7}, {"resume_id": "b", "raw_score": 0.6}]
+    assert blend_rerank_scores(results, {"a": 0.0, "b": 5.0}, 0.0) == results
+
+
+def test_blend_lets_the_rerank_score_reorder():
+    results = [{"resume_id": "a", "raw_score": 0.7}, {"resume_id": "b", "raw_score": 0.6}]
+    blended = blend_rerank_scores(results, {"a": 0.0, "b": 5.0}, 1.0)
+    assert blended[1]["raw_score"] > blended[0]["raw_score"]
+
+
+def test_blend_returns_plain_floats():
+    results = [{"resume_id": "a", "raw_score": 0.7}, {"resume_id": "b", "raw_score": 0.6}]
+    blended = blend_rerank_scores(results, {"a": np.float32(0.0), "b": np.float32(5.0)}, 0.5)
+    assert all(type(r["raw_score"]) is float and type(r["display_score"]) is float for r in blended)

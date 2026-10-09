@@ -23,6 +23,6 @@ def check_eligibility(resume, jd_requirements, work_experience: list) -> bool:
         return False
     if not jd_requirements.min_years_experience:
         return True
-    field_years = compute_field_specific_experience(jd_requirements.job_title, work_experience)
-    return field_years >= jd_requirements.min_years_experience
+    total_years = sum(entry["duration_years"] if isinstance(entry, dict) else entry.duration_years for entry in work_experience)
+    return total_years >= jd_requirements.min_years_experience
     

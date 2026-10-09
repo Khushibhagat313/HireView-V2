@@ -2,6 +2,26 @@
 
 ---
 
+## 2026-10-09 — Khushi
+**Phase:** 8 (Evaluation harness), closed
+**Files touched:** src/config.py, src/scoring/facets.py, src/scoring/skill_matcher.py, src/scoring/eligibility.py, src/scoring/rerank_blend.py, src/retrieval/pipeline.py, tests/test_scoring.py, eval/memo.py, eval/ablation.py, eval/audit.py, eval/reading.py, Build_plan.md
+
+**Done:**
+- Adopted into src/: optional facets can't lower a score; no overlap term when nothing is required; experience gate counts total years; cross-encoder score blended into the final ranking (weight 0.5)
+- Final benchmark (45 queries, frozen parses): recall@20 0.962, MRR 0.888, nDCG@10 0.880 (easy 0.976, medium 0.928, hard 0.735); start of phase was 0.840 / 0.775 / 0.731
+- p95 search latency 23.7 s to 12.1 s; the 3.5 s target is still not met
+- Phase 8 decision log added to Build_plan.md
+
+**Findings:**
+- The title-similarity gate silently dropped 12 of 18 relevant candidates in the audited queries; the cross-encoder blend plus a total-years gate fixes it, with a known gap for career switchers
+- Tenure and freelance weighting looked good (+0.031) but the benchmark was written with those cues (flag in 0 of 66 grade-3 pairs), so it stays out until a human check
+- All five lowest queries are hard-tier; three have no parsed skills
+- Skill coverage target (0.65) is unreachable on this corpus (ceiling 0.456)
+
+**Next:** domain bucketing for the experience gate (first backlog item in the Phase 8 decision log)
+
+---
+
 ## 2026-09-08 — Khushi — ~2h
 **Phase:** 0 (Foundation)
 **Files touched:** entire scaffold, .gitignore, pyproject.toml, uv.lock

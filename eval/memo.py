@@ -43,3 +43,6 @@ def install() -> None:
     pipeline.rerank = _memoize(pipeline.rerank, lambda company_id, text, ids: (company_id, text, frozenset(ids)))
     for name in ("get_resumes", "get_work_experiences_many", "get_certifications_many", "get_candidates"):
         setattr(pipeline, name, _memoize(getattr(pipeline, name), lambda company_id, ids: (company_id, tuple(ids))))
+
+    embedder.embed_query = embed_query
+    embedder.embed_documents = embed_documents

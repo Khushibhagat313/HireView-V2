@@ -11,7 +11,8 @@ from src.scoring.facets import build_facet_queries, get_raw_facet_scores, comput
 from src.scoring.skill_matcher import hybrid_skill_score
 from src.scoring.cert_relevance import compute_max_cert_boost
 from src.scoring.calibration import calibrate_score, label_score, filter_and_rank
-from src.config import RERANK_KEEP_TOP_N
+from src.config import RERANK_KEEP_TOP_N, RERANK_BLEND_WEIGHT
+from src.scoring.rerank_blend import blend_rerank_scores
 
 
 def search_and_score(
@@ -26,6 +27,7 @@ def search_and_score(
     resume_ids = search_candidates(company_id, queries, job_posting_id=job_posting_id)
 
     reranked = rerank(company_id, jd.hyde_text, resume_ids)
+    rerank_scores = {str(resume_id): score for resume_id, score in reranked}
     kept_ids = [str(resume_id) for resume_id, _ in reranked[:RERANK_KEEP_TOP_N]]
 
     resumes = get_resumes(company_id, kept_ids)
@@ -78,4 +80,5 @@ def search_and_score(
             "work_experience": work_experience,
         })
 
+    results = blend_rerank_scores(results, rerank_scores, RERANK_BLEND_WEIGHT)
     return filter_and_rank(results, threshold=threshold, max_results=max_results)

@@ -25,6 +25,7 @@ MAX_CERT_BOOST = 1.2       # starting guess, tune with real data at Phase 8
 CERT_RELEVANCE_FLOOR = 0.6 # below this, no boost — avoids noise
 
 RERANK_KEEP_TOP_N = 20
+RERANK_BLEND_WEIGHT = 0.5
 EXACT_OVERLAP_WEIGHT = 0.6  # vs semantic similarity weight; starting guess, needs real-data tuning
 
 HIDDEN_GEM_FACET_THRESHOLD = 0.6
