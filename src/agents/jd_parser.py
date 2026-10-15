@@ -2,7 +2,7 @@ import json
 import hashlib
 from pydantic import ValidationError
 from groq import BadRequestError
-from src.agents.llm_client import call_llm
+from src.agents.llm_client import AIServiceError, call_llm
 from src.schemas.job import JDRequirements
 
 JD_PROMPT = """You are given the raw text of a job description, which likely contains a mix of actual requirements and unrelated boilerplate (company culture, benefits, equal-opportunity statements).
@@ -38,4 +38,4 @@ def parse_jd(text: str) -> JDRequirements:
             return result
         except (json.JSONDecodeError, ValidationError, BadRequestError) as e:
             if attempt == 1:
-                raise ValueError(f"JD parsing failed after retry: {e}")
+                raise AIServiceError(f"JD parsing failed after retry: {e}") from e

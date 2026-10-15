@@ -53,25 +53,59 @@ Rules:
 - Do not mention how the labels or ranking were computed, and do not use the words "system" or "deterministic".
 - Keep the answer to a short paragraph of plain prose, or a short list if the question asks about several candidates."""
 
+def _list_or_note(matches: list[dict], note: str) -> dict:
+    # An empty list reads as "nothing happened"; say why there are no candidates instead.
+    return {"response_candidates": matches} if matches else {"response_text": note}
+
+
+def _join(items: list[str], word: str) -> str:
+    return items[0] if len(items) == 1 else f"{', '.join(items[:-1])} {word} {items[-1]}"
+
+
 def show_top_n(state: HiringState) -> dict:
     match = re.search(r"\btop\s+(\d+)\b", state["query"], re.IGNORECASE)
     n = int(match.group(1)) if match else 5
-    return {"response_candidates": state["candidates"][:n]}
+    return _list_or_note(state["candidates"][:n], "No candidates passed this job's requirements, so there is no top list yet.")
+
+
+SKILL_FILLER = re.compile(
+    r"^(?:(?:hands-on\s+)?(?:experience|skills?|knowledge|expertise|background)\s+(?:with|in|of)|worked\s+with|used|both|either)\s+",
+    re.IGNORECASE,
+)
+SKILL_SEPARATOR = re.compile(r"\s*(?:,|&|\band\b|\bor\b|\bplus\b|\bas well as\b)\s*", re.IGNORECASE)
+
+
+def parse_skill_query(query: str) -> tuple[list[str], bool] | None:
+    """'who knows Python and Docker' -> (['Python', 'Docker'], True). The flag is False for 'or'
+    questions, where any one of the skills is enough."""
+    match = re.search(r"(?:who (?:knows|has)|skilled in|filter by skill:?)\s+(.+)", query, re.IGNORECASE)
+    if not match:
+        return None
+    phrase = SKILL_FILLER.sub("", match.group(1).strip().strip(".?!"))
+    skills = [part.strip() for part in SKILL_SEPARATOR.split(phrase) if part.strip()]
+    if not skills:
+        return None
+    need_all = not (re.search(r"\bor\b", phrase, re.IGNORECASE) and not re.search(r"\band\b|&", phrase, re.IGNORECASE))
+    return skills, need_all
 
 
 def filter_by_skill(state: HiringState) -> dict:
-    match = re.search(
-        r"(?:who (?:knows|has)|skilled in|filter by skill:?)\s+(.+)",
-        state["query"],
-        re.IGNORECASE,
-    )
-    if not match:
-        return {"response_candidates": []}
+    parsed = parse_skill_query(state["query"])
+    if parsed is None:
+        return {"response_text": 'Which skill? Try asking like "Who knows Python?" or "Who knows Python and Docker?".'}
 
-    raw_skill = match.group(1).strip().strip(".?!")
-    skill = next(iter(normalize_skills([raw_skill])), raw_skill.lower())
-    matches = [c for c in state["candidates"] if skill in c.get("skills", [])]
-    return {"response_candidates": matches}
+    raw_skills, need_all = parsed
+    wanted = [next(iter(normalize_skills([raw])), raw.lower()) for raw in raw_skills]
+    has = all if need_all else any
+    matches = [c for c in state["candidates"] if has(skill in c.get("skills", []) for skill in wanted)]
+
+    if len(raw_skills) == 1:
+        note = f"No one in these results lists {raw_skills[0]} on their resume."
+    elif need_all:
+        note = f"No one in these results lists all of {_join(raw_skills, 'and')}."
+    else:
+        note = f"No one in these results lists {_join(raw_skills, 'or')}."
+    return _list_or_note(matches, note)
 
 
 def hidden_gems(state: HiringState) -> dict:
@@ -81,7 +115,11 @@ def hidden_gems(state: HiringState) -> dict:
         if c.get("facet_scores", {}).get("skills", 0) >= HIDDEN_GEM_FACET_THRESHOLD
         or c.get("facet_scores", {}).get("projects", 0) >= HIDDEN_GEM_FACET_THRESHOLD
     ]
-    return {"response_candidates": gems}
+    if len(ranked) <= HIDDEN_GEM_RANK_CUTOFF:
+        note = f"No hidden gems: all {len(ranked)} ranked candidates are already in the top {HIDDEN_GEM_RANK_CUTOFF}, so nobody is being overlooked."
+    else:
+        note = f"No hidden gems: nobody ranked below the top {HIDDEN_GEM_RANK_CUTOFF} stands out on skills or projects."
+    return _list_or_note(gems, note)
 
 
 def parse_experience_query(query: str) -> tuple[float, str] | None:
@@ -99,14 +137,14 @@ def parse_experience_query(query: str) -> tuple[float, str] | None:
 def filter_by_experience(state: HiringState) -> dict:
     parsed = parse_experience_query(state["query"])
     if parsed is None:
-        return {"response_candidates": []}
+        return {"response_text": 'Ask with a number of years and a role, like "Who has 2+ years as a backend developer?".'}
 
     min_years, title = parsed
     matches = [
         c for c in state["candidates"]
         if compute_field_specific_experience(title, c.get("work_experience", [])) >= min_years
     ]
-    return {"response_candidates": matches}
+    return _list_or_note(matches, f"No one in these results has {min_years:g}+ years as {title}.")
 
 
 def _first_per_candidate(matches: list[dict]) -> list[dict]:

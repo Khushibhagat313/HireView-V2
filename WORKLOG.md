@@ -232,10 +232,11 @@ The entire backend API for Phase 6 is **live, tested, and ready**. You do not ne
 
 #### 1. How to run the backend locally:
 ```bash
-uv run uvicorn src.api.main:app --reload
+uv run uvicorn src.api.main:app --port 8010 --reload
 ```
-- API Base URL: `http://localhost:8000`
-- Interactive Swagger Documentation: `http://localhost:8000/docs`
+- API Base URL: `http://localhost:8010` _(updated 2026-10-10: 8000 was taken by another container on the frontend machine; any free port works)_
+- Interactive Swagger Documentation: `http://localhost:8010/docs`
+- Full local setup from scratch: `docs/SETUP.md`
 
 #### 2. Test Data Available:
 - **`company_id`**: `a47c623b-569d-442b-8e0d-ff4c9d8dcf07` (Test Co — has ingested resumes in the database).
@@ -245,7 +246,7 @@ uv run uvicorn src.api.main:app --reload
 
 | Endpoint | Method | Request Body / Params | Expected Response & Frontend Behavior |
 |---|---|---|---|
-| `/resumes/upload` | `POST` | Multipart Form: `company_id`, `file` (PDF) | `{ "resume_id": "uuid", "filename": "...", "message": "..." }` |
+| `/resumes/upload` | `POST` | Multipart Form: `company_id`, `file` (PDF) | `{ "resume_id": "uuid" }` _(corrected 2026-10-10)_. Takes ~10–20 s. New: `GET /resumes?company_id=...` lists the pool. |
 | `/search` | `POST` | JSON: `{ "company_id": "...", "jd_text": "..." }` | Returns list of candidates with `candidate_id`, `candidate_name`, `label` (`Exceptional`/`Strong`/`Good`/`Partial`/`Weak`), `display_score`, `facet_scores`. **Rule:** Show the `label` prominently (badge/color), display score secondary. |
 | `/chat` | `POST` | JSON: `{ "company_id": "...", "jd_text": "...", "query": "..." }` | Returns `{ "intent": "...", "response_text": "string or null", "response_candidates": [ ... ] or null }`. **Important:** The UI must render `response_candidates` as candidate cards (for filter intents) OR render `response_text` as markdown (for conversational answers). |
 | `/candidates/{id}/feedback` | `POST` | JSON: `{ "company_id": "...", "jd_text": "..." }` | Returns `{ "candidate_id": "...", "feedback": "..." }`. Note: This is **POST** (not GET) because it needs the JD text. |
@@ -259,8 +260,53 @@ uv run uvicorn src.api.main:app --reload
   - `422 Unprocessable Entity`: The model could not produce usable interview questions for the resume.
   - `503 Service Unavailable`: Temporary AI provider outage — show a friendly *"AI service temporarily unavailable, please try again"* message.
 - **Stateless Chat:** Each `/chat` call is independent (no multi-turn history kept on backend). Every chat request must include `{ company_id, jd_text, query }`.
-- **Duplicate Resumes:** Candidates with multiple resume uploads currently appear as distinct search items; candidate name matching in chat automatically resolves to their highest-scoring resume.
+- **Duplicate Resumes:** _(fixed 2026-10-10)_ search and chat now show each candidate once, using their highest-scoring resume.
+- **All error codes, CORS, and the new list endpoint:** see `docs/API_CONTRACT.md` → Conventions, and `documentation/fixes.md` for why each changed.
 
 **Next session:** Phase 6 — Frontend development (`frontend/`) in React + Tailwind.
 
-
+---
+
+## 2026-10-10 — Yuvraj (with Claude) — pre-frontend fixes
+**Phase:** between 5 and 6 — making the API ready for a browser frontend
+
+**Full explanation of every fix (cause, impact, fix, reasoning):** `documentation/fixes.md`
+
+**Done:**
+- CORS middleware (`src/api/main.py`, `CORS_ALLOWED_ORIGINS` in `src/config.py`) — browsers can now call the API from the Vite dev server
+- `SearchResult` now declares `skills`, `matched_required`, `missing_required`, `matched_preferred`, `work_experience` — `response_model` was silently stripping them
+- `GET /resumes?company_id=` — list the pool without a JD (`store.list_resumes`)
+- Proper status codes: UUID-typed ids (422), 404 for unknown candidate/resume/company/job posting, `InvalidResumeError` → 422 with a reason (incl. new non-PDF check), `groq.APIError` / new `AIServiceError` → 503 via handlers in `main.py`
+- Search results cached per (company, JD hash, job posting) in `retrieval/pipeline.py`; upload/delete invalidate; 15-min TTL + 64-entry LRU bound
+- Search de-duplicates to one result per candidate (best-scoring resume)
+- Initial migration now runs `CREATE EXTENSION IF NOT EXISTS vector`
+- `.env.example` and `docs/SETUP.md` written; API contract updated; handoff guide above corrected
+- `tests/test_api.py` — 11 new tests (no DB / LLM needed). Suite: 41 passed, 1 skipped
+- `test_determinism` now clears the search cache between runs so it still tests the pipeline, not the cache
+
+**Deliberately not done (see fixes.md):** authentication (will be built together with the frontend login screen), score calibration (needs the Phase 8 labelled eval set), atomic ingestion, test isolation from the shared DB.
+
+**Next session:** Phase 6 — frontend (`frontend/`), React + Tailwind
+
+
+---
+
+## 2026-10-15 — Yuvraj (with Claude) — frontend polish + three backend fixes
+**Phase:** 6 — frontend, plus the "deliberately not done" items from 2026-10-10 that needed no decisions
+
+**Frontend (`frontend/`, see `frontend/README.md`):**
+- Visual polish of the Red Pen design: paper grain and depth, light / dark / system toggle, legal-pad job editor, stats strips, initials, score bars, shimmer placeholders, phone layout for the Pool
+- Candidate panel: ←/→ steps through candidates, focus stays inside and returns to the row on close; `/` jumps to the Ask box
+- Fixes: page no longer jumps to the Ask panel after ranking; a file dropped outside the drop zone no longer opens in the browser (whole Pool page is a drop target); drop highlight no longer flickers
+- Last ranking survives a refresh (sessionStorage); page titles; error screen instead of a blank page; Markdown loads on demand (first load ~27% smaller)
+- Vitest unit tests for `src/lib` (20 tests, `npm test`)
+
+**Backend:**
+- Atomic ingestion: `store.save_ingested_resume` writes candidate, resume, embeddings, certifications, links, work experience and application in one transaction; `ingest_resume` does all parsing and embedding first (sections embedded in one batch)
+- Test isolation: `tests/conftest.py::make_company` creates throwaway companies and deletes them afterwards; `test_storage_round_trip` no longer adds Priya resumes to Test Co, and `test_db.py` no longer leaves companies behind. New `test_failed_ingestion_saves_nothing`
+- Chat: list intents (top N, skill, experience, hidden gems) answer in words when nobody matches or the question can't be read, instead of an empty list. Skill questions accept several skills ("Python and Docker" = all, "Python or Go" = any) and ignore "experience with". Contract updated in `docs/API_CONTRACT.md`
+- Suite: 46 passed, 1 skipped
+
+**Not done:** deployment (waiting on `DATABASE_URL`), login, score calibration. Old test companies from earlier runs ("Pytest Co", "Company A"–"D", 24 rows) are still in local databases; they don't affect Test Co.
+
+**Next session:** `documentation/next_session.md` — deploy to Vercel, then commit

@@ -1,0 +1,27 @@
+# Backend image for Vercel (runs as an autoscaling Function from this container).
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    HF_HOME=/models \
+    TOKENIZERS_PARALLELISM=false
+
+WORKDIR /app
+RUN pip install --no-cache-dir uv==0.11.19
+
+# Dependencies from uv.lock, except torch's Linux GPU packages (several GB): torch comes from the CPU-only index.
+COPY pyproject.toml uv.lock ./
+RUN uv export --frozen --no-dev --no-hashes --no-emit-project \
+      | grep -vE '^(nvidia-|triton==|torch==)' > requirements.txt \
+ && TORCH_VERSION=$(grep -A1 '^name = "torch"' uv.lock | sed -n 's/^version = "\(.*\)"/\1/p') \
+ && uv pip install --system --no-cache "torch==${TORCH_VERSION}" --index-url https://download.pytorch.org/whl/cpu \
+ && uv pip install --system --no-cache -r requirements.txt
+
+# Bake the models into the image so cold starts don't download ~200 MB from Hugging Face.
+RUN python -c "from sentence_transformers import SentenceTransformer, CrossEncoder; \
+SentenceTransformer('BAAI/bge-small-en-v1.5'); CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')"
+ENV HF_HUB_OFFLINE=1
+
+COPY src ./src
+
+CMD ["sh", "-c", "uvicorn src.api.main:app --host 0.0.0.0 --port ${PORT:-80}"]

@@ -69,10 +69,43 @@ def test_router_accuracy_five_question_types(monkeypatch):
     assert [c["candidate_id"] for c in experience["response_candidates"]] == ["a"]
 
     gems = app.invoke(make_state("hidden gems"))
-    assert gems["response_candidates"] == []
+    assert gems["response_candidates"] is None
+    assert gems["response_text"].startswith("No hidden gems")
 
     fallback = app.invoke(make_state("what is the weather"))
     assert fallback["response_text"] == "stubbed answer"
+
+
+def test_skill_questions_with_several_skills():
+    app = build_graph()
+
+    both = app.invoke(make_state("who knows Python and React?"))
+    assert [c["candidate_id"] for c in both["response_candidates"]] == ["a"]
+
+    either = app.invoke(make_state("who has experience with Java or Rust"))
+    assert [c["candidate_id"] for c in either["response_candidates"]] == ["b"]
+
+    listed = app.invoke(make_state("who knows python, react & java"))
+    assert listed["response_candidates"] is None
+    assert listed["response_text"] == "No one in these results lists all of python, react and java."
+
+
+def test_empty_answers_explain_themselves():
+    app = build_graph()
+
+    nobody = app.invoke(make_state("who knows Kubernetes"))
+    assert nobody["response_candidates"] is None
+    assert nobody["response_text"] == "No one in these results lists Kubernetes on their resume."
+
+    no_skill = app.invoke(make_state("who has"))
+    assert no_skill["response_text"].startswith("Which skill?")
+
+    no_role = app.invoke(make_state("who has 9 years as a pilot"))
+    assert no_role["response_text"] == "No one in these results has 9+ years as pilot."
+
+    state = make_state("show me the top 3")
+    state["candidates"] = []
+    assert app.invoke(state)["response_text"].startswith("No candidates passed")
 
 JD = SimpleNamespace(
     job_title="Backend Developer",

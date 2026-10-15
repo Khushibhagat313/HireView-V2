@@ -1,9 +1,9 @@
-from src.ingestion.guards import check_size, check_pages, is_scanned
+from src.ingestion.guards import check_is_pdf, check_size, check_pages, is_scanned
 from src.ingestion.extractor import extract_text
 from src.ingestion.sectioner import split_sections
 from src.ingestion.normalizer import normalize_skills
 from src.embedding.embedder import embed_documents
-from src.db.store import add_candidate, add_resume, add_resume_embedding, add_certification, add_resume_link, add_application, add_work_experience
+from src.db.store import save_ingested_resume
 
 FIELD_TYPES = [
     "summary_text", "skills_text", "projects_text", "experience_text",
@@ -12,6 +12,7 @@ FIELD_TYPES = [
 
 def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None, expires_at=None) -> str:
     check_size(pdf_bytes)
+    check_is_pdf(pdf_bytes)
     check_pages(pdf_bytes)
     is_scanned(pdf_bytes)
 
@@ -19,7 +20,11 @@ def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None,
     sectioned = split_sections(text)
     normalized_skills = list(normalize_skills(sectioned.skills))
 
-    candidate = add_candidate(company_id, sectioned.candidate_name, sectioned.candidate_email, sectioned.candidate_phone)
+    # All the slow work (parsing, embedding) happens before anything touches the database.
+    sections = [(field_type, getattr(sectioned, field_type)) for field_type in FIELD_TYPES]
+    sections = [(field_type, section) for field_type, section in sections if section]
+    vectors = embed_documents([section for _, section in sections]) if sections else []
+    embeddings = [(field_type.replace("_text", ""), vector) for (field_type, _), vector in zip(sections, vectors)]
 
     resume_data = {
         "source": "upload",
@@ -36,24 +41,17 @@ def ingest_resume(company_id: str, pdf_bytes: bytes, job_posting_id: str = None,
         "skills": normalized_skills,
         "expires_at": expires_at,
     }
-    resume = add_resume(company_id, candidate.id, resume_data)
 
-    if job_posting_id:
-        add_application(company_id, job_posting_id, candidate.id, resume.id)
-
-    for field_type in FIELD_TYPES:
-        section_text = getattr(sectioned, field_type)
-        if section_text:
-            vector = embed_documents([section_text])[0]
-            add_resume_embedding(company_id, resume.id, field_type.replace("_text", ""), vector)
-
-    for cert in sectioned.certifications:
-        add_certification(company_id, resume.id, cert.name, cert.issuer, cert.tier)
-
-    for link in sectioned.links:
-        add_resume_link(company_id, resume.id, link.link_type, link.url, link.label)
-
-    for entry in sectioned.work_experience:
-        add_work_experience(company_id, resume.id, entry.title, entry.company_name, entry.duration_years)
-
-    return str(resume.id)
+    return save_ingested_resume(
+        company_id,
+        candidate={"name": sectioned.candidate_name, "email": sectioned.candidate_email, "phone": sectioned.candidate_phone},
+        resume_data=resume_data,
+        embeddings=embeddings,
+        certifications=[{"name": c.name, "issuer": c.issuer, "tier": c.tier} for c in sectioned.certifications],
+        links=[{"link_type": l.link_type, "url": l.url, "label": l.label} for l in sectioned.links],
+        work_experience=[
+            {"title": w.title, "company_name": w.company_name, "duration_years": w.duration_years}
+            for w in sectioned.work_experience
+        ],
+        job_posting_id=job_posting_id,
+    )

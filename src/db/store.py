@@ -36,6 +36,47 @@ def add_resume(company_id: str, candidate_id: str, resume_data: dict) -> Resume:
         session.refresh(resume)
         return resume        
 
+def save_ingested_resume(
+    company_id: str,
+    candidate: dict,
+    resume_data: dict,
+    embeddings: list[tuple[str, list[float]]],
+    certifications: list[dict],
+    links: list[dict],
+    work_experience: list[dict],
+    job_posting_id: str = None,
+) -> str:
+    # One transaction for the whole resume: if any row fails, none are kept,
+    # so a failed upload never leaves a resume without its embeddings or experience.
+    with get_session_ctx() as session:
+        try:
+            person = session.query(Candidate).filter_by(company_id=company_id, email=candidate["email"]).first()
+            if person:
+                person.name = candidate["name"]
+                person.phone = candidate.get("phone")
+            else:
+                person = Candidate(company_id=company_id, name=candidate["name"], email=candidate["email"], phone=candidate.get("phone"))
+                session.add(person)
+            session.flush()
+
+            resume = Resume(company_id=company_id, candidate_id=person.id, **resume_data)
+            session.add(resume)
+            session.flush()
+
+            if job_posting_id:
+                session.add(Application(company_id=company_id, job_posting_id=job_posting_id, candidate_id=person.id, resume_id=resume.id))
+            session.add_all(
+                [ResumeEmbedding(company_id=company_id, resume_id=resume.id, field_type=field_type, embedding=vector) for field_type, vector in embeddings]
+                + [Certification(company_id=company_id, resume_id=resume.id, **cert) for cert in certifications]
+                + [ResumeLink(company_id=company_id, resume_id=resume.id, **link) for link in links]
+                + [WorkExperience(company_id=company_id, resume_id=resume.id, **entry) for entry in work_experience]
+            )
+            session.commit()
+            return str(resume.id)
+        except Exception:
+            session.rollback()
+            raise
+
 def add_resume_embedding(company_id: str, resume_id: str, field_type: str, vector: list[float]) -> ResumeEmbedding:
     with get_session_ctx() as session:
         embedding = ResumeEmbedding(company_id=company_id, resume_id=resume_id, field_type=field_type, embedding=vector)
@@ -44,11 +85,14 @@ def add_resume_embedding(company_id: str, resume_id: str, field_type: str, vecto
         session.refresh(embedding)
         return embedding
 
-def delete_resume(company_id: str, resume_id: str) -> None:
+def delete_resume(company_id: str, resume_id: str) -> bool:
     with get_session_ctx() as session:
         resume = session.query(Resume).filter_by(id=resume_id, company_id=company_id).first()
+        if resume is None:
+            return False
         session.delete(resume)
         session.commit()
+        return True
 
 def get_resume(company_id: str, resume_id: str) -> Resume | None:
     with get_session_ctx() as session:
@@ -130,6 +174,24 @@ def get_certifications(company_id: str, resume_id: str) -> list[Certification]:
     with get_session_ctx() as session:
         return session.query(Certification).filter_by(resume_id=resume_id, company_id=company_id).all()
 
-def get_candidate(company_id: str, candidate_id: str) -> Candidate:
+def get_candidate(company_id: str, candidate_id: str) -> Candidate | None:
     with get_session_ctx() as session:
         return session.query(Candidate).filter_by(id=candidate_id, company_id=company_id).first()
+
+def get_company(company_id: str) -> Company | None:
+    with get_session_ctx() as session:
+        return session.get(Company, company_id)
+
+def get_job_posting(company_id: str, job_posting_id: str) -> JobPosting | None:
+    with get_session_ctx() as session:
+        return session.query(JobPosting).filter_by(id=job_posting_id, company_id=company_id).first()
+
+def list_resumes(company_id: str) -> list[tuple[Resume, Candidate]]:
+    with get_session_ctx() as session:
+        return (
+            session.query(Resume, Candidate)
+            .join(Candidate, Candidate.id == Resume.candidate_id)
+            .filter(Resume.company_id == company_id)
+            .order_by(Resume.created_at.desc())
+            .all()
+        )

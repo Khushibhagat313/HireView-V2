@@ -7,6 +7,11 @@ load_dotenv()
 
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
+
+class AIServiceError(Exception):
+    """The LLM returned unusable output even after a retry."""
+
+
 def call_llm(prompt: str, json_mode: bool = False) -> str:
     kwargs = {"response_format": {"type": "json_object"}} if json_mode else {}
     response = client.chat.completions.create(

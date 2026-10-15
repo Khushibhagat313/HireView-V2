@@ -27,3 +27,9 @@ EXACT_OVERLAP_WEIGHT = 0.6  # vs semantic similarity weight; starting guess, nee
 
 HIDDEN_GEM_FACET_THRESHOLD = 0.6
 HIDDEN_GEM_RANK_CUTOFF = 10
+
+SEARCH_CACHE_SIZE = 64             # scored pools kept in memory (one per company + JD)
+SEARCH_CACHE_TTL_SECONDS = 15 * 60 # safety net for pool changes made outside the API (e.g. scripts/ingest.py)
+
+# Browser origins allowed to call the API. Vite dev server defaults to 5173; add the deployed frontend URL here.
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "http://127.0.0.1:5173"]

@@ -1,5 +1,5 @@
 import pytest
-from src.retrieval.pipeline import search_and_score
+from src.retrieval.pipeline import search_and_score, invalidate_search_cache
 from src.scoring.facets import compute_composite
 from src.scoring.cert_relevance import compute_cert_boost
 from src.schemas.job import JDRequirements
@@ -12,6 +12,7 @@ TEST_COMPANY_ID = "a47c623b-569d-442b-8e0d-ff4c9d8dcf07"
 def test_determinism():
     jd_text = open("tests/sample_jd_junior.txt").read()
     results1 = search_and_score(TEST_COMPANY_ID, jd_text)
+    invalidate_search_cache(TEST_COMPANY_ID)  # force a real second run, not a cache hit
     results2 = search_and_score(TEST_COMPANY_ID, jd_text)
     assert [r["resume_id"] for r in results1] == [r["resume_id"] for r in results2]
 

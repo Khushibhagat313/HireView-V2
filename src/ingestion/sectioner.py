@@ -3,6 +3,7 @@ from datetime import date
 from pydantic import ValidationError
 from groq import BadRequestError
 from src.agents.llm_client import call_llm
+from src.ingestion.guards import InvalidResumeError
 from src.schemas.resume import SectionedResume
 
 SECTION_PROMPT = """You are given the raw text of a resume, possibly with imperfect formatting from PDF extraction.
@@ -59,4 +60,7 @@ def split_sections(text: str) -> SectionedResume:
             return SectionedResume(**data)
         except (json.JSONDecodeError, ValidationError, BadRequestError) as e:
             if attempt == 1:
-                raise ValueError(f"Sectioning failed after retry: {e}")
+                raise InvalidResumeError(
+                    "Could not read this resume's details. Make sure it is a text-based PDF "
+                    "that includes the candidate's name and email address."
+                ) from e
