@@ -4,21 +4,34 @@ from src.embedding.embedder import embed_documents, embed_query, model
 from src.ingestion.pipeline import ingest_resume
 from src.ingestion.extractor import extract_text
 from src.ingestion.sectioner import split_sections
-from src.db.store import get_resume, get_resume_embeddings, create_company, delete_company, search_by_vector
+from src.db.models import Candidate
+from src.db.store import get_resume, get_resume_embeddings, get_session_ctx, list_resumes, search_by_vector
 
-TEST_COMPANY_ID = "a47c623b-569d-442b-8e0d-ff4c9d8dcf07"
 
-
-def test_storage_round_trip():
-    resume_id = ingest_resume(TEST_COMPANY_ID, open("tests/Priya_Sharma_Resume_sample.pdf", "rb").read())
-    resume = get_resume(TEST_COMPANY_ID, resume_id)
-    embeddings = get_resume_embeddings(TEST_COMPANY_ID, resume_id)
+def test_storage_round_trip(make_company):
+    company = make_company("Storage Round Trip Co")
+    resume_id = ingest_resume(company.id, open("tests/Priya_Sharma_Resume_sample.pdf", "rb").read())
+    resume = get_resume(company.id, resume_id)
+    embeddings = get_resume_embeddings(company.id, resume_id)
 
     assert resume is not None
     assert 0.1 <= resume.years_experience <= 0.5
     assert "pgvector" in resume.skills
     assert len(embeddings) == 6
 
+
+def test_failed_ingestion_saves_nothing(make_company, monkeypatch):
+    # A vector of the wrong size makes the embedding insert fail after the candidate and resume rows
+    # were already written in the same transaction; all of them must be rolled back.
+    company = make_company("Rollback Co")
+    monkeypatch.setattr("src.ingestion.pipeline.embed_documents", lambda texts: [[0.1, 0.2, 0.3] for _ in texts])
+
+    with pytest.raises(Exception):
+        ingest_resume(company.id, open("tests/Priya_Sharma_Resume_sample.pdf", "rb").read())
+
+    assert list_resumes(company.id) == []
+    with get_session_ctx() as session:
+        assert session.query(Candidate).filter_by(company_id=company.id).count() == 0
 
 
 def test_embedding_normalization():
@@ -58,14 +71,8 @@ def test_no_truncation(sectioned_priya):
             assert len(model.tokenizer.encode(text)) <= 512
 
 
-@pytest.fixture
-def temp_company():
-    company = create_company("Identity Retrieval Test Co")
-    yield company
-    delete_company(company.id)
-
-
-def test_identity_retrieval(temp_company):
+def test_identity_retrieval(make_company):
+    temp_company = make_company("Identity Retrieval Test Co")
     resume_id = ingest_resume(temp_company.id, open("tests/Priya_Sharma_Resume_sample.pdf", "rb").read())
     resume = get_resume(temp_company.id, resume_id)
 

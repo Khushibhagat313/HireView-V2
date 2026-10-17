@@ -1,7 +1,7 @@
 # Environment & secrets - never commit these
 .env
 .env.local
-
+documentation 
 # Python
 .venv/
 __pycache__/
@@ -38,6 +38,10 @@ learning/
 # Personal Antigravity rules - not shared
 .agents/
 
+
 #Since cand_id_map.json is generated fresh every time the benchmark loader runs against Supabase, we should ignore it so it never gets committed to git.
 eval/data/cand_id_map.json
+
+.vercel
+.env*
 

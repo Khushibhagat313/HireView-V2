@@ -1,4 +1,5 @@
 import hashlib
+from uuid import UUID
 
 from fastapi import APIRouter
 from pydantic import BaseModel
@@ -13,7 +14,7 @@ router = APIRouter()
 
 
 class ChatRequest(BaseModel):
-    company_id: str
+    company_id: UUID
     jd_text: str
     query: str
 
@@ -26,13 +27,13 @@ class ChatResponse(BaseModel):
 
 @router.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest):
-    candidates = search_and_score(request.company_id, request.jd_text)
+    candidates = search_and_score(str(request.company_id), request.jd_text)
     jd_hash = hashlib.sha256(request.jd_text.encode()).hexdigest()
 
     app = build_graph()
     state = {
         "query": request.query,
-        "company_id": request.company_id,
+        "company_id": str(request.company_id),
         "jd_hash": jd_hash,
         "jd": parse_jd(request.jd_text),
         "candidates": candidates,

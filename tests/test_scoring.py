@@ -1,7 +1,7 @@
 import pytest
 from types import SimpleNamespace
 import numpy as np
-from src.retrieval.pipeline import search_and_score
+from src.retrieval.pipeline import search_and_score, invalidate_search_cache
 from src.scoring.facets import compute_composite
 from src.scoring.cert_relevance import compute_cert_boost
 from src.schemas.job import JDRequirements
@@ -17,6 +17,7 @@ TEST_COMPANY_ID = "a47c623b-569d-442b-8e0d-ff4c9d8dcf07"
 def test_determinism():
     jd_text = open("tests/sample_jd_junior.txt").read()
     results1 = search_and_score(TEST_COMPANY_ID, jd_text)
+    invalidate_search_cache(TEST_COMPANY_ID)  # force a real second run, not a cache hit
     results2 = search_and_score(TEST_COMPANY_ID, jd_text)
     assert [r["resume_id"] for r in results1] == [r["resume_id"] for r in results2]
 
@@ -127,4 +128,4 @@ def test_blend_lets_the_rerank_score_reorder():
 def test_blend_returns_plain_floats():
     results = [{"resume_id": "a", "raw_score": 0.7}, {"resume_id": "b", "raw_score": 0.6}]
     blended = blend_rerank_scores(results, {"a": np.float32(0.0), "b": np.float32(5.0)}, 0.5)
-    assert all(type(r["raw_score"]) is float and type(r["display_score"]) is float for r in blended)
+    assert all(type(r["raw_score"]) is float and type(r["display_score"]) is float for r in blended)
