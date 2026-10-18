@@ -12,6 +12,14 @@
 
 ---
 
+## 📸 Application Interface
+
+| Candidate Ranking & "Red Pen" Evaluation | Clean Candidate Pool Management |
+| :---: | :---: |
+| ![HireView Rank View](docs/images/rank_view.png) | ![HireView Pool View](docs/images/pool_view.png) |
+
+---
+
 ## 🏛️ System Architecture
 
 ```mermaid
@@ -55,7 +63,7 @@ graph TD
 
 ### 2. Multi-Agent Conversational Intelligence (LangGraph)
 * Powered by **LangGraph**, handling multi-turn conversational queries such as *"Compare Priya and Riya"*, *"Who knows Docker?"*, and *"Generate technical interview questions"*.
-* **Deterministic Router Optimization:** Avoids unnecessary LLM routing hops by deploying compiled regex intent matching at the initial state node, reducing agent routing latency by **85%** (from ~500ms down to <1ms).
+* **Deterministic Router Optimization:** Avoids unnecessary LLM routing hops by deploying compiled regex intent matching at the initial state node, reducing agent routing latency by **>99%** (from ~500ms LLM classification round-trip down to <1ms in-memory pattern matching).
 
 ### 3. Production Performance & Cost Optimization
 * **SHA-256 Content Hashing:** All JD requirements, candidate feedback, and interview questions are hashed and cached in memory. Reduces redundant third-party LLM API calls by **~65%** during typical recruiter triage sessions.
@@ -75,7 +83,7 @@ Tested against realistic candidate datasets and benchmark queries:
 | **MRR (Mean Reciprocal Rank)** | `0.85` | **`0.89`** | Top-matching candidate ranked at or near rank 1 |
 | **NDCG@10** | `0.75` | **`0.78`** | Quality and ranking order of top-10 candidates |
 | **Repeat Query Latency** | `< 500ms` | **`200ms`** | Instant retrieval via in-memory pool caching |
-| **Routing Latency** | `< 100ms` | **`< 1ms`** | 85% drop via compiled regex intent graph node |
+| **Routing Latency** | `< 100ms` | **`< 1ms`** | >99% drop via compiled regex intent graph node |
 | **Backend Throughput** | `> 100 RPS` | **`200+ RPS`** | Sustained requests/sec (500+ concurrent users) |
 
 ---
