@@ -1,48 +1,25 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { api, messageFor } from "../lib/api";
 import type { ResumeSummary } from "../lib/types";
 import { duration, personName, skillName, uploadedOn } from "../lib/format";
 import { useToast } from "../lib/toast";
+import type { UploadQueue } from "../lib/uploads";
 import { CheckIcon, CloseIcon, DocIcon, SearchIcon, TrashIcon, UploadIcon } from "./Icons";
 import { Monogram } from "./Marks";
 import { ErrorLine } from "./Note";
 
-// Vercel caps a request body at 4.5 MB, below the backend's own 10 MB limit.
-const MAX_BYTES = 4 * 1024 * 1024;
-
-type Upload = {
-  id: number;
-  file: File;
-  status: "waiting" | "uploading" | "done" | "failed";
-  error?: string;
-  startedAt?: number;
-};
-
-export function PoolScreen({ onPoolChanged }: { onPoolChanged: () => void }) {
+export function PoolScreen({ onPoolChanged, queue }: { onPoolChanged: () => void; queue: UploadQueue }) {
   const queryClient = useQueryClient();
   const toast = useToast();
   const resumes = useQuery({ queryKey: ["resumes"], queryFn: api.resumes });
   const [filter, setFilter] = useState("");
   const [confirming, setConfirming] = useState<string | null>(null);
   const [deleting, setDeleting] = useState<string | null>(null);
-  const [uploads, setUploads] = useState<Upload[]>([]);
+  const { uploads, addFiles } = queue;
   const [dragging, setDragging] = useState(false);
   const [, tick] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const nextId = useRef(1);
-
-  const addFiles = useCallback((files: FileList | File[]) => {
-    const fresh: Upload[] = [...files].map((file) => {
-      const base = { id: nextId.current++, file };
-      if (!file.name.toLowerCase().endsWith(".pdf") && file.type !== "application/pdf") {
-        return { ...base, status: "failed", error: "Only PDF files can be uploaded." };
-      }
-      if (file.size > MAX_BYTES) return { ...base, status: "failed", error: "This PDF is over 4 MB." };
-      return { ...base, status: "waiting" };
-    });
-    setUploads((prev) => [...prev, ...fresh]);
-  }, []);
 
   // The whole page is a drop target. Counting enter/leave avoids the flicker that
   // dragleave causes each time the pointer crosses a child element.
@@ -88,24 +65,6 @@ export function PoolScreen({ onPoolChanged }: { onPoolChanged: () => void }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [confirming]);
-
-  // Upload one file at a time; each takes ~10–20 s while the AI reads the resume.
-  useEffect(() => {
-    if (uploads.some((u) => u.status === "uploading")) return;
-    const next = uploads.find((u) => u.status === "waiting");
-    if (!next) return;
-    setUploads((prev) => prev.map((u) => (u.id === next.id ? { ...u, status: "uploading", startedAt: Date.now() } : u)));
-    api
-      .upload(next.file)
-      .then(() => {
-        setUploads((prev) => prev.map((u) => (u.id === next.id ? { ...u, status: "done" } : u)));
-        queryClient.invalidateQueries({ queryKey: ["resumes"] });
-        onPoolChanged();
-      })
-      .catch((err) => {
-        setUploads((prev) => prev.map((u) => (u.id === next.id ? { ...u, status: "failed", error: messageFor(err) } : u)));
-      });
-  }, [uploads, queryClient, onPoolChanged]);
 
   // Honest progress: show elapsed seconds instead of a fake percentage.
   const uploading = uploads.some((u) => u.status === "uploading");
@@ -266,12 +225,8 @@ export function PoolScreen({ onPoolChanged }: { onPoolChanged: () => void }) {
                     {u.status === "failed" && (
                       <>
                         <span className="text-red">{u.error}</span>
-                        {u.error?.includes("busy") && (
-                          <button
-                            type="button"
-                            className="btn-text"
-                            onClick={() => setUploads((prev) => prev.map((x) => (x.id === u.id ? { ...x, status: "waiting", error: undefined } : x)))}
-                          >
+                        {u.retryable && (
+                          <button type="button" className="btn-text" onClick={() => queue.retry(u.id)}>
                             Retry
                           </button>
                         )}
@@ -284,7 +239,7 @@ export function PoolScreen({ onPoolChanged }: { onPoolChanged: () => void }) {
             ))}
             {!uploads.some((u) => u.status === "waiting" || u.status === "uploading") && (
               <li className="flex justify-end bg-sheet-2 px-4 py-2">
-                <button type="button" className="btn btn-quiet btn-sm" onClick={() => setUploads([])}>
+                <button type="button" className="btn btn-quiet btn-sm" onClick={queue.clear}>
                   Clear this list
                 </button>
               </li>

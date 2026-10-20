@@ -139,3 +139,26 @@ def test_access_code_is_enforced_when_configured(monkeypatch):
     right = client.get("/api/resumes", params={"company_id": COMPANY}, headers={"X-Access-Code": "s3cret"})
     assert wrong.status_code == 401
     assert right.status_code == 200
+
+
+def test_blank_or_out_of_range_requests_are_422(monkeypatch):
+    monkeypatch.setattr(search_route, "search_and_score", lambda *a, **kw: [])
+    assert client.post("/search", json={"company_id": COMPANY, "jd_text": "   \n "}).status_code == 422
+    assert client.post("/search", json={"company_id": COMPANY, "jd_text": "x", "max_results": -1}).status_code == 422
+    assert client.post("/search", json={"company_id": COMPANY, "jd_text": "x", "threshold": 150}).status_code == 422
+    assert client.post("/chat", json={"company_id": COMPANY, "jd_text": "x", "query": "  "}).status_code == 422
+
+
+def test_results_scored_while_the_pool_changed_are_not_cached(monkeypatch):
+    calls = []
+
+    def score_during_upload(*a):
+        calls.append(a)
+        if len(calls) == 1:
+            pipeline.invalidate_search_cache(COMPANY)  # an upload finishes mid-search
+        return [_result("c1", "r1", 0.6)]
+
+    monkeypatch.setattr(pipeline, "_score_pool", score_during_upload)
+    pipeline.search_and_score(COMPANY, "jd")
+    pipeline.search_and_score(COMPANY, "jd")
+    assert len(calls) == 2  # the second search scores again instead of reusing the stale pool

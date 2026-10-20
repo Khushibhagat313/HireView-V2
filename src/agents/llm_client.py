@@ -20,4 +20,8 @@ def call_llm(prompt: str, json_mode: bool = False) -> str:
         max_tokens=LLM_MAX_TOKENS,
         **kwargs,
     )
-    return response.choices[0].message.content
+    content = response.choices[0].message.content
+    # A reasoning model can spend its whole token budget thinking and return no answer at all.
+    if not content or not content.strip():
+        raise AIServiceError("The model returned an empty reply")
+    return content

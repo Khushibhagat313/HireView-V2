@@ -270,4 +270,33 @@ def test_general_prompt_has_exact_counts_for_distinct_candidates(monkeypatch):
 
     assert "2 candidates in total." in prompts[0]
     assert "python (missing for 1 of 2)" in prompts[0]
-
+
+
+def test_feedback_is_regenerated_when_the_label_changes(monkeypatch):
+    prompts = []
+    monkeypatch.setattr(feedback, "call_llm", recording_llm(prompts))
+    monkeypatch.setattr(feedback, "_feedback_cache", {})
+
+    feedback.generate_feedback("c1", "jdA", JD, make_candidate(label="Strong"))
+    feedback.generate_feedback("c1", "jdA", JD, make_candidate(label="Good"))
+    assert len(prompts) == 2
+
+
+def test_empty_ai_reply_gives_a_friendly_chat_answer(monkeypatch):
+    from src.agents.llm_client import AIServiceError
+
+    def empty_reply(prompt, json_mode=False):
+        raise AIServiceError("The model returned an empty reply")
+
+    monkeypatch.setattr(handlers, "call_llm", empty_reply)
+    result = handlers.general(make_state("how many candidates know python?"))
+    assert result["response_text"] == "I couldn't answer that right now. Please try again."
+
+
+def test_empty_model_reply_is_an_ai_error(monkeypatch):
+    from src.agents import llm_client
+
+    reply = SimpleNamespace(choices=[SimpleNamespace(message=SimpleNamespace(content=None))])
+    monkeypatch.setattr(llm_client.client.chat.completions, "create", lambda **kw: reply)
+    with pytest.raises(llm_client.AIServiceError):
+        llm_client.call_llm("hi")

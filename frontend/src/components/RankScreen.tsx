@@ -93,7 +93,8 @@ export function RankScreen(p: Props) {
       {p.rankError && <p className="text-sm text-red">{p.rankError}</p>}
 
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_380px]">
-        <ResultsList results={results} onOpen={p.onOpen} selectedId={p.selectedId} />
+        {/* keyed by ranking time, so a new ranking starts with every label shown again */}
+        <ResultsList key={ranking.at} results={results} onOpen={p.onOpen} selectedId={p.selectedId} />
         <div className="lg:sticky lg:top-24">
           <AskPanel results={results} turns={p.turns} onAsk={p.onAsk} onClear={p.onClearChat} onOpen={p.onOpen} />
         </div>

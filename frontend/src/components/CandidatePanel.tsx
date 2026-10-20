@@ -83,7 +83,8 @@ export function CandidatePanel({ result, rank, total, jd, onClose, onPrev, onNex
 
   const profile = useQuery({ queryKey: ["candidate", id], queryFn: () => api.candidate(id), retry: false });
   const explain = useQuery({
-    queryKey: ["feedback", id, jd],
+    // The label is in the key: after a re-rank it can change, and the explanation names it.
+    queryKey: ["feedback", id, jd, result.label],
     queryFn: () => api.feedback(id, jd),
     enabled: showExplain,
     staleTime: Infinity,

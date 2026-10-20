@@ -2,7 +2,7 @@ import json
 from datetime import date
 from pydantic import ValidationError
 from groq import BadRequestError
-from src.agents.llm_client import call_llm
+from src.agents.llm_client import AIServiceError, call_llm
 from src.ingestion.guards import InvalidResumeError
 from src.schemas.resume import SectionedResume
 
@@ -58,8 +58,10 @@ def split_sections(text: str) -> SectionedResume:
             raw = call_llm(prompt, json_mode=True)
             data = json.loads(raw)
             return SectionedResume(**data)
-        except (json.JSONDecodeError, ValidationError, BadRequestError) as e:
+        except (json.JSONDecodeError, ValidationError, BadRequestError, AIServiceError) as e:
             if attempt == 1:
+                if isinstance(e, AIServiceError):
+                    raise  # the AI failed, not the resume
                 raise InvalidResumeError(
                     "Could not read this resume's details. Make sure it is a text-based PDF "
                     "that includes the candidate's name and email address."

@@ -8,7 +8,7 @@ from src.scoring.eligibility import compute_field_specific_experience
 from groq import APIError
 from src.agents.feedback import generate_feedback
 from src.agents.interview_guide import GuideUnavailable, generate_interview_guide
-from src.agents.llm_client import call_llm
+from src.agents.llm_client import AIServiceError, call_llm
 
 COMPARE_PROMPT = """You are helping a recruiter compare two candidates for a job. The labels, skill matches, and ranking below were computed by a deterministic system. Your job is only to explain how the candidates differ. Never re-score, adjust, or dispute them.
 
@@ -192,7 +192,7 @@ def explain_score(state: HiringState) -> dict:
 
     try:
         feedback = generate_feedback(state["company_id"], state["jd_hash"], state["jd"], candidate)
-    except APIError as e:
+    except (APIError, AIServiceError) as e:
         return {
             "response_text": "I couldn't generate that explanation right now. Please try again.",
             "errors": state["errors"] + [f"explain_score: {e}"],
@@ -207,7 +207,7 @@ def interview_questions(state: HiringState) -> dict:
 
     try:
         guide = generate_interview_guide(state["company_id"], state["jd_hash"], state["jd"], candidate)
-    except (APIError, GuideUnavailable) as e:
+    except (APIError, AIServiceError, GuideUnavailable) as e:
         return {
             "response_text": "I couldn't generate the interview questions right now. Please try again.",
             "errors": state["errors"] + [f"interview_questions: {e}"],
@@ -242,7 +242,7 @@ def compare(state: HiringState) -> dict:
 
     try:
         comparison = call_llm(prompt).strip()
-    except APIError as e:
+    except (APIError, AIServiceError) as e:
         return {
             "response_text": "I couldn't generate that comparison right now. Please try again.",
             "errors": state["errors"] + [f"compare: {e}"],
@@ -318,7 +318,7 @@ def general(state: HiringState) -> dict:
 
     try:
         answer = call_llm(prompt).strip()
-    except APIError as e:
+    except (APIError, AIServiceError) as e:
         return {
             "response_text": "I couldn't answer that right now. Please try again.",
             "errors": state["errors"] + [f"general: {e}"],

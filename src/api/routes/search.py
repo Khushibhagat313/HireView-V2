@@ -1,19 +1,20 @@
 from uuid import UUID
 
 from fastapi import APIRouter
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from src.retrieval.pipeline import search_and_score
 from src.schemas.candidate import SearchResult
+from src.schemas.job import JDText
 
 
 router = APIRouter()
 
 class SearchRequest(BaseModel):
     company_id: UUID
-    jd_text: str
+    jd_text: JDText
     job_posting_id: UUID | None = None
-    threshold: float | None = None
-    max_results: int | None = None
+    threshold: float | None = Field(None, ge=0, le=100)
+    max_results: int | None = Field(None, ge=1, le=100)
 
 class SearchResponse(BaseModel):
     results: list[SearchResult]

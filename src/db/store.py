@@ -1,4 +1,5 @@
 from contextlib import contextmanager
+from sqlalchemy import func
 from src.db.session import get_session
 from src.db.models import Company, Candidate, Resume, ResumeEmbedding, Certification, ResumeLink, JobPosting, Application, WorkExperience
 
@@ -50,7 +51,12 @@ def save_ingested_resume(
     # so a failed upload never leaves a resume without its embeddings or experience.
     with get_session_ctx() as session:
         try:
-            person = session.query(Candidate).filter_by(company_id=company_id, email=candidate["email"]).first()
+            # Case-insensitive: Priya@x.com and priya@x.com are the same person.
+            person = (
+                session.query(Candidate)
+                .filter(Candidate.company_id == company_id, func.lower(Candidate.email) == candidate["email"].strip().lower())
+                .first()
+            )
             if person:
                 person.name = candidate["name"]
                 person.phone = candidate.get("phone")
@@ -90,7 +96,12 @@ def delete_resume(company_id: str, resume_id: str) -> bool:
         resume = session.query(Resume).filter_by(id=resume_id, company_id=company_id).first()
         if resume is None:
             return False
+        candidate_id = resume.candidate_id
         session.delete(resume)
+        session.flush()
+        # Their last resume is gone, so drop their name, email and phone too.
+        if session.query(Resume).filter_by(candidate_id=candidate_id).first() is None:
+            session.query(Candidate).filter_by(id=candidate_id).delete()
         session.commit()
         return True
 

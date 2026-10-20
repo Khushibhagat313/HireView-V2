@@ -9,6 +9,7 @@ from src.agents.interview_guide import GuideUnavailable, generate_interview_guid
 from src.agents.jd_parser import parse_jd
 from src.db.store import get_candidate
 from src.retrieval.pipeline import search_and_score
+from src.schemas.job import JDText
 
 router = APIRouter()
 
@@ -28,7 +29,7 @@ def get_candidate_route(candidate_id: UUID, company_id: UUID):
 
 class CandidateJDRequest(BaseModel):
     company_id: UUID
-    jd_text: str
+    jd_text: JDText
 
 
 class FeedbackResponse(BaseModel):

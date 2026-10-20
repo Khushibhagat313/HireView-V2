@@ -128,6 +128,7 @@ export function AskPanel({ results, turns, onAsk, onClear, onOpen }: Props) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Ask a question…"
             autoComplete="off"
+            maxLength={500}
           />
           {!query && <span className="kbd pointer-events-none absolute top-1/2 right-12 -translate-y-1/2">/</span>}
           <button

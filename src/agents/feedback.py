@@ -49,7 +49,9 @@ def _strongest_areas(facet_scores: dict) -> str:
 
 
 def generate_feedback(company_id: str, jd_hash: str, jd: JDRequirements, candidate: dict) -> str:
-    cache_key = f"{company_id}:{candidate['resume_id']}:{jd_hash}"
+    # The label is part of the key: it can shift when the pool changes (the rerank blend is
+    # relative to the other resumes), and the explanation opens by naming it.
+    cache_key = f"{company_id}:{candidate['resume_id']}:{jd_hash}:{candidate['label']}"
     if cache_key in _feedback_cache:
         return _feedback_cache[cache_key]
 

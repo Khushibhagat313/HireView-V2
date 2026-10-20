@@ -9,6 +9,7 @@ import { Header, type ServerState, type Tab } from "./components/Header";
 import { PoolScreen } from "./components/PoolScreen";
 import { RankScreen } from "./components/RankScreen";
 import { useTheme } from "./lib/theme";
+import { useUploadQueue } from "./lib/uploads";
 
 const DRAFT_KEY = "hireview.jdDraft";
 
@@ -52,8 +53,9 @@ export default function App() {
   const turnId = useRef(1);
   const { theme, cycle: cycleTheme } = useTheme();
 
-  // The backend scales to zero when idle, so the first call can take a while: retry patiently.
-  const health = useQuery({ queryKey: ["health"], queryFn: api.health, retry: 6, retryDelay: 4000, refetchOnWindowFocus: false });
+  // The backend scales to zero when idle, so the first call can take a while: retry patiently,
+  // for at least the minute the "waking" banner promises.
+  const health = useQuery({ queryKey: ["health"], queryFn: api.health, retry: 15, retryDelay: 4000, refetchOnWindowFocus: false });
   const [slow, setSlow] = useState(false);
   useEffect(() => {
     if (!health.isPending) return;
@@ -137,6 +139,8 @@ export default function App() {
   };
 
   const markPoolChanged = useCallback(() => setPoolChanged(true), []);
+  const uploadQueue = useUploadQueue(markPoolChanged);
+  const uploadsLeft = uploadQueue.uploads.filter((u) => u.status === "waiting" || u.status === "uploading").length;
   const closePanel = useCallback(() => setSelected(null), []);
 
   // The open candidate's place in the ranking, so the panel can step through it with ← and →.
@@ -172,7 +176,7 @@ export default function App() {
       >
         Skip to content
       </a>
-      <Header tab={tab} server={server} onRetry={() => health.refetch()} theme={theme} onTheme={cycleTheme} />
+      <Header tab={tab} server={server} onRetry={() => health.refetch()} theme={theme} onTheme={cycleTheme} uploadsLeft={uploadsLeft} />
       {server === "waking" && (
         <div className="border-b border-rule bg-red-wash">
           <p className="mx-auto flex max-w-[1240px] items-center gap-3 px-4 py-2.5 text-[13.5px] sm:px-6">
@@ -203,7 +207,7 @@ export default function App() {
             selectedId={selected?.candidate_id ?? null}
           />
         ) : (
-          <PoolScreen onPoolChanged={markPoolChanged} />
+          <PoolScreen onPoolChanged={markPoolChanged} queue={uploadQueue} />
         )}
       </main>
       {selected && ranking && (

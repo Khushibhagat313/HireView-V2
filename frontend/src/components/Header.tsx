@@ -11,11 +11,13 @@ interface Props {
   onRetry: () => void;
   theme: Theme;
   onTheme: () => void;
+  /** Resumes still queued or uploading, shown on the Pool tab so a batch isn't forgotten from the Rank tab. */
+  uploadsLeft: number;
 }
 
 const THEME_LABEL: Record<Theme, string> = { system: "Theme: match system", light: "Theme: light", dark: "Theme: dark" };
 
-export function Header({ tab, server, onRetry, theme, onTheme }: Props) {
+export function Header({ tab, server, onRetry, theme, onTheme, uploadsLeft }: Props) {
   const ThemeIcon = theme === "light" ? SunIcon : theme === "dark" ? MoonIcon : MonitorIcon;
   return (
     <header className="sticky top-0 z-30 border-b border-rule bg-[color-mix(in_srgb,var(--paper)_82%,transparent)] backdrop-blur-md backdrop-saturate-150">
@@ -28,8 +30,14 @@ export function Header({ tab, server, onRetry, theme, onTheme }: Props) {
           <a href="#rank" className="tab" aria-current={tab === "rank" ? "page" : undefined}>
             Rank
           </a>
-          <a href="#pool" className="tab" aria-current={tab === "pool" ? "page" : undefined}>
+          <a href="#pool" className="tab inline-flex items-center gap-1.5" aria-current={tab === "pool" ? "page" : undefined}>
             Pool
+            {uploadsLeft > 0 && (
+              <span className="chip-count" title={`${uploadsLeft} resume${uploadsLeft === 1 ? "" : "s"} uploading`}>
+                {uploadsLeft}
+                <span className="sr-only"> uploading</span>
+              </span>
+            )}
           </a>
         </nav>
         <div className="ml-auto flex items-center gap-2 text-[13px] text-pencil">

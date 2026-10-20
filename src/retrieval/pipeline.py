@@ -21,6 +21,8 @@ from src.scoring.rerank_blend import blend_rerank_scores
 # (company_id, jd_hash, job_posting_id) -> (stored_at, scored pool before threshold/max_results)
 _search_cache: OrderedDict[tuple, tuple[float, list[dict]]] = OrderedDict()
 _search_cache_lock = threading.Lock()
+# company_id -> how many times its pool has changed; lets a search tell whether an upload landed mid-scoring
+_pool_versions: dict[str, int] = {}
 
 
 def search_and_score(
@@ -39,14 +41,17 @@ def search_and_score(
             scored = cached[1]
         else:
             scored = None
+        pool_version = _pool_versions.get(company_id, 0)
 
     if scored is None:
         scored = _score_pool(company_id, jd_text, job_posting_id)
         with _search_cache_lock:
-            _search_cache[key] = (time.monotonic(), scored)
-            _search_cache.move_to_end(key)
-            while len(_search_cache) > SEARCH_CACHE_SIZE:
-                _search_cache.popitem(last=False)
+            # If the pool changed while scoring, these results may be stale: return them, but don't keep them.
+            if _pool_versions.get(company_id, 0) == pool_version:
+                _search_cache[key] = (time.monotonic(), scored)
+                _search_cache.move_to_end(key)
+                while len(_search_cache) > SEARCH_CACHE_SIZE:
+                    _search_cache.popitem(last=False)
 
     # copies, so callers can't alter what's cached
     return filter_and_rank([dict(r) for r in scored], threshold=threshold, max_results=max_results)
@@ -55,6 +60,7 @@ def search_and_score(
 def invalidate_search_cache(company_id: str) -> None:
     """Call whenever a company's resume pool changes (upload, delete)."""
     with _search_cache_lock:
+        _pool_versions[company_id] = _pool_versions.get(company_id, 0) + 1
         for key in [k for k in _search_cache if k[0] == company_id]:
             del _search_cache[key]
 

@@ -36,6 +36,6 @@ def parse_jd(text: str) -> JDRequirements:
             result = JDRequirements(**data)
             _jd_cache[jd_hash] = result
             return result
-        except (json.JSONDecodeError, ValidationError, BadRequestError) as e:
+        except (json.JSONDecodeError, ValidationError, BadRequestError, AIServiceError) as e:
             if attempt == 1:
                 raise AIServiceError(f"JD parsing failed after retry: {e}") from e
